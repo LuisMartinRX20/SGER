@@ -2,33 +2,77 @@ const
 $botonpadre=document.querySelector('.padre'),
 $botonpersonal=document.querySelector('.personal'),
 $botonficha=document.querySelector('.ficha'),
+
 $iniciopadre=document.querySelector('.usuario1'),
 $iniciopersonal=document.querySelector('.usuario2'),
 $inicioficha=document.querySelector('.usuario3'),
+
 $funcionbotonpersonal=document.querySelector('.personal'),
 $funcionbotonpadre=document.querySelector('.padre'),
 $funcionbotonficha=document.querySelector('.ficha');
 
       
       console.log("Hello world!");
-var x=0;
+var x=1;
 document.addEventListener('click', e=>{
-    if(e.target=== $botonpersonal && x!=2){
-        x=2;
-        console.log("entre");
-        $iniciopersonal.classList.toggle('active');
-        $iniciopadre.classList.toggle('left');        
-       
-        console.log("Hello world!");
+    if(e.target=== $botonpersonal){
+        if(x=1){
+            x=2;
+            document.getElementById("usuario1").classList.add("left");
+            document.getElementById("usuario2").classList.add("active");
+            document.getElementById("bpadre").classList.remove("active");
+            document.getElementById("bpersonal").classList.add("active");
+        }
+        if(x=3){
+            x=2;
+            document.getElementById("usuario2").classList.remove("left");
+            document.getElementById("usuario2").classList.add("active");
+            document.getElementById("usuario3").classList.remove("active");
+            document.getElementById("bficha").classList.remove("active");
+            document.getElementById("bpersonal").classList.add("active");
+        }
+              
+    }
+    if(e.target=== $botonficha){
+        if(x=1){
+            document.getElementById("usuario1").classList.add("left");
+            document.getElementById("usuario2").classList.add("left");
+            document.getElementById("usuario3").classList.add("active");  
+            document.getElementById("bpadre").classList.remove("active");
+            document.getElementById("bficha").classList.add("active");
+        }
+        if(x=2){
+            x=3;
+        document.getElementById("usuario2").classList.remove("active");  
+        document.getElementById("usuario2").classList.add("left");
+        document.getElementById("usuario3").classList.add("active"); 
+        document.getElementById("bpersonal").classList.remove("active");
+        document.getElementById("bficha").classList.add("active");
+ 
+        }
         
+    }
+
+    if(e.target=== $botonpadre){
+        if(x=2){
+            x=1;
+            document.getElementById("usuario2").classList.remove("active");
+            document.getElementById("usuario1").classList.remove("left");
+            document.getElementById("bpersonal").classList.remove("active");
+            document.getElementById("bpadre").classList.add("active");
+
+        }
+        if(x=3)
+        {
+            x=1;
+            document.getElementById("usuario1").classList.remove("left");
+            document.getElementById("usuario2").classList.remove("left");
+            document.getElementById("usuario3").classList.remove("active");
+            document.getElementById("bficha").classList.remove("active");
+            document.getElementById("bpadre").classList.add("active");
+
+        }
        
-    }
-    if(e.target=== $botonficha && x!=3){
-        x=3;
-        $iniciopersonal.classList.toggle('left');
-        $inicioficha.classList.toggle('active');
-    }
-    if(e.target=== $botonpersonal && x!=1){
         
     }
     

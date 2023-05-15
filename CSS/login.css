@@ -187,7 +187,7 @@ a {
     opacity: 0;
 }
 .usuario2.left{
-  margin-left: -100%;
+  margin-left: -110%;
   opacity: 0;
 }
 .usuario2.rigt{
@@ -206,4 +206,8 @@ a {
 .ficha.active{
   background-color: #008CBA;
   color: white;
+}
+
+#usuario.active{
+  
 }

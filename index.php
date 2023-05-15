@@ -18,13 +18,13 @@
     <div class="login">
         <div class="opciones">
             <ul>
-                <li class=""><button class="padre">Padre / Tutor</button></li>
-                <li class=""><button class="personal">Personal</button></li>
-                <li class=""><button class="ficha"> Ficha</button></li>
+                <li class=""><button class="padre active" id="bpadre">Padre / Tutor</button></li>
+                <li class=""><button class="personal" id="bpersonal">Personal</button></li>
+                <li class=""><button class="ficha" id="bficha"> Ficha</button></li>
             </ul>
         </div>
         <div class="formulario">
-            <div class="usuario1 active">
+            <div class="usuario1 active" id="usuario1">
                 <p>Numero de control</p>
                 <input type="text" name="" id="" class="informacion">
                 <p>Contraseña</p>
@@ -33,7 +33,7 @@
                 <input type="submit" name="" id="" value="Iniciar" class="inicio">
             </div>
             
-            <div class="usuario2">
+            <div class="usuario2" id="usuario2">
                 <p>RFC</p>
                 <input type="text" name="" id=""class="informacion">
                 <p>Contraseña</p>
@@ -41,7 +41,7 @@
                 <br>
                 <input type="submit" name="" id="" value="Iniciar" class="inicio">
             </div>
-            <div class="usuario3">
+            <div class="usuario3" id="usuario3">
                 <p>No Ficha</p>
                 <input type="text" name="" id=""class="informacion">
                 <p>NIP</p>
