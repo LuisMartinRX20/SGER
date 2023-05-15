@@ -114,11 +114,28 @@
 
             </li>
 
-        
+            <li class="list_item">
+                <div class="list_button">
+                    <img src="../ICONS/cerrrar-sesion.svg" class="list_img">
+                    <a href="#" class="nav_link ">Cerrar sesion</a>
+                </div>
+            </li>
+
+
         </ul>
     </nav>
 
+    <div class="header">
+        <div class="fondo_header">
+        <img src="../ICONS/usuario.svg" class="icon_header">
+        <a href="#" class="content_header">Luis Martin Maya Villalpando (Profesor)</a>
+        </div>
+    </div>
+
     <div>
+        <h1>
+            donde ira el contenido
+        </h1>
     </div>
 
     <script src="../JS/funcion-menu.js"></script>

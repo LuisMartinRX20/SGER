@@ -10,8 +10,12 @@
 body{
     background: #eaebef;
     font-family: 'Roboto', sans-serif;
-    display: flex;
+    display: grid;
+    grid-template-columns: 300px auto;
+    grid-template-rows: 10% auto;
 }
+
+
 
 .logo_menu{
     height: 180px;
@@ -30,6 +34,7 @@ body{
     width: 300px;
     overflow-y: scroll;
     background: #fff;
+    grid-row: 1/ span 2;
 }
 
 .nav_link{
@@ -103,3 +108,33 @@ body{
 .list_inside{
     border-left: 2px solid #303440;
 }
+
+/* Estilos para el div con el header */ 
+
+.fondo_header{
+    background: burlywood;
+    min-width: 40%;
+    max-width: 50%;
+    height: 80%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 3%;
+    border-radius: 12px 12px 12px 12px;
+    float: right;
+}
+
+.icon_header{
+    margin-top: 3.5%;
+    margin-left: 4%;
+    margin-right: 3%;
+}
+.content_header{
+    position: absolute;
+    margin-top: 14px;
+    
+    text-decoration: none;
+    
+}
+
+/* Estilos para el contenedor del contenido */
+
