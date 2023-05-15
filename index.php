@@ -24,7 +24,7 @@
             </ul>
         </div>
         <div class="formulario">
-            <div class="usuario">
+            <div class="usuario1 active">
                 <p>Numero de control</p>
                 <input type="text" name="" id="" class="informacion">
                 <p>Contraseña</p>
@@ -33,7 +33,7 @@
                 <input type="submit" name="" id="" value="Iniciar" class="inicio">
             </div>
             
-            <div class="usuario">
+            <div class="usuario2">
                 <p>RFC</p>
                 <input type="text" name="" id=""class="informacion">
                 <p>Contraseña</p>
@@ -41,7 +41,7 @@
                 <br>
                 <input type="submit" name="" id="" value="Iniciar" class="inicio">
             </div>
-            <div class="usuario">
+            <div class="usuario3">
                 <p>No Ficha</p>
                 <input type="text" name="" id=""class="informacion">
                 <p>NIP</p>
