@@ -142,7 +142,6 @@
     <script src="../JS/headroom.min.js"></script>
     <script src="../JS/funcion-menu.js"></script>
     <script src="../JS/reload-menu.js"></script>
-script>
 
 </body>
 
