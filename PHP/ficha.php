@@ -1,5 +1,5 @@
 <?php
-require('PHP/conexion.php');
+require('conexion.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +7,7 @@ require('PHP/conexion.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="CSS/ficha.css" rel="stylesheet" type="text/css">
+    <link href="../CSS/ficha.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
     <title>SGER:FIcha</title>
 </head>
@@ -86,6 +86,6 @@ require('PHP/conexion.php');
                 </div>
             </div>
     </div>
-    <script src="JS/paginaficha.js"></script>
+    <script src="../JS/paginaficha.js"></script>
 </body>
 </html>

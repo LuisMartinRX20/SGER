@@ -3,7 +3,7 @@ body{
 }
 
 .todo{
-    background-color: #fdfefe;
+    background-color: #fff;
     position: relative;
     margin-top:5%;
     margin-block-end: 5%;
@@ -34,6 +34,9 @@ body{
 }
 
 /*Botones */
+#botones{
+  left: 50%;
+}
 .opciones{
     margin-top: 20%;
 }
@@ -142,6 +145,10 @@ p{
 .informacion{
     width: 60%;
     height: 20px;
+}
+#texto{
+ position: relative;
+  left: 10%;
 }
 
 .formulario{
