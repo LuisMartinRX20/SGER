@@ -49,12 +49,12 @@
                 <br>
                 <input type="submit" name="" id="" value="Iniciar" class="inicio"> 
                 
-                <a href="#" class="inicio">Solicitar Ficha</a>
+                <a href="ficha.php" class="inicio">Solicitar Ficha</a>
             </div>
 
         </div>
     </div>
 </div>
-<script src="JS/pagina.js"></script>
+<script src="JS/paginalogin.js"></script>
 </body>
 </html>
