@@ -22,69 +22,121 @@ require('conexion.php');
                     <li class="opcion" id="opcion4">4</li>
                 </ul>
                 <br>
-            </div>    
+            </div>  
+            <?php
+			if(isset($_POST['enviar'])){
+				$nombre		     = mysqli_real_escape_string($con,(strip_tags($_POST["nombre"],ENT_QUOTES)));//Escanpando caracteres 
+				$ap		     = mysqli_real_escape_string($con,(strip_tags($_POST["ap"],ENT_QUOTES)));//Escanpando caracteres 
+				$apm	 = mysqli_real_escape_string($con,(strip_tags($_POST["apm"],ENT_QUOTES)));//Escanpando caracteres 
+				$fecha_nac	 = mysqli_real_escape_string($con,(strip_tags($_POST["fecha_nac"],ENT_QUOTES)));//Escanpando caracteres 
+				$calle	     = mysqli_real_escape_string($con,(strip_tags($_POST["calle"],ENT_QUOTES)));//Escanpando caracteres 
+				$no		 = mysqli_real_escape_string($con,(strip_tags($_POST["no"],ENT_QUOTES)));//Escanpando caracteres 
+				$colonia			 = mysqli_real_escape_string($con,(strip_tags($_POST["colonia"],ENT_QUOTES)));//Escanpando caracteres 
+                $cp			 = mysqli_real_escape_string($con,(strip_tags($_POST["cp"],ENT_QUOTES)));//Escanpando caracteres 
+                $nombreT			 = mysqli_real_escape_string($con,(strip_tags($_POST["nombreT"],ENT_QUOTES)));//Escanpando caracteres 
+                $apT			 = mysqli_real_escape_string($con,(strip_tags($_POST["apT"],ENT_QUOTES)));//Escanpando caracteres 
+                $apmT			 = mysqli_real_escape_string($con,(strip_tags($_POST["apmT"],ENT_QUOTES)));//Escanpando caracteres 
+                $fecha_nacT			 = mysqli_real_escape_string($con,(strip_tags($_POST["fecha_nacT"],ENT_QUOTES)));//Escanpando caracteres 
+                $calleT			 = mysqli_real_escape_string($con,(strip_tags($_POST["calleT"],ENT_QUOTES)));//Escanpando caracteres 
+                $noT			 = mysqli_real_escape_string($con,(strip_tags($_POST["noT"],ENT_QUOTES)));//Escanpando caracteres 
+                $coloniaT		 = mysqli_real_escape_string($con,(strip_tags($_POST["coloniaT"],ENT_QUOTES)));//Escanpando caracteres 
+                $cpT		 = mysqli_real_escape_string($con,(strip_tags($_POST["cpT"],ENT_QUOTES)));//Escanpando caracteres 
+                $telT		 = mysqli_real_escape_string($con,(strip_tags($_POST["telT"],ENT_QUOTES)));//Escanpando caracteres 
+				
+			
+$miConsulta = "INSERT INTO ficha (Nombre,ApeP,ApeM,fecha_nac,calle,Provincia,Poblacion,CP,nombreT,ApeP_T,ApeM_T,fecha_nac_T,calle_T,provincia_T,Poblacion_T,CP_T,telefono ) VALUES('{$_POST["nombre"]}','{$_POST["ap"]}','{$_POST["apm"]}','{$_POST["fecha_nac"]}','{$_POST["calle"]}','{$_POST["no"]}','{$_POST["colonia"]}','{$_POST["cp"]}','{$_POST["nombreT"]}','{$_POST["apT"]}','{$_POST["apmT"]}','{$_POST["fecha_nacT"]}','{$_POST["calleT"]}','{$_POST["noT"]}','{$_POST["coloniaT"]}','{$_POST["cpT"]}','{$_POST["telT"]}')"; //crear la consulta del INSERT INTO 
+						$insert = mysqli_query($con, $miConsulta) or die(mysqli_error());
+						if($insert){
+							echo '<script type="text/javascript">
+                            alert("Tarea Guardada");
+                           
+                            </script>';
+						}else{
+							echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Error. No se pudo guardar los datos !</div>';
+						}
+				
+			}
+			?>
+            
+            <form action="ficha.php" method="post" class="form">
             <div class="formulario">
-                
+            
                 <div class="pagina1 active " id="contenido1">
+                    
                     <p  class="encabezado2">Datos del Alumno</p>
                     <p>Nombre</p>
-                    <input type="text" name="" id="informacion">
+                    <input type="text" name="nombre" id="informacion">
                     <p>Apellido Paterno</p>
-                    <input type="text" name="" id="informacion">
+                    <input type="text" name="ap" id="informacion">
                     <p>Apellido Materno</p>
-                    <input type="text" name="" id="informacion">
+                    <input type="text" name="apm" id="informacion">
                     <p>Fecha Nacimiento</p>
-                    <input type="text" name="" id="informacion">
+                    <input type="text" name="fecha_nac" id="informacion">
+                    <p>Curp</p>
+                    <input type="text" name="curp" id="informacion">
                     <br>
+                 
                     <a href="index.php" class="cancelar">Cancelar</a>
-                    <button class="botonS1" id="boton">Siguiente</button>
+                    <button type="button" class="botonS1" id="boton">Siguiente</button>
+                    
                 </div>
                 <div class="pagina2 " id="contenido2">
-                    
+                <p  class="encabezado2">Datos del Alumno</p>
                     <br>
                     <p >Calle</p>
-                    <input type="text" name="" id="informacion">
+                    <input type="text" name="calle" id="informacion">
                     <p>No.</p>
-                    <input type="text" name="" id="informacion">
+                    <input type="text" name="no" id="informacion">
                     <p>Colonia</p>
-                    <input type="text" name="" id="informacion">
+                    <input type="text" name="colonia" id="informacion">
                     <p>Codigo Postal</p>
-                    <input type="text" name="" id="informacion">
+                    <input type="text" name="cp" id="informacion">
                     <br>
-                    <button class="botonA1" id="boton">Anterior</button>
-                    <button class="botonS2" id="boton">Siguiente</button>
+                    <br>
+                    <br>
+                  
+                    <button type="button" class="botonA1" id="boton">Anterior</button>
+                    <button type="button" class="botonS2" id="boton">Siguiente</button>
                 </div>
                 <div class="pagina3 "  id="contenido3">
+               
                     <p  class="encabezado3">Datos del Padre/ Tutor</p>
                     <p>Nombre</p>
-                    <input type="text" name="" id="informacion">
+                    <input type="text" name="nombreT" id="informacion">
                     <p>Apellido Paterno</p>
-                    <input type="text" name="" id="informacion">
+                    <input type="text" name="apT" id="informacion">
                     <p>Apellido Materno</p>
-                    <input type="text" name="" id="informacion">
+                    <input type="text" name="apmT" id="informacion">
                     <p>Fecha Nacimiento</p>
-                    <input type="text" name="" id="informacion">
+                    <input type="text" name="fecha_nacT" id="informacion">
                     <br>
-                    <button class="botonA2" id="boton">Anterior</button>
-                    <button class="botonS3" id="boton">Siguiente</button>
+                    <br><br><br><br>
+                    
+                    <button type="button" class="botonA2" id="boton">Anterior</button>
+                    <button  type="button"class="botonS3" id="boton">Siguiente</button>
                 </div>
                 <div class="pagina4 " id="contenido4">
+                
+                <p  class="encabezado3">Datos del Padre/ Tutor</p>
                     <p >Calle</p>
-                    <input type="text" name="" id="informacion">
+                    <input type="text" name="calleT" id="informacion">
                     <p>No.</p>
-                    <input type="text" name="" id="informacion">
+                    <input type="text" name="noT" id="informacion">
                     <p>Colonia</p>
-                    <input type="text" name="" id="informacion">
+                    <input type="text" name="coloniaT" id="informacion">
                     <p>Codigo Postal</p>
-                    <input type="text" name="" id="informacion">
+                    <input type="text" name="cpT" id="informacion">
                     <p>Telefono</p>
-                    <input type="text" name="" id="informacion">
+                    <input type="text" name="telT" id="informacion">
                     <br>
-                    <button class="botonA3" id="boton">Anterior</button>
-                    <input type="submit" name=""  value= "Enviar" id="boton">
                     
-                </div>
+                    <button type="button" class="botonA3" id="boton">Anterior</button>
+                    <input type="submit" name="enviar"  value= "Enviar" id="boton">
+                    
+                 </div>
+                    
             </div>
+            </form>
     </div>
     <script src="../JS/paginaficha.js"></script>
 </body>

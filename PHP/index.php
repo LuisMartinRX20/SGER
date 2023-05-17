@@ -14,11 +14,12 @@ if(!empty($_POST['username'])){
 		//crear una variable de sesion
         if($arreglo['role']==1){
 		$_SESSION['username']=$usuario;
-		header("location: ../PHP/ficha.php");
+		
         }
 	}else{
 		echo "USUARIO INCORRECTO";
 	}
+
 }
 ?>
 <!DOCTYPE html>
@@ -54,7 +55,8 @@ if(!empty($_POST['username'])){
                 <p>Contraseña</p>
                 <input type="text" name="password" id="" class="informacion">
                 <br>
-                <input type="submit" name="" id="" value="Iniciar" class="inicio">
+                
+                <input type="submit" name="" id="" value="Iniciar" class="inicio" onclick="foo();">
                 </form>
             </div>
             
