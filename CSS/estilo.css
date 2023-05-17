@@ -1,0 +1,154 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+#nuevaTarea{
+    background-color: #A0DEEA;
+    width: 90px;
+    height: 35px;
+    float:  right;
+    font-weight: bold;
+    font-size: 20px;
+    transition: .2s;
+    width: fit-content;
+    margin: 5px;
+}
+#flecha{
+    max-width: 80px;
+    float: right;
+}
+#cancel{
+    background-color: white;
+    width: 90px;
+    height: 35px;
+    float:  right;
+    font-weight: bold;
+    font-size: 20px;
+    transition: .2s;
+    width: fit-content;
+    margin: 5px;
+}
+
+
+#nuevaTarea:hover{
+    background-color: #15223B;
+    color: white;
+    border-color: white;
+}
+
+#cancel:hover{
+    background-color: #15223B;
+    color: white;
+    border-color: white;
+}
+.grid-cont{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    font-size: 20px;
+    margin: 40px 80px 0 80px;
+  }
+  .grid-contmostrar{
+    display: grid;
+    
+    font-size: 20px;
+    margin: 40px 80px 0 80px;
+  }
+  .grid-contnew{
+    display: grid;
+
+    font-size: 20px;
+    margin: 40px 80px 0 80px;
+  }
+
+.tareasAsignadas{
+    background-color: #15223B;
+    padding: 10px 30px;
+    color: white;
+    border-radius: 10px;
+    
+    
+}
+.tareasAsignadasrev{
+    background-color: #15223B;
+    padding: 10px 30px;
+    color: white;
+    border-radius: 10px;
+    width: 60%;
+    
+}
+#tareaRev{
+    background-color: #15223B;
+    padding: 1px 100px;
+    color: white;
+    border-radius: 10px;
+    width: fit-content;
+}
+
+.revisados{
+    width: 40%;
+    font-weight: bold;
+}
+
+#ptitulo{
+    font-weight: bold;
+}
+#pCalif{
+    background-color: #94938A;
+    width: fit-content;
+    padding: 15px;
+    font-weight: bold;
+}
+#ptitcal{
+    font-weight: bold;
+}
+.editTarea{
+    text-decoration: none;
+}
+#tareas>h2{
+    font-weight: bolder;
+}
+
+.grid-contt{
+    display: grid;
+    font-size: 20px;
+    margin: 40px 80px 0 80px;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 110px 110px 110px 110px;  
+  }
+  .grid-item{
+    display: grid;
+    margin:0 10px 0 10px;
+  }
+  .grid-item:nth-child(1){
+    grid-column: 1/3;
+  }
+  .grid-item:nth-child(2){
+    grid-column: 1/3;
+  }
+  .grid-item:nth-child(3){
+    grid-column: 1/2;
+  }
+  .grid-item:nth-child(4){
+    grid-column: 2/3;
+  }
+  .grid-item:nth-child(5){
+    grid-column: 1/2;
+  }
+  .grid-item:nth-child(6){
+    grid-column: 2/3;
+  }
+  .grid-item:nth-child(7){
+    grid-column: 3/4;
+    grid-row: 2/3;
+  }
+  .anew{
+    width: fit-content;
+    float: right;
+  }
+  .anewflecha{
+    width: fit-content;
+    float: right;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+  }
