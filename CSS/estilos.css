@@ -2,3 +2,127 @@ body{
     font-family: 'Roboto', sans-serif;
     color: cornflowerblue;
 }
+
+.container {
+    text-align: center;
+    margin-top: 200px;
+}
+
+h1 {
+    color: black;
+    font-size: 32px;
+
+}
+
+.bienvenida_hijo{
+    color: red;
+    font-size: 32px;
+    text-align: center;
+}
+.cuadro {
+    background-color: #f2f2f2;   
+    border: 1px solid #ccc;
+}
+
+.reinscripcion_titulo{
+    width: 400px;
+    height: 90px;
+    background-color: #94938A;
+    border: 1px solid #ccc;
+    text-align: center;
+    position: relative;
+    top: 250px;
+    left: 500px;
+}
+.reinscripcion_datos{
+    width: 700px;
+    height: 300px;
+    background-color: #15223B;
+    border: 1px solid #ccc;
+    text-align: left;
+    color: #f2f2f2;
+    position: relative;
+    top: 260px;
+    left: 500px;
+}
+
+.btn_reinscribir{
+    background-color: #14A9D4;
+    width: 98px;
+    height: 40px;
+    float:  center;
+    font-weight: bold;
+    font-size: 16px;
+    transition: .2s;
+}
+
+.btn_cancelar{
+    background-color: white;
+    width: 90px;
+    height: 40px;
+    float:  center;
+    font-weight: bold;
+    font-size: 16px;
+    transition: .2s;
+}
+
+.horario{
+    position: relative; 
+    top: 200px;
+    left: 700px;
+    
+}
+
+table {
+    border-collapse: collapse;
+    width: 30%;
+    color: black;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  thead {
+    background-color: #A0DEEA;
+  }
+  
+  th {
+    font-weight: bold;
+  }
+  
+  .calificaciones{
+    position: relative; 
+    top: 200px;
+    left: 700px;
+  }
+
+#nuevaTarea:hover{
+    background-color: #15223B;
+    color: white;
+    border-color: white;
+}
+
+.grid-cont{
+    display: grid;
+    grid-template-columns: 50% 40%;
+    font-size: 18px;
+    margin: 40px 80px 0 80px;
+  }
+
+.tareasAsignadas{
+    background-color: #15223B;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 10px;
+}
+
+.editTarea{
+    text-decoration: none;
+}
+#tareas>h2{
+    font-weight: bolder;
+}
+

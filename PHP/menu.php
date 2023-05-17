@@ -10,6 +10,7 @@
 </head>
 
 <body>
+
     <nav class="nav">
         <ul class="list">
 
@@ -113,7 +114,6 @@
         </ul>
     </nav>
 
-</body>
 
     <script src="../JS/funcion-menu.js"></script>
 
