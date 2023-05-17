@@ -14,7 +14,15 @@ if(!empty($_POST['username'])){
 		//crear una variable de sesion
         if($arreglo['role']==1){
 		$_SESSION['username']=$usuario;
-		
+		header("Location:menu-padre.php");
+        }
+        if($arreglo['role']==2){
+            $_SESSION['username']=$usuario;
+            header("Location:menu-profesor.php");
+            }
+        if($arreglo['role']==3){
+		$_SESSION['username']=$usuario;
+		header("Location:menu-controlEscolar.php");
         }
 	}else{
 		echo "USUARIO INCORRECTO";
@@ -53,7 +61,7 @@ if(!empty($_POST['username'])){
                 <p>Numero de control</p>
                 <input type="text" name="username" id="" class="informacion">
                 <p>Contraseña</p>
-                <input type="text" name="password" id="" class="informacion">
+                <input type="password" name="password" id="" class="informacion">
                 <br>
                 
                 <input type="submit" name="" id="" value="Iniciar" class="inicio" onclick="foo();">
@@ -65,7 +73,7 @@ if(!empty($_POST['username'])){
                 <p>RFC</p>
                 <input type="text" name="username" id=""class="informacion">
                 <p>Contraseña</p>
-                <input type="text" name="password" id=""class="informacion">
+                <input type="password" name="password" id=""class="informacion">
                 <br>
                 <input type="submit" name="" id="" value="Iniciar" class="inicio">
                 </form>

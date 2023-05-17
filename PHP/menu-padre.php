@@ -35,7 +35,7 @@
 
             <li class="list_item">
                 <div class="list_button" id="Boletas">
-                    <img src="../ICONS/boletas.svg" class="list_img">
+                    <img src="../ICONS/boleta.svg" class="list_img">
                     <a href="#" class="nav_link">Boletas</a>
                 </div>
             </li>
