@@ -24,6 +24,18 @@ p{
     overflow: hidden;
     
 }
+.form{
+    background-color: #fdfefe;
+    
+    margin-top: 1%;
+    margin-left: 28%;
+    margin-right: 28%;
+    border-radius: 12px;
+    height: 32rem;
+    display: flex;
+    overflow: hidden;
+    
+}
 .titulo{
     background-color: #fdfefe;
     position: relative;
