@@ -7,6 +7,17 @@
     <title>SGER: INFO FICHA</title>
 </head>
 <body>
-    
+    <div class="contenedor">
+        <div class="info">
+            <tr>
+                <li>No Ficha</li>
+                <li>Nombre Aspirante</li>
+                <li>CURP</li>
+                <li>Nombre Padre/Tutor</li>
+                <li>Fecha de Pago</li>
+                <li>Precio</li>
+            </tr>
+        </div>
+    </div>
 </body>
 </html>
