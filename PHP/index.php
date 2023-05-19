@@ -72,10 +72,9 @@ if(!empty($_POST['username'])){
             </div>
             <div class="usuario3" id="usuario3">
                 <form action="index.php" method="post">
-                <p id="texto">No Ficha</p>
+                <p id="texto">CURP</p>
                 <input type="text" name="username" id="texto"class="informacion">
-                <p id="texto">NIP</p>
-                <input type="text" name="password" id="texto"class="informacion">
+                
                 <br>
                 <input type="submit" name="" id="botones" value="Iniciar" class="inicio"> 
                 <a href="ficha.php" class="inicio" id="botones">Solicitar Ficha</a>
