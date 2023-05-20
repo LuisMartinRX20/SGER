@@ -5,24 +5,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/estilo.css">
+    <link rel="stylesheet" href="../CSS/estilos.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
     <title>Inicio</title>
 </head>
 
 <body>
-    <div class="grid-cont">
+    <div class="grid-cont-rev">
         <div id="infoRev">
+            <center>
             <p id="ptitulo">Ejercicios sumas y restas</p>
             <p id="pcuerpo">Matematicas / Grupo 2B Alumno:Carlos Martinez Sosa</p>
-<center><a href="#" class="editTarea"><div id="tareaRev"><p>Tarea1.pdf</p></div></a></center>
+            <a href="#" class="editTarea"><div id="tareaRev"><p>Tarea1.pdf</p></div></a>
+            </center>
         </div>
 
         <div id="calif">
+            <center>
             <p id="ptitcal">Calificacion:</p>
             <p id="pCalif">/10</p>
-
+            </center>
         </div>
+        <br>
+    <center>
+        <a href="RevTarea.php" id="btnvolver-rev">
+            <input type="button" id="cancel-rev" value="CANCELAR">
+        </a>
+</center>
+       
     </div>
 
     <div id="btndiv">
@@ -32,9 +42,7 @@
                 Siguiente Alumno
             </a>
         </div>
-        <a href="RevTarea.php" class="anew">
-            <input type="button" id="cancel" value="CANCELAR">
-        </a>
+       
 
     </div>
 
