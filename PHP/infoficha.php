@@ -1,3 +1,11 @@
+<?php
+require('conexion.php');
+session_start();
+if(!isset($_SESSION['curp'])){
+	header("location: index.php");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,15 +21,23 @@
 <body>
     <div class="contenedor">
         <div class="info">
+            <?php 
+                $curp=$_SESSION['curp'];
+                $consulta ="select * from ficha where curp='$curp'";
+                $query=mysqli_query($con,$consulta);
+                $row = mysqli_fetch_assoc($query);
+                ?>
             <ul>
-                <li>No Ficha:</li>
-                <li>Nombre Aspirante:</li>
-                <li>CURP:</li>
-                <li>Nombre Padre/Tutor:</li>
+                <li>No Ficha: <?php echo $row['ficha_id'];?></li>
+                <li>Nombre Aspirante:<?php echo $row['Nombre']." ".$row['ApeP']." ".$row['ApeM'];?></li>
+                <li>CURP:<?php echo $row['curp'];?></li>
+                <li>Nombre Padre/Tutor:<?php echo $row['nombreT']." ".$row['ApeP_T']." ".$row['ApeM_T'];?></li>
                 <li>Fecha de Pago:</li>
-                <li>Precio:</li>
+                <li>Precio:$300.00</li>
             </ul>
-            <a href="index.php" class="button">Salir</a>
+           <div class="boton">
+            <a href="cerrarsesion.php" class="button">Salir</a>
+            </div>
         </div>
     </div>
 </body>

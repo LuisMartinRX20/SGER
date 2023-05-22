@@ -21,6 +21,20 @@ if(!empty($_POST['username'])){
 	}
 
 }
+else if(!empty($_POST['curp'])){
+    session_start();
+    $curp= $_POST['curp'];
+    $quer= "select count(*) as contar From ficha where curp='$curp' ";
+    $miconsulta=mysqli_query($con,$quer);
+    $arrei= mysqli_fetch_array($miconsulta);
+    if($arrei['contar']>0){
+        $_SESSION['curp']=$curp;
+        header("location: infoficha.php");
+    }
+    else{
+        echo "USUARIO INCORRECTO";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,7 +87,7 @@ if(!empty($_POST['username'])){
             <div class="usuario3" id="usuario3">
                 <form action="index.php" method="post">
                 <p id="texto">CURP</p>
-                <input type="text" name="username" id="texto"class="informacion">
+                <input type="text" name="curp" id="texto"class="informacion">
                 
                 <br>
                 <input type="submit" name="" id="botones" value="Iniciar" class="inicio"> 

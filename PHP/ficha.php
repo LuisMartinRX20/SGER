@@ -1,5 +1,6 @@
 <?php
 require('conexion.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +29,7 @@ require('conexion.php');
 				$nombre		     = mysqli_real_escape_string($con,(strip_tags($_POST["nombre"],ENT_QUOTES)));//Escanpando caracteres 
 				$ap		     = mysqli_real_escape_string($con,(strip_tags($_POST["ap"],ENT_QUOTES)));//Escanpando caracteres 
 				$apm	 = mysqli_real_escape_string($con,(strip_tags($_POST["apm"],ENT_QUOTES)));//Escanpando caracteres 
-                $cur	 = mysqli_real_escape_string($con,(strip_tags($_POST["apm"],ENT_QUOTES)));//Escanpando caracteres 
+                $curp	 = mysqli_real_escape_string($con,(strip_tags($_POST["curp"],ENT_QUOTES)));//Escanpando caracteres 
 				$fecha_nac	 = mysqli_real_escape_string($con,(strip_tags($_POST["fecha_nac"],ENT_QUOTES)));//Escanpando caracteres 
 				$calle	     = mysqli_real_escape_string($con,(strip_tags($_POST["calle"],ENT_QUOTES)));//Escanpando caracteres 
 				$no		 = mysqli_real_escape_string($con,(strip_tags($_POST["no"],ENT_QUOTES)));//Escanpando caracteres 
@@ -44,18 +45,27 @@ require('conexion.php');
                 $cpT		 = mysqli_real_escape_string($con,(strip_tags($_POST["cpT"],ENT_QUOTES)));//Escanpando caracteres 
                 $telT		 = mysqli_real_escape_string($con,(strip_tags($_POST["telT"],ENT_QUOTES)));//Escanpando caracteres 
 				
-			
-$miConsulta = "INSERT INTO ficha (Nombre,ApeP,ApeM,curp,fecha_nac,calle,Provincia,Poblacion,CP,nombreT,ApeP_T,ApeM_T,fecha_nac_T,calle_T,provincia_T,Poblacion_T,CP_T,telefono ) VALUES('{$_POST["nombre"]}','{$_POST["ap"]}','{$_POST["apm"]}','{$_POST["curp"]}','{$_POST["fecha_nac"]}','{$_POST["calle"]}','{$_POST["no"]}','{$_POST["colonia"]}','{$_POST["cp"]}','{$_POST["nombreT"]}','{$_POST["apT"]}','{$_POST["apmT"]}','{$_POST["fecha_nacT"]}','{$_POST["calleT"]}','{$_POST["noT"]}','{$_POST["coloniaT"]}','{$_POST["cpT"]}','{$_POST["telT"]}')"; //crear la consulta del INSERT INTO 
+                $miConsulta = "select * from ficha where curp ='$curp'"; //crear consulta que seleccione el registro donde el campo codigo sea igual a la variable $codigo
+                $cek = mysqli_query($con, $miConsulta);
+                if(mysqli_num_rows($cek) == 0){
+                        $miConsulta = "INSERT INTO ficha (Nombre,ApeP,ApeM,curp,fecha_nac,calle,Provincia,Poblacion,CP,nombreT,ApeP_T,ApeM_T,fecha_nac_T,calle_T,provincia_T,Poblacion_T,CP_T,telefono ) VALUES('{$_POST["nombre"]}','{$_POST["ap"]}','{$_POST["apm"]}','{$_POST["curp"]}','{$_POST["fecha_nac"]}','{$_POST["calle"]}','{$_POST["no"]}','{$_POST["colonia"]}','{$_POST["cp"]}','{$_POST["nombreT"]}','{$_POST["apT"]}','{$_POST["apmT"]}','{$_POST["fecha_nacT"]}','{$_POST["calleT"]}','{$_POST["noT"]}','{$_POST["coloniaT"]}','{$_POST["cpT"]}','{$_POST["telT"]}')"; //crear la consulta del INSERT INTO 
 						$insert = mysqli_query($con, $miConsulta) or die(mysqli_error());
 						if($insert){
 							echo '<script type="text/javascript">
                             alert("Ficha Guardada");
                             </script>';
-                            header("location: empleados.php");
+                            session_start();
+                            $_SESSION['curp']=$curp;
+                            header("location:infoficha.php");
 						}else{
 							echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Error. No se pudo guardar los datos !</div>';
 						}
-				
+                    }
+                else{
+                    echo '<script type="text/javascript">
+                            alert("Curp ya existe");
+                            </script>';
+                }
 			}
 			?>
             
