@@ -29,7 +29,7 @@
         <br>
     <center>
         <a href="RevTarea.php" id="btnvolver-rev">
-            <input type="button" id="cancel-rev" value="CANCELAR">
+            <input type="button" id="cancel-rev" value="SALIR">
         </a>
 </center>
        

@@ -12,11 +12,10 @@
 
 <body>
     <div class="grid-contnew">
-        <h2>Nueva terea:</h2><br>
-
-        <div class="grid-contt">
+        <h2>Editar tarea:</h2><br>
 
 
+        <form action="" class="grid-contt">
             <div class="grid-item">
                 <label for="titulo">Tarea:</label>
                 <input type="text" name="titulo" required><br>
@@ -29,12 +28,12 @@
 
             <div class="grid-item">
                 <label for="materia">Materia:</label>
-                <select name="materia" id="materia">
+                <select name="materia" id="materia" required>
                     <option value="Español">Español</option>
-                    <option value="Español">Matematicas</option>
-                    <option value="Español">Historia</option>
-                    <option value="Español">F.C y E</option>
-                    <option value="Español">Geografia</option>
+                    <option value="Matematicas">Matematicas</option>
+                    <option value="Historia">Historia</option>
+                    <option value="F.C y E">F.C y E</option>
+                    <option value="Geografia">Geografia</option>
                 </select><br>
             </div>
 
@@ -54,16 +53,18 @@
                 <label for="file">adjuntar recursos:</label>
                 <input type="file" name="file" required><br>
             </div>
-        </div>
+    </div>
 
-        <div id="btndiv">
-            <a href="AsigTarea.php" class="anew">
-                <input type="button" id="cancel" value="CANCELAR">
-            </a>
-            <a href="#" class="anew">
-                <input type="button" id="nuevaTarea" value="MODIFICAR">
-            </a>
-        </div>
+
+    <div id="btndiv">
+        <a href="AsigTarea.php" class="anew">
+            <input type="button" id="cancel" value="CANCELAR">
+        </a>
+        <a href="#" class="anew">
+            <input type="submit" id="nuevaTarea" value="GUARDAR">
+        </a>
+        </form>
+
     </div>
 </body>
 
