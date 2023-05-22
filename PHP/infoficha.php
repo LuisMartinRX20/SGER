@@ -33,7 +33,7 @@ if(!isset($_SESSION['curp'])){
                 <li>CURP:<?php echo $row['curp'];?></li>
                 <li>Nombre Padre/Tutor:<?php echo $row['nombreT']." ".$row['ApeP_T']." ".$row['ApeM_T'];?></li>
                 <li>Fecha de Pago:</li>
-                <li>Precio:$300.00</li>
+                <li>Precio: <?php echo $row['precio'];?></li>
             </ul>
            <div class="boton">
             <a href="cerrarsesion.php" class="button">Salir</a>

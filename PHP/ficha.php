@@ -48,7 +48,7 @@ require('conexion.php');
                 $miConsulta = "select * from ficha where curp ='$curp'"; //crear consulta que seleccione el registro donde el campo codigo sea igual a la variable $codigo
                 $cek = mysqli_query($con, $miConsulta);
                 if(mysqli_num_rows($cek) == 0){
-                        $miConsulta = "INSERT INTO ficha (Nombre,ApeP,ApeM,curp,fecha_nac,calle,Provincia,Poblacion,CP,nombreT,ApeP_T,ApeM_T,fecha_nac_T,calle_T,provincia_T,Poblacion_T,CP_T,telefono ) VALUES('{$_POST["nombre"]}','{$_POST["ap"]}','{$_POST["apm"]}','{$_POST["curp"]}','{$_POST["fecha_nac"]}','{$_POST["calle"]}','{$_POST["no"]}','{$_POST["colonia"]}','{$_POST["cp"]}','{$_POST["nombreT"]}','{$_POST["apT"]}','{$_POST["apmT"]}','{$_POST["fecha_nacT"]}','{$_POST["calleT"]}','{$_POST["noT"]}','{$_POST["coloniaT"]}','{$_POST["cpT"]}','{$_POST["telT"]}')"; //crear la consulta del INSERT INTO 
+                        $miConsulta = "INSERT INTO ficha (Nombre,ApeP,ApeM,curp,fecha_nac,calle,Provincia,Poblacion,CP,nombreT,ApeP_T,ApeM_T,fecha_nac_T,calle_T,provincia_T,Poblacion_T,CP_T,telefono ,precio) VALUES('{$_POST["nombre"]}','{$_POST["ap"]}','{$_POST["apm"]}','{$_POST["curp"]}','{$_POST["fecha_nac"]}','{$_POST["calle"]}','{$_POST["no"]}','{$_POST["colonia"]}','{$_POST["cp"]}','{$_POST["nombreT"]}','{$_POST["apT"]}','{$_POST["apmT"]}','{$_POST["fecha_nacT"]}','{$_POST["calleT"]}','{$_POST["noT"]}','{$_POST["coloniaT"]}','{$_POST["cpT"]}','{$_POST["telT"]}',300)"; //crear la consulta del INSERT INTO 
 						$insert = mysqli_query($con, $miConsulta) or die(mysqli_error());
 						if($insert){
 							echo '<script type="text/javascript">
