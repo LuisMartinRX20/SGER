@@ -21,6 +21,7 @@
                 <li>Fecha de Pago:</li>
                 <li>Precio:</li>
             </ul>
+            <a href="index.php" class="button">Salir</a>
         </div>
     </div>
 </body>
