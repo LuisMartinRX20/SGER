@@ -24,7 +24,7 @@
             <li class="list_item">
                 <div class="list_button" id="Inicio">
                     <img src="../ICONS/home.svg" class="list_img">
-                    <a href="#" class="nav_link ">Inicio</a>
+                    <a href="inicio.php" target="frame" class="nav_link ">Inicio</a>
                 </div>
             </li>
 
@@ -182,14 +182,13 @@
 
     <div class="contenido">
         <div class="contenido_principal" id="contenido_menu">
-
+            <iframe name="frame" src="inicio.php" frameborder="0" class="fps"></iframe>
         </div>
 
     </div>
     <script src="../JS/jquery-3.5.1.min.js"></script>
     <script src="../JS/headroom.min.js"></script>
     <script src="../JS/funcion-menu-controlEscolar.js"></script>
-    <script src="../JS/reload-menu.js"></script>
 
 </body>
 
