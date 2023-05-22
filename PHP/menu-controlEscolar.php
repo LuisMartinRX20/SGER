@@ -175,10 +175,11 @@
     <div class="header">
         <div class="fondo_header">
             <img src="../ICONS/usuario.svg" class="icon_header">
-            <a href="#" class="content_header"><?php echo $_SESSION['username'][0]; echo "(".$_SESSION['username'][1].")"?></a>
+            <a href="#" class="content_header"><?php echo $_SESSION['username'][0];
+                                                echo "(" . $_SESSION['username'][1] . ")" ?></a>
         </div>
     </div>
-<p></p>
+
     <div class="contenido">
         <div class="contenido_principal" id="contenido_menu">
 
