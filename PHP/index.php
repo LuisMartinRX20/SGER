@@ -37,6 +37,34 @@ if (!empty($_POST['username'])) {
         echo "USUARIO INCORRECTO";
     }
 }
+else if(!empty($_POST['curp'])){
+    session_start();
+    $curp= $_POST['curp'];
+    $quer= "select count(*) as contar From ficha where curp='$curp' ";
+    $miconsulta=mysqli_query($con,$quer);
+    $arrei= mysqli_fetch_array($miconsulta);
+    if($arrei['contar']>0){
+        $_SESSION['curp']=$curp;
+        header("location: infoficha.php");
+    }
+    else{
+        echo "USUARIO INCORRECTO";
+    }
+}
+else if(!empty($_POST['curp'])){
+    session_start();
+    $curp= $_POST['curp'];
+    $quer= "select count(*) as contar From ficha where curp='$curp' ";
+    $miconsulta=mysqli_query($con,$quer);
+    $arrei= mysqli_fetch_array($miconsulta);
+    if($arrei['contar']>0){
+        $_SESSION['curp']=$curp;
+        header("location: infoficha.php");
+    }
+    else{
+        echo "USUARIO INCORRECTO";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
