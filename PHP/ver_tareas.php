@@ -12,16 +12,18 @@
 <body>
 
 <div class="grid-cont">
+<a href="../PHP/subir_tarea.php">
     <div id="tareas">
         <h2>29 ABRIL</h2>
         <div class="tareasAsignadas"> 
             <p>Ejercicios sumas y restas</p>
-            <p>Matematicas / Grupo 2B / Vence 29 de Abril 23:59 PM</p>
+            <p>Matematicas / Grupo 2B / Vence 29 de Abril 23:59 PM / Calificación:  /10</p>
+          
         </div>
     <br>
         <div class="tareasAsignadas"> 
             <p>Investigar: ¿Que es la independencia de mexico?</p>
-            <p>Historia / Grupo 2B / Vence 29 de Abril 23:59 PM</p>
+            <p>Historia / Grupo 2B / Vence 29 de Abril 23:59 PM/ Calificación:  /10</p>
         </div>
     
     <br>
@@ -29,11 +31,11 @@
    
         <div class="tareasAsignadas"> 
             <p>Investigar 5 valores</p>
-            <p>F C y E / Grupo 2B / Vence 3 de Mayo 23:59 PM</p>
+            <p>F C y E / Grupo 2B / Vence 3 de Mayo 23:59 PM/ Calificación:  /10</p>
         </div>
     
     </div>
-   
+    </a>
 </div>
 </body>
 </html>

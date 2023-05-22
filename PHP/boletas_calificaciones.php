@@ -10,10 +10,21 @@
 <body>
 
 
+<div class="custom-select">
+    <select>
+      <option value="opcion1">Agosto-Diciembre/2022</option>
+      <option value="opcion2">Febrero-Julio/2023</option>
+      <option value="opcion3">Agosto-Diciembre/2023</option>
+    </select>
+  </div>
 
     <div class="calificaciones">
         
-    <h1>Boletas de calificaciones</h1>
+    <h1 class="titulo_boletas">Boletas de calificaciones</h1>
+
+    <h2 class="titulo_periodo">Periodo:</h2>
+
+    <button class = "btn_buscar_periodo">BUSCAR</button>
     <table>
   <thead>
     <tr>
