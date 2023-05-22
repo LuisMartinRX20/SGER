@@ -82,7 +82,7 @@ require('conexion.php');
                     <p>Apellido Materno</p>
                     <input type="text" name="apm" id="informacion">
                     <p>Fecha Nacimiento</p>
-                    <input type="text" name="fecha_nac" id="informacion">
+                    <input type="date" name="fecha_nac" id="informacion">
                     <p>Curp</p>
                     <input type="text" name="curp" id="informacion">
                     <br>
@@ -119,7 +119,7 @@ require('conexion.php');
                     <p>Apellido Materno</p>
                     <input type="text" name="apmT" id="informacion">
                     <p>Fecha Nacimiento</p>
-                    <input type="text" name="fecha_nacT" id="informacion">
+                    <input type="date" name="fecha_nacT" id="informacion">
                     <br>
                     <br><br><br><br>
                     
