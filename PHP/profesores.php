@@ -12,7 +12,7 @@ if(!isset($_SESSION['username'])){
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Datos de empleados</title>
+	<title>Lista de Profesores</title>
 
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -56,9 +56,9 @@ if(!isset($_SESSION['username'])){
 					<select name="filter" class="form-control" onchange="form.submit()">
 						<option value="0">Filtros de datos de empleados</option>
 						<?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
-						<option value="1" <?php if($filter == 'Tetap'){ echo 'selected'; } ?>>Fijo</option>
-						<option value="2" <?php if($filter == 'Kontrak'){ echo 'selected'; } ?>>Contratado</option>
-                        <option value="3" <?php if($filter == 'Outsourcing'){ echo 'selected'; } ?>>Outsourcing</option>
+						<option value="1" <?php if($filter == 'Tetap'){ echo 'selected'; } ?>>Activo</option>
+						<option value="2" <?php if($filter == 'Kontrak'){ echo 'selected'; } ?>>NO Activo</option>
+                        
 					</select>
 				</div>
 			</form>
@@ -131,7 +131,7 @@ if(!isset($_SESSION['username'])){
 
 		</div>
 	</div><center>
-    <p>&copy; Sistemas Web <?php echo date("Y");?></p>
+    
 		</center>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
