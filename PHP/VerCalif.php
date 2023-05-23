@@ -23,17 +23,17 @@
                 <select name="materia" id="materia" required>
                     <option value="Español">Español</option>
                     <option value="Matematicas">Matematicas</option>
-                    <option value="Historia">Historia</option>
+                    <option value="Ciencias naturales">Ciencias naturales</option>
                     <option value="F.C y E">F.C y E</option>
-                    <option value="Geografia">Geografia</option>
+                    <option value="Historia">Historia</option>
+                    <option value="Educacion fisica">Educacion fisica</option>
                 </select>
                 <label for="bloque">Bloque: </label>
                 <select name="bloque" id="bloque" required>
                     <option value="1">Bloque 1</option>
                     <option value="2">Bloque 2</option>
                     <option value="3">Bloque 3</option>
-                    <option value="4">Bloque 4</option>
-                    <option value="5">Bloque 5</option>
+
                 </select><br>
             </form>
         </div>
