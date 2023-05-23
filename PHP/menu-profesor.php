@@ -82,7 +82,7 @@
                     </li>
 
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Tareas</a>
+                        <a href="#" class="nav_link nav_link--inside">Mostrar Tareas</a>
                     </li>
 
                     <li class="list_inside">

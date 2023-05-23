@@ -68,7 +68,7 @@
                     </li>
 
                     <li class="list_inside">
-                        <a href="#" target="frame" class="nav_link nav_link--inside">Profesores registrados</a>
+                        <a href="profesores.php" target="frame" class="nav_link nav_link--inside">Profesores registrados</a>
                     </li>
                 </ul>
 
