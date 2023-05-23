@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 body{
     background-color: #15223b;
 }
@@ -12,6 +13,7 @@ body{
     height:500px;
     width: 1010px;
     overflow: hidden;
+    border-radius: 12px;
 }
 
 .imagen{
@@ -35,7 +37,7 @@ body{
 
 /*Botones */
 #botones{
-  left: 45%;
+  left: 43%;
   margin-top: 21.5%;
 }
 .opciones{
@@ -50,13 +52,14 @@ ul {
 .padre {
     position: relative;
     background-color: white;
-    
-    color: black;
-    border: 2px solid  #15223b;
+    border-style: none;
+    color: #15223b;
+    /*border: 2px solid  #15223b;*/
     height: 30px;
     width: 160px;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
+    font-weight: bold;
     border-radius: 12px;
     margin-right: 20px;
     
@@ -67,13 +70,14 @@ ul {
   .personal {
     position: relative;
     background-color: white;
-    
-    color: black;
-    border: 2px solid  #15223b;
+    border-style: none;
+    color: #15223b;
+    /*border: 2px solid  #15223b;*/
     height: 30px;
     width: 160px;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
+    font-weight: bold;
     border-radius: 12px;
     margin-right: 20px;
     
@@ -83,13 +87,14 @@ ul {
   .ficha {
     position: relative;
     background-color: white;
-    
-    color: black;
-    border: 2px solid  #15223b;
+    border-style: none;
+    color: #15223b;
+    /*border: 2px solid  #15223b;*/
     height: 30px;
     width: 160px;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
+    font-weight: bold;
     border-radius: 12px;
     margin-right: 20px;
     
@@ -102,18 +107,18 @@ ul {
  } 
 
 .padre:hover {
-    background-color: #008CBA;
-    color: white;
+    background-color: #a0deea;
+    color: #15223b;
     
   }
   .personal:hover {
-    background-color: #008CBA;
-    color: white;
+    background-color: #a0deea;
+    color: #15223b;
     
   }
   .ficha:hover {
-    background-color: #008CBA;
-    color: white;
+    background-color: #a0deea;
+    color: #15223b;
     
   }
 
@@ -121,9 +126,9 @@ ul {
     position: relative;
     left: 60%;
     margin-top: 5%;
-    background-color: #008CBA;
-    color: white;
-    border: 2px solid  #15223b;
+    background-color: #a0deea;
+    color: #15223b;
+    border: 2px solid  #a0deea;
     height: 30px;
     width: 120px;
     font-family: 'Roboto', sans-serif;
@@ -134,8 +139,8 @@ ul {
 
 .inicio:hover {
     
-    color: black;
-    background-color: white; 
+    color: #15223b;
+    background-color: #a0deea;
 }
 
 p{
@@ -144,7 +149,7 @@ p{
 }
 
 .informacion{
-    width: 60%;
+    width: 80%;
     height: 20px;
 }
 #texto{
@@ -154,8 +159,8 @@ p{
 
 .formulario{
     display: flex;
-    margin-top: 10%;
-    margin-left: 10%;
+    margin-top: 8%;
+    margin-left: 11.5%;
 }
 
 a {
@@ -204,15 +209,14 @@ a {
 }
 /*activar botones*/
 .personal.active{
-  background-color: #008CBA;
-  color: white;
+  background-color:#a0deea ;
 }
 .padre.active{
-  background-color: #008CBA;
-  color: white;
+  background-color: #a0deea;
+
 }
 .ficha.active{
-  background-color: #008CBA;
-  color: white;
+  background-color: #a0deea;
+
 }
 
