@@ -19,7 +19,7 @@
             </div>
 
             <!-- Elementos sin submenu desplegable -->
-
+            
             <li class="list_item">
                 <div class="list_button" id="Inicio">
                     <img src="../ICONS/home.svg" class="list_img">
@@ -30,27 +30,27 @@
             <li class="list_item">
                 <div class="list_button" id="En-curso">
                     <img src="../ICONS/cursando.svg" class="list_img">
-                    <a href="#" class="nav_link">En curso</a>
+                    <a href="#" class="nav_link">Lista de Alumnos</a>
                 </div>
             </li>
-
+<!--
             <li class="list_item">
                 <div class="list_button" id="Boletas">
-                    <img src="../ICONS/boletas.svg" class="list_img">
+                    <img src="../ICONS/boleta.svg" class="list_img">
                     <a href="#" class="nav_link">Boletas</a>
                 </div>
             </li>
-
+-->
             <!-- Elementos con menu desplegable -->
 
             <li class="list_item list_item--click">
-
+<!--
                 <div class="list_button list_button--click-1" id="Reinscripcion">
                     <img src="../ICONS/reinscripcion.svg" class="list_img">
                     <a href="#" class="nav_link">Reinscripcion</a>
                     <img src="../ICONS/submenu.svg" class="list_arrow">
                 </div>
-
+-->
                 <ul id="m1" class="list_show">
                     <li class="list_inside" id="definir">
                         <a href="#" class="nav_link nav_link--inside">Definir</a>
@@ -66,7 +66,7 @@
                 </ul>
 
             </li>
-
+   
             <li class="list_item list_item--click">
 
                 <div class="list_button list_button--click-2" id="Tareas">
@@ -78,15 +78,15 @@
                 <ul id="m2" class="list_show">
 
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Definir</a>
+                        <a href="#" class="nav_link nav_link--inside">Nueva Tarea</a>
                     </li>
 
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Definir</a>
+                        <a href="#" class="nav_link nav_link--inside">Tareas</a>
                     </li>
 
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Definir</a>
+                        <a href="#" class="nav_link nav_link--inside">Revisar Tarea</a>
                     </li>
                 </ul>
 
@@ -94,31 +94,36 @@
             <li class="list_item list_item--click">
 
                 <div class="list_button list_button--click-3" id="Mis-datos">
-                    <img src="../ICONS/usuario.svg" class="list_img">
-                    <a href="#" class="nav_link">Mis datos</a>
+                    <img src="../ICONS/tareas.svg" class="list_img">
+                    <a href="#" class="nav_link">Planificaciones</a>
                     <img src="../ICONS/submenu.svg" class="list_arrow">
                 </div>
 
                 <ul id="m3" class="list_show">
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Definir</a>
+                        <a href="#" class="nav_link nav_link--inside">Crear Planeicacion</a>
                     </li>
 
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Definir</a>
+                        <a href="#" class="nav_link nav_link--inside">Mostrar</a>
                     </li>
 
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Definir</a>
-                    </li>
+                    
                 </ul>
 
             </li>
 
             <li class="list_item">
                 <div class="list_button">
+                <img src="../ICONS/usuario.svg" class="list_img">
+                    <a href="#" class="nav_link ">Datos</a>
+                </div>
+            </li>
+
+            <li class="list_item">
+                <div class="list_button">
                     <img src="../ICONS/cerrrar-sesion.svg" class="list_img">
-                    <a href="#" class="nav_link ">Cerrar sesion</a>
+                    <a href="cerrarsesion.php" class="nav_link ">Cerrar sesion</a>
                 </div>
             </li>
 
@@ -135,7 +140,7 @@
 
     <div class="contenido">
         <div class="contenido_principal" id="contenido_menu">
-            
+            <iframe name="frame" src="inicio.php" frameborder="0" class="fps"></iframe> 
         </div>
         
     </div>

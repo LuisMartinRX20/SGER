@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('conexion.php');
+require('PHP/conexion.php');
 if (!empty($_POST['username'])) {
     $usuario = $_POST['username'];
     $password = $_POST['password'];
@@ -17,21 +17,21 @@ if (!empty($_POST['username'])) {
             $_SESSION['username'] = array();
             $_SESSION['username'][0] = $usuario;
             $_SESSION['username'][1] = $role_usuario;
-            header("Location:menu-padre.php");
+            header("Location:PHP/menu-padre.php");
         }
         if ($arreglo['role'] == 2) {
             $role_usuario = "Profesor";
             $_SESSION['username'] = array();
             $_SESSION['username'][0] = $usuario;
             $_SESSION['username'][1] = $role_usuario;
-            header("Location:menu-profesor.php");
+            header("Location:PHP/menu-profesor.php");
         }
         if ($arreglo['role'] == 3) {
             $role_usuario = "Control-Escolar";
             $_SESSION['username'] = array();
             $_SESSION['username'][0] = $usuario;
             $_SESSION['username'][1] = $role_usuario;
-            header("Location:menu-controlEscolar.php");
+            header("Location:PHP/menu-controlEscolar.php");
         }
     } else {
         echo "USUARIO INCORRECTO";
@@ -73,14 +73,14 @@ else if(!empty($_POST['curp'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../CSS/login.css" rel="stylesheet" type="text/css">
+    <link href="CSS/login.css" rel="stylesheet" type="text/css">
     <title>SGER:LOGIN</title>
 </head>
 
 <body>
     <div class="todo">
         <div class="imagen">
-            <img src="../IMG/logo.jpeg" alt="" class="logo">
+            <img src="IMG/logo.jpeg" alt="" class="logo">
         </div>
         <div class="login">
             <div class="opciones">
