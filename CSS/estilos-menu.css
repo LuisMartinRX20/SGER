@@ -151,3 +151,8 @@ body{
     margin: 1%;
     padding: 1%;
 }
+
+.fps{
+    height: 100%;
+    width: 100%;
+}

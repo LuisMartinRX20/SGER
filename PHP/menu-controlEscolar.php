@@ -64,11 +64,11 @@
 
                 <ul id="m2" class="list_show">
                     <li class="list_inside" id="definir">
-                        <a href="#" class="nav_link nav_link--inside">Agregar profesor</a>
+                        <a href="agregar_profesor.php" target="frame" class="nav_link nav_link--inside">Agregar profesor</a>
                     </li>
 
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Profesores registrados</a>
+                        <a href="#" target="frame" class="nav_link nav_link--inside">Profesores registrados</a>
                     </li>
                 </ul>
 
