@@ -164,7 +164,7 @@
             <li class="list_item">
                 <div class="list_button">
                     <img src="../ICONS/cerrrar-sesion.svg" class="list_img">
-                    <a href="#" class="nav_link ">Cerrar sesion</a>
+                    <a href="cerrarsesion.php" class="nav_link ">Cerrar sesion</a>
                 </div>
             </li>
 

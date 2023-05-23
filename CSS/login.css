@@ -37,7 +37,7 @@ body{
 
 /*Botones */
 #botones{
-  left: 45%;
+  left: 43%;
   margin-top: 21.5%;
 }
 .opciones{
@@ -128,7 +128,7 @@ ul {
     margin-top: 5%;
     background-color: #a0deea;
     color: #15223b;
-    /*border: 2px solid  #15223b;*/
+    border: 2px solid  #a0deea;
     height: 30px;
     width: 120px;
     font-family: 'Roboto', sans-serif;
