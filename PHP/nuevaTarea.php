@@ -1,3 +1,6 @@
+	
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -14,7 +17,7 @@
     <div class="grid-contnew">
         <h2>Nueva tarea:</h2><br>
 
-        <form action="" class="grid-contt">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="grid-contt">
                 <div class="grid-item">
                     <label for="titulo">Tarea:</label>
                     <input type="text" name="titulo" required><br>
