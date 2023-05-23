@@ -77,6 +77,7 @@ require('conexion.php');
                 <div class="pagina1 active " id="contenido1">
                     
                     <p  class="encabezado2">Datos del Profesor</p>
+                    <br>
                     <p>Nombre</p>
                     <input type="text" name="nombre" id="informacion">
                     <p>Apellido Paterno</p>
@@ -85,10 +86,8 @@ require('conexion.php');
                     <input type="text" name="apm" id="informacion">
                     <p>RFC</p>
                     <input type="text" name="fecha_nac" id="informacion">
-                    <p>Curp</p>
-                    <input type="text" name="curp" id="informacion">
                     <br>
-                 
+                    <br><br>
                     
                     <button type="button" class="botonS1" id="boton">Siguiente</button>
                     
@@ -116,11 +115,11 @@ require('conexion.php');
                 <p  class="encabezado3">Datos de Profesor</p>
                 <br>
                     <p>Cedula</p>
-                    <input type="text" name="nombreT" id="informacion">
+                    <input type="text" name="cedula" id="informacion">
                     <p>Telefono</p>
-                    <input type="text" name="apT" id="informacion">
+                    <input type="text" name="telefono" id="informacion">
                     <p>Correo</p>
-                    <input type="text" name="apmT" id="informacion">
+                    <input type="text" name="correo" id="informacion">
                     
                     <br>
                     <br><br><br><br><br><br>
