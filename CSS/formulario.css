@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 body{
     font-family: 'Roboto', sans-serif;
+   
     position: relative;
-    
 }
 /*tamaño de letra*/
 p{
@@ -21,10 +21,14 @@ p{
    
     border-radius: 12px;
     height: 32rem;
-    display: flex;
     overflow: hidden;
-    
+    width: 700px;
+    display: flex;
+    position: fixed;
+    left: 540px;
+ 
 }
+
 /*formulario que envia la informacion*/
 .form{
     background-color: #fdfefe;
@@ -40,8 +44,6 @@ p{
 }
 
 
-
-
 /*paginacion del formulario*/
 .pagina1{
     margin-left: 10%;
@@ -49,24 +51,7 @@ p{
     min-width: 100%;
     opacity: 0;
 }
-.pagina2{
-    margin-top: 0.5%;
-    margin-right: 10%;
-    min-width: 100%;
-    opacity: 0;
-}
-.pagina3{
-    margin-left: -10%;
-    margin-right: 10%;
-    min-width: 100%;
-    opacity: 0;
-}
-.pagina4{
-    margin-left: 10%;
-    margin-right: 10%;
-    min-width: 100%;
-    opacity: 0;
-}
+
 #informacion{
     display: flex;
     left: -1rem;
@@ -83,9 +68,6 @@ p{
     margin-left: 28%;
 }
 .encabezado3{
-    margin-left: 27%;
-}
-.encabezado4{
     margin-left: 27%;
 }
 /*botones */
@@ -132,26 +114,5 @@ p{
 .pagina1.active{
     opacity: 1;
 }
-.pagina2.active{
-    opacity: 1;
-}
-.pagina3.active{
-    opacity: 1;
-}
-.pagina4.active{
-    opacity: 1;
-}
 
-/*mover paginas a la derecha*/
-.pagina1.left{
-    margin-left: -100%;
-}
-.pagina2.left{
-    margin-left: -100%;
-}
-.pagina3.left{
-    margin-left: -130%;
-}
-.pagina4.left{
-    margin-left: -130%;
-}
+
