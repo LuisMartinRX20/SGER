@@ -105,7 +105,7 @@ else if(!empty($_POST['curp'])){
                         <input type="text" name="curp" id="texto" class="informacion">
                         <br>
                         <input type="submit" name="" id="botones" value="Iniciar" class="inicio">
-                        <a href="ficha.php" class="inicio" id="botones">Solicitar Ficha</a>
+                        <a href="PHP/ficha.php" class="inicio" id="botones">Solicitar Ficha</a>
                     </form>
                 </div>
 
