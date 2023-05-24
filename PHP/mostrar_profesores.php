@@ -89,7 +89,98 @@
 					 * en cuanto funcione toda la parte de base de datos sustitir las etiquetas i en la parte de botnes 
 					 * en la parte de abajo pero sin quitar funcionalidad
 					 */
-					echo '<tr><td colspan="8">Proximamente datos </td><td></td><td></td><td><a href="#"><i class="bi bi-clipboard">Editar</i></a> <br> <a href="#"><i class="bi bi-trash">Borrar</i></a></td></tr>';
+					echo '<tr>
+					<th>1</th>
+					<th>Saul</th>
+                    <th>Palomares</th>
+                    <th>Garcia</th>
+					<th>isaac Calderon 982 lomas de morelia</th>
+					<th>124GRE537S</th>
+					<th>Activo</th>
+                    <th>Saleu@gmail.com</th>
+					<th>Contraseña</th>
+					<th>A</th>
+					
+					 <td> 
+					 <a href="#"><i class="bi bi-clipboard">Editar</i>
+					 </a> <br> <a href="#"><i class="bi bi-trash">Borrar</i></a>
+					 </td></tr>
+					 
+					 <tr>
+					 <th>2</th>
+					<th>Paulo</th>
+                    <th>Linares</th>
+                    <th>Garcia</th>
+					<th>BellaVista 82 lomas del sur</th>
+					<th>6H4H474</th>
+					<th>Activo</th>
+                    <th>Aulpu@gmail.com</th>
+					<th>12334</th>
+					<th>B</th>
+					<td> 
+					 <a href="#"><i class="bi bi-clipboard">Editar</i>
+					 </a> <br> <a href="#"><i class="bi bi-trash">Borrar</i></a>
+					 </td>
+					 </tr>
+             
+					 <tr>
+					 <th>3</th>
+					<th>Paola</th>
+                    <th>Linares</th>
+                    <th>Garcia</th>
+					<th>BellaVista 82 lomas del sur</th>
+					<th>1234HDJJ/th>
+					<th>Activo</th>
+                    <th>lina@gmail.com</th>
+					<th>1tt34</th>
+					<th>A</th>
+					<td> 
+					 <a href="#"><i class="bi bi-clipboard">Editar</i>
+					 </a> <br> <a href="#"><i class="bi bi-trash">Borrar</i></a>
+					 </td>
+					 </tr>
+
+					 <tr>
+					 <th>4</th>
+					<th>Andres</th>
+                    <th>camarena</th>
+                    <th>Bosquejos</th>
+					<th>Salamanca 23 col. charo</th>
+					<th>6H4H474</th>
+					<th>Activo</th>
+                    <th>sd@gmail.com</th>
+					<th>876</th>
+					<th>A</th>
+					<td> 
+					<a href="#"><i class="bi bi-clipboard">Editar</i>
+					</a> <br> <a href="#"><i class="bi bi-trash">Borrar</i></a>
+					</td>
+
+					 </tr>
+
+					 <tr>
+					 <th>5</th>
+					<th>Julio</th>
+                    <th>Garcia</th>
+                    <th>Garcia</th>
+					<th>Buenos aires 12 lomas del sur</th>
+					<th>6HTR474</th>
+					<th>Activo</th>
+                    <th>Aulpu@gmail.com</th>
+					<th>12334</th>
+					<th>B</th>
+
+					<td> 
+					 <a href="#"><i class="bi bi-clipboard">Editar</i>
+					 </a> <br> <a href="#"><i class="bi bi-trash">Borrar</i></a>
+					 </td>
+					 </tr>
+					 
+					 
+					 
+					 
+					 
+					 ';
 					echo '';
 				}else{
 					$no = 1;

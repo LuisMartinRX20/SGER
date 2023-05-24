@@ -91,7 +91,39 @@
 					 * en cuanto funcione toda la parte de base de datos sustitir las etiquetas i en la parte de botnes 
 					 * en la parte de abajo pero sin quitar funcionalidad
 					 */
-					echo '<tr><td colspan="8">Proximamente datos </td><td></td><td></td><td></td><td><a href="#"><i class="bi bi-clipboard">Editar</i></a> <br> <a href="#"><i class="bi bi-trash">Borrar</i></a></td></tr>';
+					echo '<tr>
+					<th>1</th>
+					<th>Gabriel</th>
+                    <th>Perez</th>
+                    <th>Perez</th>
+                    <th>Anotnio del castillo</th>
+					<th>Colonia</th>
+                    <th>2</th>
+					<th>3142567</th>
+					<th>Activo</th>
+                    <th>gabozaidinde@gmail.com</th>
+                    <th>Contraseña</th>
+					<td><a href="#"><i class="bi bi
+					-clipboard">Editar</i></a> <br> <a href=
+					"#"><i class="bi bi-trash">Borrar</i></a></td></tr>
+					
+					<tr>
+					<th>2</th>
+					<th>Lucero</th>
+                    <th>Perez</th>
+                    <th>Gonzales</th>
+                    <th>castillo</th>
+					<th>Altozano</th>
+                    <th>2</th>
+					<th>3142567</th>
+					<th>Activo</th>
+                    <th>gdinde@gmail.com</th>
+                    <th>Contraseña</th>
+					<td><a href="#"><i class="bi bi
+					-clipboard">Editar</i></a> <br> <a href=
+					"#"><i class="bi bi-trash">Borrar</i></a></td></tr>
+					
+					';
 					echo '';
 				}else{
 					$no = 1;
