@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+body{
+    font-family: 'Roboto', sans-serif;
+   
+    position: relative;
+}
+/*tamaño de letra*/
+p{
+    font-size: 18px;
+    
+}
+#encabezado{
+    text-align: center;
+}
+
+/*el div que contiene la informacion*/
+.formulario{
+    background-color: #fdfefe;
+    
+    margin-top: 1%;
+    width: 80%;
+    border-radius: 12px;
+    height: 32rem;
+    display: flex;
+    overflow: hidden;
+    
+}
+/*formulario que envia la informacion*/
+.form{
+    background-color: #fdfefe;
+    
+    margin-top: 1%;
+    margin-left: 28%;
+    margin-right: 28%;
+    border-radius: 12px;
+    height: 34rem;
+    display: flex;
+    overflow: hidden;
+    
+}
+
+
+
+
+/*paginacion del formulario*/
+.pagina1{
+    margin-left: 10%;
+    margin-right: 10%;
+    min-width: 100%;
+    opacity: 0;
+}
+.pagina2{
+    margin-top: 0.5%;
+    margin-right: 10%;
+    min-width: 100%;
+    opacity: 0;
+}
+.pagina3{
+    margin-left: -10%;
+    margin-right: 10%;
+    min-width: 100%;
+    opacity: 0;
+}
+.pagina4{
+    margin-left: 10%;
+    margin-right: 10%;
+    min-width: 100%;
+    opacity: 0;
+}
+#informacion{
+    display: flex;
+    left: -1rem;
+    width: 80%;
+    height: 1.2rem;
+   
+}
+/*titulo que esta arriba del formulario*/
+.encabezado1{
+    margin-left: 33%;
+    margin-block-end: -2%;
+}
+.encabezado2{
+    margin-left: 28%;
+}
+.encabezado3{
+    margin-left: 27%;
+}
+/*botones */
+#boton {
+    position: relative;
+    background-color: #008CBA;
+    color: white;
+    border: 2px solid  #15223b;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    border-radius: 12px;
+    padding: 0 1rem;
+    margin-left: 14%;
+}
+#boton:hover {
+    color: black;
+    background-color: white; 
+}
+.botonS1{
+    left: 40%;
+}
+.botonA2{
+    margin-top: 2%;
+}
+.cancelar{
+    position: relative;
+    background-color: #008CBA;
+    color: white;
+    border: 2px solid  #15223b;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    border-radius: 12px;
+    padding: 0 1rem;
+    text-decoration: none;
+    margin-left: 12%;
+
+}
+.cancelar:hover{
+    color: black;
+    background-color: white; 
+}
+
+/*activar paginas*/
+.pagina1.active{
+    opacity: 1;
+}
+.pagina2.active{
+    opacity: 1;
+}
+.pagina3.active{
+    opacity: 1;
+}
+.pagina4.active{
+    opacity: 1;
+}
+
+/*mover paginas a la derecha*/
+.pagina1.left{
+    margin-left: -100%;
+}
+.pagina2.left{
+    margin-left: -100%;
+}
+.pagina3.left{
+    margin-left: -130%;
+}
