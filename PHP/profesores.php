@@ -12,6 +12,8 @@ if(!isset($_SESSION['username'])){
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="../CSS/profesores.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 	<title>Lista de Profesores</title>
 
 </head>
@@ -22,7 +24,7 @@ if(!isset($_SESSION['username'])){
 			<hr />
 
 			<?php
-            // VALOR aksi es para borrar
+            // VALOR aksi es para borrar aqui esta la funcion borrar
 			if(isset($_GET['aksi']) == 'delete'){
 				// escaping, additionally removing everything that could be (html/javascript-) code
 				$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
@@ -40,11 +42,12 @@ if(!isset($_SESSION['username'])){
 				}
 			}
 			?>
-
+<!--Si lo necesitan este es una lista para filtrar datos-->
 			<form  method="get">
 				<div class="form-group">
 					<select name="filter" class="form-control" onchange="form.submit()">
 						<option value="0">Filtros de datos de empleados</option>
+						<!--Estos son los campos que deben modificar si desean aplicar filtros-->
 						<?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
 						<option value="1" <?php if($filter == 'Tetap'){ echo 'selected'; } ?>>Activo</option>
 						<option value="2" <?php if($filter == 'Kontrak'){ echo 'selected'; } ?>>NO Activo</option>
@@ -54,7 +57,8 @@ if(!isset($_SESSION['username'])){
 			</form>
 			<br />
 			<div >
-			<table >
+			<table  class="tabladatos">
+				<!--Aqui se agregan los campos que van a mostrar en la tabla los titulos solamente-->
 				<tr>
                     <th>No</th>
 					<th>Código</th>
@@ -67,6 +71,10 @@ if(!isset($_SESSION['username'])){
                     <th>Acciones</th>
 				</tr>
 				<?php
+				/**aqui se hace la consulta
+				 * si no necesitan el filtro deberan borrar esta parte del codigo que va desde 
+				 * AQUI
+				 */
 				if($filter){
                     $miConsulta = "select * from profesor";   //crear una consulta que muestre a todos los empleados de la tabla empleados 
                                         //que coincidan con el contenido del campo estado y de la variable $filter
@@ -75,11 +83,22 @@ if(!isset($_SESSION['username'])){
                     $miConsulta = "select * from profesor"; //crear una consulta que muestre a todos los empleados de la tabla empleados ordenadas por el campo código
 					$sql = mysqli_query($con, $miConsulta);
 				}
+				/**
+				 * HASTA AQUI
+				 */
 				if(mysqli_num_rows($sql) == 0){
-					echo '<tr><td colspan="8">No hay datos.</td></tr>';
+					/***
+					 * en cuanto funcione toda la parte de base de datos sustitir las etiquetas i en la parte de botnes 
+					 * en la parte de abajo pero sin quitar funcionalidad
+					 */
+					echo '<tr><td colspan="8">No hay datos.</td><td><a href="#"><i class="bi bi-clipboard">Editar</i></a> <br> <a href="#"><i class="bi bi-trash">Borrar</i></a></td></tr>';
+					echo '';
 				}else{
 					$no = 1;
 					while($row = mysqli_fetch_assoc($sql)){
+						/**en esta parte deben poner los campos de la base de datos debe conincidir el nombre
+						 * con la base de datos si es necesario agregar mas 
+						 */
 						echo '
 						<tr>
 							
@@ -90,6 +109,9 @@ if(!isset($_SESSION['username'])){
 							<td>'.$row['telefono'].'</td>
                             <td>'.$row['puesto'].'</td>
 							<td>';
+							/**
+							 * este es un apartado para roles si no lo necesitan pueden borrarlo
+							 */
 							if($row['estado'] == '1'){
 								echo '<span class="label label-success">Fijo</span>';
 							}
@@ -99,6 +121,10 @@ if(!isset($_SESSION['username'])){
                             else if ($row['estado'] == '3' ){
 								echo '<span class="label label-warning">Outsourcing</span>';
 							}
+							/**
+							 * estos son botones los cuales sirven para eliminar y editar deben poner los campos de
+							 * la base de datos correspondientes
+							 */
 						echo '
 							</td>
 							<td>
@@ -112,6 +138,7 @@ if(!isset($_SESSION['username'])){
 					}
 				}
 				?>
+				
 			</table>
 			</div>
 		
