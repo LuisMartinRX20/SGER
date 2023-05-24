@@ -92,6 +92,6 @@ require('conexion.php');
             </div>
             </form>
     </div>
-    <script src="../JS/paginaficha.js"></script>
+    <script src="../JS/paginacionControlEscolar.js"></script>
 </body>
 </html>
