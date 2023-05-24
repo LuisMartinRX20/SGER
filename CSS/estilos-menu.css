@@ -16,7 +16,9 @@ body{
     grid-template-rows: 10% auto;
 }
 
-
+input{
+    width: 200px;
+}
 
 .logo_menu{
     height: 180px;
@@ -153,6 +155,7 @@ body{
 }
 
 .fps{
-    height: 100%;
+    background-color: #15223b;
+    height: 82vh;
     width: 100%;
 }

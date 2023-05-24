@@ -36,17 +36,35 @@
 
                 <div class="list_button list_button--click-1" id="materias">
                     <img src="../ICONS/materia.svg" class="list_img">
-                    <a href="#" class="nav_link">Materias</a>
+                    <a href="#" class="nav_link">Materia</a>
                     <img src="../ICONS/submenu.svg" class="list_arrow">
                 </div>
 
                 <ul id="m1" class="list_show">
                     <li class="list_inside" id="definir">
-                        <a href="#" class="nav_link nav_link--inside">Agregar materia</a>
+                        <a href="agregar-materia.php" target="frame" class="nav_link nav_link--inside">Agregar materia</a>
                     </li>
 
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Materias registradas</a>
+                        <a href="materia-registrada.php" target="frame" class="nav_link nav_link--inside">Materias registradas</a>
+                    </li>
+                </ul>
+
+            </li>
+
+            <!-- Opcion calificaciones -->
+
+            <li class="list_item list_item--click">
+
+                <div class="list_button list_button--click-2" id="materias">
+                    <img src="../ICONS/calificacion.svg" class="list_img">
+                    <a href="#" class="nav_link">Calificaciones</a>
+                    <img src="../ICONS/submenu.svg" class="list_arrow">
+                </div>
+
+                <ul id="m2" class="list_show">
+                    <li class="list_inside" id="definir">
+                        <a href="agregar-materia.php" target="frame" class="nav_link nav_link--inside">Calificaciones registradas</a>
                     </li>
                 </ul>
 
@@ -56,13 +74,13 @@
 
             <li class="list_item list_item--click">
 
-                <div class="list_button list_button--click-2" id="profesores">
+                <div class="list_button list_button--click-3" id="profesores">
                     <img src="../ICONS/usuario.svg" class="list_img">
                     <a href="#" class="nav_link">Profesores</a>
                     <img src="../ICONS/submenu.svg" class="list_arrow">
                 </div>
 
-                <ul id="m2" class="list_show">
+                <ul id="m3" class="list_show">
                     <li class="list_inside" id="definir">
                         <a href="agregar_profesor.php" target="frame" class="nav_link nav_link--inside">Agregar profesor</a>
                     </li>
@@ -78,13 +96,13 @@
 
             <li class="list_item list_item--click">
 
-                <div class="list_button list_button--click-3" id="inscripcion">
+                <div class="list_button list_button--click-4" id="inscripcion">
                     <img src="../ICONS/inscripcion.svg" class="list_img">
                     <a href="#" class="nav_link">Inscripcion</a>
                     <img src="../ICONS/submenu.svg" class="list_arrow">
                 </div>
 
-                <ul id="m3" class="list_show">
+                <ul id="m4" class="list_show">
 
                     <li class="list_inside">
                         <a href="#" class="nav_link nav_link--inside">Registrar pago</a>
@@ -97,13 +115,13 @@
 
             <li class="list_item list_item--click">
 
-                <div class="list_button list_button--click-4" id="alumno">
+                <div class="list_button list_button--click-5" id="alumno">
                     <img src="../ICONS/alumno.svg" class="list_img">
                     <a href="#" class="nav_link">Alumnos</a>
                     <img src="../ICONS/submenu.svg" class="list_arrow">
                 </div>
 
-                <ul id="m4" class="list_show">
+                <ul id="m5" class="list_show">
                     <li class="list_inside">
                         <a href="#" class="nav_link nav_link--inside">Padres registrados</a>
                     </li>
@@ -119,15 +137,19 @@
 
             <li class="list_item list_item--click">
 
-                <div class="list_button list_button--click-5" id="horario">
+                <div class="list_button list_button--click-6" id="horario">
                     <img src="../ICONS/horario.svg" class="list_img">
                     <a href="#" class="nav_link">Horarios</a>
                     <img src="../ICONS/submenu.svg" class="list_arrow">
                 </div>
 
-                <ul id="m5" class="list_show">
+                <ul id="m6" class="list_show">
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Crear horario</a>
+                        <a href="#" class="nav_link nav_link--inside">Crear horario matutino</a>
+                    </li>
+
+                    <li class="list_inside">
+                        <a href="#" class="nav_link nav_link--inside">Crear horario matutino</a>
                     </li>
 
                     <li class="list_inside">
@@ -141,13 +163,13 @@
 
             <li class="list_item list_item--click">
 
-                <div class="list_button list_button--click-6" id="grupos">
+                <div class="list_button list_button--click-7" id="grupos">
                     <img src="../ICONS/grupo.svg" class="list_img">
                     <a href="#" class="nav_link">Grupos</a>
                     <img src="../ICONS/submenu.svg" class="list_arrow">
                 </div>
 
-                <ul id="m6" class="list_show">
+                <ul id="m7" class="list_show">
                     <li class="list_inside">
                         <a href="#" class="nav_link nav_link--inside">Crear grupo</a>
                     </li>
@@ -155,6 +177,15 @@
                     <li class="list_inside">
                         <a href="#" class="nav_link nav_link--inside">Grupos registrados</a>
                     </li>
+
+                    <li class="list_inside">
+                        <a href="#" class="nav_link nav_link--inside">Llenar grupo</a>
+                    </li>
+
+                    <li class="list_inside">
+                        <a href="#" class="nav_link nav_link--inside">Integrantes de grupos</a>
+                    </li>
+
                 </ul>
 
             </li>
@@ -164,7 +195,7 @@
             <li class="list_item">
                 <div class="list_button">
                     <img src="../ICONS/cerrrar-sesion.svg" class="list_img">
-                    <a href="cerrarsesion.php" class="nav_link ">Cerrar sesion</a>
+                    <a href="cerrar-sesion.php" class="nav_link ">Cerrar sesion</a>
                 </div>
             </li>
 
