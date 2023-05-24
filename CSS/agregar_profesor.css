@@ -4,7 +4,7 @@ body{
    
     position: relative;
 }
-
+/*tamaño de letra*/
 p{
     font-size: 18px;
     
@@ -13,6 +13,7 @@ p{
     text-align: center;
 }
 
+/*el div que contiene la informacion*/
 .formulario{
     background-color: #fdfefe;
     
@@ -24,6 +25,7 @@ p{
     overflow: hidden;
     
 }
+/*formulario que envia la informacion*/
 .form{
     background-color: #fdfefe;
     
@@ -36,45 +38,11 @@ p{
     overflow: hidden;
     
 }
-.titulo{
-    background-color: #fdfefe;
-    position: relative;
-    margin-top: -1%;
-    margin-left: 28%;
-    margin-right: 28%;
-    border-radius: 12px;
-    height: 42%;
-    
-}
-ul{
-    list-style-type: none;
-    text-align: center
-    
-}
-.opcion{
-    color: black;
-    background-color: white; 
-    border:  2px solid #15223b;
-    display: inline;
-    margin-right: 10px;
-    padding: 0 4px;
-    border-radius: 12px;
-    
- } 
 
-.opcion.active{
-    color: white;
-    background-color: #008CBA; 
-}
-li{
-    color: white;
-    background-color: #008CBA; 
-}
 
-.fondo{
-    overflow: hidden;
-}
 
+
+/*paginacion del formulario*/
 .pagina1{
     margin-left: 10%;
     margin-right: 10%;
@@ -106,7 +74,7 @@ li{
     height: 1.2rem;
    
 }
-
+/*titulo que esta arriba del formulario*/
 .encabezado1{
     margin-left: 33%;
     margin-block-end: -2%;
@@ -117,7 +85,7 @@ li{
 .encabezado3{
     margin-left: 27%;
 }
-
+/*botones */
 #boton {
     position: relative;
     background-color: #008CBA;

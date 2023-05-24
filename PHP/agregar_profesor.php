@@ -14,20 +14,11 @@ require('conexion.php');
 </head>
 <body>
     <div class="fondo">
-        <!--
-        <div class="titulo">
-            <h1 id="encabezado">Solicitar Ficha</h1>
-                <ul>
-                    <li class="opcion active" id="opcion1">1</li>
-                    <li class="opcion" id="opcion2">2</li>
-                    <li class="opcion" id="opcion3">3</li>
-                    <li class="opcion" id="opcion4">4</li>
-                </ul>
-                <br>
-            </div>  
--->
             <?php
+            /*Variables para obtener el valor de los campos 
+            aqui deben poner el nombre de los inputs */
 			if(isset($_POST['enviar'])){
+                /**si se necesitan mas variables copiar y pegar si no borrar las que sobran */
 				$nombre		     = mysqli_real_escape_string($con,(strip_tags($_POST["nombre"],ENT_QUOTES)));//Escanpando caracteres 
 				$ap		     = mysqli_real_escape_string($con,(strip_tags($_POST["ap"],ENT_QUOTES)));//Escanpando caracteres 
 				$apm	 = mysqli_real_escape_string($con,(strip_tags($_POST["apm"],ENT_QUOTES)));//Escanpando caracteres 
@@ -46,39 +37,43 @@ require('conexion.php');
                 $coloniaT		 = mysqli_real_escape_string($con,(strip_tags($_POST["coloniaT"],ENT_QUOTES)));//Escanpando caracteres 
                 $cpT		 = mysqli_real_escape_string($con,(strip_tags($_POST["cpT"],ENT_QUOTES)));//Escanpando caracteres 
                 $telT		 = mysqli_real_escape_string($con,(strip_tags($_POST["telT"],ENT_QUOTES)));//Escanpando caracteres 
-				
+				/*consulta que verifica que no exista otro igual */
                 $miConsulta = "select * from ficha where curp ='$curp'"; //crear consulta que seleccione el registro donde el campo codigo sea igual a la variable $codigo
                 $cek = mysqli_query($con, $miConsulta);
+                /*condicion */
                 if(mysqli_num_rows($cek) == 0){
+                        /*inserta los valores que estan en los campos de texto */
                         $miConsulta = "INSERT INTO ficha (Nombre,ApeP,ApeM,curp,fecha_nac,calle,Provincia,Poblacion,CP,nombreT,ApeP_T,ApeM_T,fecha_nac_T,calle_T,provincia_T,Poblacion_T,CP_T,telefono ,precio) VALUES('{$_POST["nombre"]}','{$_POST["ap"]}','{$_POST["apm"]}','{$_POST["curp"]}','{$_POST["fecha_nac"]}','{$_POST["calle"]}','{$_POST["no"]}','{$_POST["colonia"]}','{$_POST["cp"]}','{$_POST["nombreT"]}','{$_POST["apT"]}','{$_POST["apmT"]}','{$_POST["fecha_nacT"]}','{$_POST["calleT"]}','{$_POST["noT"]}','{$_POST["coloniaT"]}','{$_POST["cpT"]}','{$_POST["telT"]}',300)"; //crear la consulta del INSERT INTO 
 						$insert = mysqli_query($con, $miConsulta) or die(mysqli_error());
 						if($insert){
+                            /**Alerta de se hizo el registro */
 							echo '<script type="text/javascript">
                             alert("Ficha Guardada");
                             </script>';
-                            session_start();
-                            $_SESSION['curp']=$curp;
-                            header("location:infoficha.php");
 						}else{
 							echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Error. No se pudo guardar los datos !</div>';
 						}
                     }
                 else{
+                    /**Alerta de que existe el registro cambiar a lo que se este registrando */
                     echo '<script type="text/javascript">
                             alert("Curp ya existe");
                             </script>';
                 }
 			}
 			?>
-            
+        <!-- formulario -->
             <form action="ficha.php" method="post" class="form">
             <div class="formulario">
             
                 <div class="pagina1 active " id="contenido1">
-                    
+                     <!-- Pagina 1 -->
                     <p  class="encabezado2">Datos del Profesor</p>
                     <br>
+                    <!-- campos del formulario cambiar los que sean necesarios maximo 4 por pagina-->
                     <p>Nombre</p>
+                    <!-- input donde se obtienen datos cambiar el nombre("name") ah el nombre del campo
+                        que se esta menejando y ponerlos en las variables de arria -->
                     <input type="text" name="nombre" id="informacion">
                     <p>Apellido Paterno</p>
                     <input type="text" name="ap" id="informacion">
@@ -86,12 +81,14 @@ require('conexion.php');
                     <input type="text" name="apm" id="informacion">
                     <p>RFC</p>
                     <input type="text" name="fecha_nac" id="informacion">
-                    <br>
-                    <br><br>
+                      <!--Indica en que pagina se encuentra agregar manualmente -->
+                    <p>Pagina 1 de 3</p>
                     
+                    <!--boton que cambia de ventana a la siguiente -->
                     <button type="button" class="botonS1" id="boton">Siguiente</button>
                     
                 </div>
+                 <!-- Pagina 2 -->
                 <div class="pagina2 " id="contenido2">
                 <p  class="encabezado2">Datos de Profesor</p>
                     <br>
@@ -103,13 +100,16 @@ require('conexion.php');
                     <input type="text" name="colonia" id="informacion">
                     <p>Codigo Postal</p>
                     <input type="text" name="cp" id="informacion">
-                    <br>
-                    <br>
-                    <br>
-                  
+                      <!--Indica en que pagina se encuentra agregar manualmente -->
+                    <p>Pagina 2 de 3</p>
+                    
+                    
+                  <!--boton que cambia de ventana a la anterior -->
                     <button type="button" class="botonA1" id="boton">Anterior</button>
+                    <!--boton que cambia de ventana a la siguiente -->
                     <button type="button" class="botonS2" id="boton">Siguiente</button>
                 </div>
+                <!--Pagina 3 -->
                 <div class="pagina3 "  id="contenido3">
                
                 <p  class="encabezado3">Datos de Profesor</p>
@@ -120,11 +120,13 @@ require('conexion.php');
                     <input type="text" name="telefono" id="informacion">
                     <p>Correo</p>
                     <input type="text" name="correo" id="informacion">
-                    
                     <br>
-                    <br><br><br><br><br><br>
-                    
+                    <br><br><br>
+                    <!--Indica en que pagina se encuentra agregar manualmente -->
+                    <p>Pagina 3 de 3</p>
+                    <!--boton que cambia de ventana a la anterior -->
                     <button type="button" class="botonA2" id="boton">Anterior</button>
+                    <!--boton que envia el formulario -->
                     <input type="submit" name="enviar"  value= "Enviar" id="boton" class="botonA2">
                 </div>
                

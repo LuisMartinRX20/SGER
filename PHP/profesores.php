@@ -14,20 +14,10 @@ if(!isset($_SESSION['username'])){
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Lista de Profesores</title>
 
-	<!-- Bootstrap -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/style_nav.css" rel="stylesheet">
-
-	<style>
-		.content {
-			margin-top: 80px;
-		}
-	</style>
-
 </head>
 <body>
-	<div class="container">
-		<div class="content">
+	<div>
+		<div>
 			<h2>Lista de Profesores</h2>
 			<hr />
 
@@ -36,12 +26,12 @@ if(!isset($_SESSION['username'])){
 			if(isset($_GET['aksi']) == 'delete'){
 				// escaping, additionally removing everything that could be (html/javascript-) code
 				$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
-                $miConsulta = "select * from profesores where codigo='$nik'"; //buscar el empleado que tenga en el campo codigo lo que hay en la variable $nik para ser eliminado
+                $miConsulta = "select * from profesor where codigo='$nik'"; //buscar el empleado que tenga en el campo codigo lo que hay en la variable $nik para ser eliminado
 				$cek = mysqli_query($con,$miConsulta);
 				if(mysqli_num_rows($cek) == 0){
 					echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> No se encontraron datos.</div>';
 				}else{
-					$delete = mysqli_query($con, "DELETE FROM empleados WHERE codigo='$nik'");
+					$delete = mysqli_query($con, "DELETE FROM profesor WHERE codigo='$nik'");
 					if($delete){
 						echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Datos eliminado correctamente.</div>';
 					}else{
@@ -51,7 +41,7 @@ if(!isset($_SESSION['username'])){
 			}
 			?>
 
-			<form class="form-inline" method="get">
+			<form  method="get">
 				<div class="form-group">
 					<select name="filter" class="form-control" onchange="form.submit()">
 						<option value="0">Filtros de datos de empleados</option>
@@ -63,8 +53,8 @@ if(!isset($_SESSION['username'])){
 				</div>
 			</form>
 			<br />
-			<div class="table-responsive">
-			<table class="table table-striped table-hover">
+			<div >
+			<table >
 				<tr>
                     <th>No</th>
 					<th>Código</th>
