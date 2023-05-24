@@ -73,6 +73,6 @@ require('conexion.php');
             </div>
             </form>
     </div>
-    <script src="../JS/paginaficha.js"></script>
+    <script src="../JS/paginacionProfe.js"></script>
 </body>
 </html>
