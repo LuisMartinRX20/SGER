@@ -4,7 +4,7 @@ require('PHP/conexion.php');
 if (!empty($_POST['username'])) {
     $usuario = $_POST['username'];
     $password = $_POST['password'];
-    $query = "select count(*) as contar From usuarios where numerousuario='$usuario' and password='$password'";
+    $query = "select count(*) as contar From padre where noControl='$usuario' and password='$password'";
     $role = "select role from usuarios where numerousuario='$usuario' and password='$password'";
     $consulta = mysqli_query($con, $query);
     $consulta2 = mysqli_query($con, $role);
@@ -38,12 +38,29 @@ if (!empty($_POST['username'])) {
     }
 }
 else if(!empty($_POST['curp'])){
-    session_start();
     $curp= $_POST['curp'];
     $quer= "select count(*) as contar From ficha where curp='$curp' ";
     $miconsulta=mysqli_query($con,$quer);
     $arrei= mysqli_fetch_array($miconsulta);
     if($arrei['contar']>0){
+        $_SESSION['curp']=$curp;
+        header("location: PHP/infoficha.php");
+    }
+    else{
+        echo "USUARIO INCORRECTO";
+    }
+}
+else if(!empty($_POST['RFC'])){
+
+    $RFC= $_POST['RFC'];
+    $password = $_POST['password'];
+    $control_escolar= "select count(*) as contar From control_escolar where RFC='$RFC' and password='$password' ";
+    $profesor= "select count(*) as contar From profesor where RFC='$RFC' and password='$password' ";
+    $consultaCE=mysqli_query($con,$control_escolar);
+    $consultaP=mysqli_query($con,$profesor);
+    $cantidadCE= mysqli_fetch_array($consultaCE);
+    $cantidadP=mysqli_fetch_array($consultaP);
+    if($cantidadCE['contar']>0){
         $_SESSION['curp']=$curp;
         header("location: PHP/infoficha.php");
     }
@@ -92,7 +109,7 @@ else if(!empty($_POST['curp'])){
                 <div class="usuario2" id="usuario2">
                     <form action="index.php" method="post">
                         <p>RFC</p>
-                        <input type="text" name="username" id="" class="informacion">
+                        <input type="text" name="RFC" id="" class="informacion">
                         <p>Contraseña</p>
                         <input type="password" name="password" id="" class="informacion">
                         <br>
