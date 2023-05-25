@@ -20,7 +20,7 @@ require('conexion.php');
                     <li class="opcion active" id="opcion1">1</li>
                     <li class="opcion" id="opcion2">2</li>
                     <li class="opcion" id="opcion3">3</li>
-                    <li class="opcion" id="opcion4">4</li>
+                    <!--<li class="opcion" id="opcion4">4</li>-->
                 </ul>
                 <br>
             </div>  
@@ -91,7 +91,21 @@ require('conexion.php');
                     <button type="button" class="botonS1" id="boton">Siguiente</button>
                     
                 </div>
+                
                 <div class="pagina2 " id="contenido2">
+                <p  class="encabezado3">Datos del Padre/ Tutor</p>
+                    <p>Nombre</p>
+                    <input type="text" name="nombreT" id="informacion">
+                    <p>Apellido Paterno</p>
+                    <input type="text" name="apT" id="informacion">
+                    <p>Apellido Materno</p>
+                    <input type="text" name="apmT" id="informacion">
+                    <p>Fecha Nacimiento</p>
+                    <input type="date" name="fecha_nacT" id="informacion">
+                    <p>Correo</p>
+                    <input type="text" name="correo" id="informacion">
+                    <br>
+                    <!--                        
                 <p  class="encabezado2">Datos del Alumno</p>
                     <br>
                     <p >Calle</p>
@@ -105,30 +119,15 @@ require('conexion.php');
                     <br>
                     <br>
                     <br>
-                  
+                  -->
                     <button type="button" class="botonA1" id="boton">Anterior</button>
                     <button type="button" class="botonS2" id="boton">Siguiente</button>
                 </div>
                 <div class="pagina3 "  id="contenido3">
                
-                    <p  class="encabezado3">Datos del Padre/ Tutor</p>
-                    <p>Nombre</p>
-                    <input type="text" name="nombreT" id="informacion">
-                    <p>Apellido Paterno</p>
-                    <input type="text" name="apT" id="informacion">
-                    <p>Apellido Materno</p>
-                    <input type="text" name="apmT" id="informacion">
-                    <p>Fecha Nacimiento</p>
-                    <input type="date" name="fecha_nacT" id="informacion">
-                    <br>
-                    <br><br><br><br>
-                    
-                    <button type="button" class="botonA2" id="boton">Anterior</button>
-                    <button  type="button"class="botonS3" id="boton">Siguiente</button>
-                </div>
-                <div class="pagina4 " id="contenido4">
-                
                 <p  class="encabezado3">Datos del Padre/ Tutor</p>
+                    <p>Telefono</p>
+                    <input type="text" name="telT" id="informacion">
                     <p >Calle</p>
                     <input type="text" name="calleT" id="informacion">
                     <p>No.</p>
@@ -137,12 +136,18 @@ require('conexion.php');
                     <input type="text" name="coloniaT" id="informacion">
                     <p>Codigo Postal</p>
                     <input type="text" name="cpT" id="informacion">
-                    <p>Telefono</p>
-                    <input type="text" name="telT" id="informacion">
+                    
                     <br>
                     
-                    <button type="button" class="botonA3" id="boton">Anterior</button>
+                    <button type="button" class="botonA2" id="boton">Anterior</button>
+                    <!--<button  type="button"class="botonS3" id="boton">Siguiente</button>-->
                     <input type="submit" name="enviar"  value= "Enviar" id="boton">
+                </div>
+                <div class="pagina4 " id="contenido4">
+                
+                
+                    
+                    <button type="button" class="botonA3" id="boton">Anterior</button>
                     
                  </div>
                     
