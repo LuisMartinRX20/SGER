@@ -8,13 +8,13 @@ require('conexion.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../CSS/formulario.css" rel="stylesheet" type="text/css">
+    <link href="../CSS/agregar_profesor.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
     <title>SGER:FIcha</title>
 </head>
 <body>
     <div class="fondo">
-           <!-- <?php
+            <?php
             /*Variables para obtener el valor de los campos 
             aqui deben poner el nombre de los inputs */
 			if(isset($_POST['enviar'])){
@@ -61,7 +61,7 @@ require('conexion.php');
                             </script>';
                 }
 			}
-			?>-->
+			?>
         <!-- formulario -->
             <form action="ficha.php" method="post" class="form">
             <div class="formulario">
@@ -79,12 +79,8 @@ require('conexion.php');
                     <input type="text" name="ap" id="informacion">
                     <p>Apellido Materno</p>
                     <input type="text" name="apm" id="informacion">
-                    <p>Estado Actividad</p>
-                    <select id="estatus" name="estatus" required>
-                                <option value="">Selecciona una opción</option>
-                                <option value="Activo">Activo</option>
-                                <option value="Inactivo">Inactivo</option>
-                            </select>
+                    <p>RFC</p>
+                    <input type="text" name="fecha_nac" id="informacion">
                       <!--Indica en que pagina se encuentra agregar manualmente -->
                     <p>Pagina 1 de 3</p>
                     
@@ -102,8 +98,8 @@ require('conexion.php');
                     <input type="text" name="no" id="informacion">
                     <p>Colonia</p>
                     <input type="text" name="colonia" id="informacion">
-                    <p>Contraseña</p>
-                    <input type="text" name="contraseña" id="informacion">
+                    <p>Codigo Postal</p>
+                    <input type="text" name="cp" id="informacion">
                       <!--Indica en que pagina se encuentra agregar manualmente -->
                     <p>Pagina 2 de 3</p>
                     
@@ -138,6 +134,6 @@ require('conexion.php');
             </div>
             </form>
     </div>
-    <script src="../JS/paginacionControlEscolar.js"></script>
+    <script src="../JS/paginaficha.js"></script>
 </body>
 </html>

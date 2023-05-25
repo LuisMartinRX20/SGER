@@ -87,7 +87,7 @@ require('conexion.php');
                     <input type="text" name="curp" id="informacion">
                     <br>
                  
-                    <a href="../index.php" class="cancelar">Cancelar</a>
+                    <a href="../index.php" id="boton"class="cancelar">Cancelar</a>
                     <button type="button" class="botonS1" id="boton">Siguiente</button>
                     
                 </div>

@@ -6,5 +6,5 @@ table{
 td, th {
     padding-left: 1rem;
     padding-right: 1rem;
-    border: rgba(0, 0, 0, 0.829) 1px solid;
+    border: black 1px solid;
   }

@@ -34,7 +34,13 @@ body{
    /* margin-right: 32%;*/
    
 }
-
+/*Inputs*/
+input{
+  border: 0;
+  outline:none;
+  border-bottom:1px solid black;
+  font-size: 16px;
+}
 /*Botones */
 #botones{
   left: 43%;
@@ -128,7 +134,7 @@ ul {
     margin-top: 5%;
     background-color: #a0deea;
     color: #15223b;
-    border: 2px solid  #a0deea;
+    border: 2px solid  #15223b;
     height: 30px;
     width: 120px;
     font-family: 'Roboto', sans-serif;
@@ -140,7 +146,7 @@ ul {
 .inicio:hover {
     
     color: #15223b;
-    background-color: #a0deea;
+    background-color: white;
 }
 
 p{

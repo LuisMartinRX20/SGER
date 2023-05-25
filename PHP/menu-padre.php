@@ -23,7 +23,7 @@
             <li class="list_item">
                 <div class="list_button" id="Inicio">
                     <img src="../ICONS/home.svg" class="list_img">
-                    <a href="benvenida.php" target="frame"  class="nav_link ">Inicio</a>
+                    <a href="#" class="nav_link ">Inicio</a>
                 </div>
             </li>
 
@@ -33,7 +33,7 @@
 
                 <div class="list_button list_button--click-1" id="Reinscripcion">
                     <img src="../ICONS/reinscripcion.svg" class="list_img">
-                    <a href="reinscripcion.php" target="frame"  class="nav_link">Reinscripcion</a>
+                    <a href="#" class="nav_link">Reinscripcion</a>
                     <img src="../ICONS/submenu.svg" class="list_arrow">
                 </div>
 
@@ -63,7 +63,7 @@
                     </li>
 
                     <li class="list_inside">
-                        <a href="verCalif.php" target="frame"  class="nav_link nav_link--inside">Calificaciones</a>
+                        <a href="#" class="nav_link nav_link--inside">Calificaciones</a>
                     </li>
                 </ul>
 
@@ -80,7 +80,7 @@
                 <ul id="m3" class="list_show">
 
                     <li class="list_inside">
-                        <a href="#" target="frame"  class="nav_link nav_link--inside">Asignaciones</a>
+                        <a href="#" class="nav_link nav_link--inside">Asignaciones</a>
                     </li>
 
                     <li class="list_inside">
@@ -131,7 +131,7 @@
 
     <div class="contenido">
         <div class="contenido_principal" id="contenido_menu">
-        <iframe name="frame" src="bienvenida.php" frameborder="0" class="fps"></iframe>
+            
         </div>
         
     </div>
