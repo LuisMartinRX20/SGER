@@ -7,13 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="contenedor-inicio">
-        <div class="contenido-inicio">
-            <p>Bienvenido</p>
-
-        </div>
-
-    </div>
-    
+    <h1>Aqui apareceran las materias registradas</h1>
 </body>
 </html>

@@ -27,20 +27,6 @@
                 </div>
             </li>
 
-            <li class="list_item">
-                <div class="list_button" id="En-curso">
-                    <img src="../ICONS/cursando.svg" class="list_img">
-                    <a href="#" class="nav_link">En curso</a>
-                </div>
-            </li>
-
-            <li class="list_item">
-                <div class="list_button" id="Boletas">
-                    <img src="../ICONS/boleta.svg" class="list_img">
-                    <a href="#" class="nav_link">Boletas</a>
-                </div>
-            </li>
-
             <!-- Elementos con menu desplegable -->
 
             <li class="list_item list_item--click">
@@ -53,15 +39,7 @@
 
                 <ul id="m1" class="list_show">
                     <li class="list_inside" id="definir">
-                        <a href="#" class="nav_link nav_link--inside">Definir</a>
-                    </li>
-
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Definir</a>
-                    </li>
-
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Definir</a>
+                        <a href="#" class="nav_link nav_link--inside">Oreden de pago</a>
                     </li>
                 </ul>
 
@@ -69,48 +47,66 @@
 
             <li class="list_item list_item--click">
 
-                <div class="list_button list_button--click-2" id="Tareas">
+                <div class="list_button list_button--click-2" id="Reinscripcion">
+                    <img src="../ICONS/reinscripcion.svg" class="list_img">
+                    <a href="#" class="nav_link">Cursando</a>
+                    <img src="../ICONS/submenu.svg" class="list_arrow">
+                </div>
+
+                <ul id="m2" class="list_show">
+                    <li class="list_inside" id="definir">
+                        <a href="#" class="nav_link nav_link--inside">Materias</a>
+                    </li>
+
+                    <li class="list_inside">
+                        <a href="#" class="nav_link nav_link--inside">Horario</a>
+                    </li>
+
+                    <li class="list_inside">
+                        <a href="#" class="nav_link nav_link--inside">Calificaciones</a>
+                    </li>
+                </ul>
+
+            </li>
+
+            <li class="list_item list_item--click">
+
+                <div class="list_button list_button--click-3" id="Tareas">
                     <img src="../ICONS/tareas.svg" class="list_img">
                     <a href="#" class="nav_link">Tareas</a>
                     <img src="../ICONS/submenu.svg" class="list_arrow">
                 </div>
 
-                <ul id="m2" class="list_show">
+                <ul id="m3" class="list_show">
 
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Definir</a>
+                        <a href="#" class="nav_link nav_link--inside">Asignaciones</a>
                     </li>
 
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Definir</a>
+                        <a href="#" class="nav_link nav_link--inside">Revisadas</a>
                     </li>
 
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Definir</a>
-                    </li>
                 </ul>
 
             </li>
             <li class="list_item list_item--click">
 
-                <div class="list_button list_button--click-3" id="Mis-datos">
+                <div class="list_button list_button--click-4" id="Mis-datos">
                     <img src="../ICONS/usuario.svg" class="list_img">
-                    <a href="#" class="nav_link">Mis datos</a>
+                    <a href="#" class="nav_link">Perfil</a>
                     <img src="../ICONS/submenu.svg" class="list_arrow">
                 </div>
 
-                <ul id="m3" class="list_show">
+                <ul id="m4" class="list_show">
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Definir</a>
+                        <a href="#" class="nav_link nav_link--inside">Padre/Tutor</a>
                     </li>
 
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Definir</a>
+                        <a href="#" class="nav_link nav_link--inside">Alumno</a>
                     </li>
 
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Definir</a>
-                    </li>
                 </ul>
 
             </li>
@@ -118,7 +114,7 @@
             <li class="list_item">
                 <div class="list_button">
                     <img src="../ICONS/cerrrar-sesion.svg" class="list_img">
-                    <a href="#" class="nav_link ">Cerrar sesion</a>
+                    <a href="cerrar-sesion.php" class="nav_link ">Cerrar sesion</a>
                 </div>
             </li>
 
@@ -142,7 +138,6 @@
     <script src="../JS/jquery-3.5.1.min.js"></script>
     <script src="../JS/headroom.min.js"></script>
     <script src="../JS/funcion-menu.js"></script>
-    <script src="../JS/reload-menu.js"></script>
 
 </body>
 
