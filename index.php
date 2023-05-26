@@ -28,13 +28,13 @@ if (!empty($_POST['noControl'])) {
     }
    
 }
-else if(!empty($_POST['curp'])){
-    $curp= $_POST['curp'];
-    $quer= "select count(*) as contar From ficha where curp='$curp' ";
+else if(!empty($_POST['curpA'])){
+    $curpA= $_POST['curpA'];
+    $quer= "select count(*) as contar From ficha where curpA='$curpA' ";
     $miconsulta=mysqli_query($con,$quer);
     $arrei= mysqli_fetch_array($miconsulta);
     if($arrei['contar']>0){
-        $_SESSION['curp']=$curp;
+        $_SESSION['curpA']=$curpA;
         header("location: PHP/infoficha.php");
     }
     else{
@@ -122,7 +122,7 @@ else if(!empty($_POST['RFC'])){
                 <div class="usuario3" id="usuario3">
                     <form action="index.php" method="post">
                         <p id="texto">CURP</p>
-                        <input type="text" name="curp" id="texto" class="informacion">
+                        <input type="text" name="curpA" id="texto" class="informacion">
                         <br>
                         <input type="submit" name="" id="botones" value="Iniciar" class="inicio">
                         <a href="PHP/ficha.php" class="inicio" id="botones">Solicitar Ficha</a>
