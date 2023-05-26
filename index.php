@@ -7,44 +7,26 @@ if (!empty($_POST['noControl'])) {
     $alumno = "select id_padre From alumno where noControl='$noControl'";
     $consultaA = mysqli_query($con, $alumno);
     $arregloA = mysqli_fetch_array($consultaA);
+    if(!empty($arregloA['id_padre'])){
     $padre = "select count(*) as contar, id_padre from padre where id_padre=$arregloA[id_padre] and password='$password'";
     $consultaT = mysqli_query($con, $padre);
-    $arregloA = mysqli_fetch_array($consultaA);
     $arregloT = mysqli_fetch_array($consultaT);
     if ($arregloT['contar'] > 0) {
+        
             $role_usuario = "Padre";
             $_SESSION['username'] = array();
             $_SESSION['username'][0] = $arregloT['id_padre'];
             $_SESSION['username'][1] = $role_usuario;
             header("Location:PHP/menu-padre.php");
-       
-        //crear una variable de sesion
-        /*
-        if ($arreglo['role'] == 1) {
-            $role_usuario = "Padre";
-            $_SESSION['username'] = array();
-            $_SESSION['username'][0] = $usuario;
-            $_SESSION['username'][1] = $role_usuario;
-            header("Location:PHP/menu-padre.php");
-        }
-        if ($arreglo['role'] == 2) {
-            $role_usuario = "Profesor";
-            $_SESSION['username'] = array();
-            $_SESSION['username'][0] = $usuario;
-            $_SESSION['username'][1] = $role_usuario;
-            header("Location:PHP/menu-profesor.php");
-        }
-        if ($arreglo['role'] == 3) {
-            $role_usuario = "Control-Escolar";
-            $_SESSION['username'] = array();
-            $_SESSION['username'][0] = $usuario;
-            $_SESSION['username'][1] = $role_usuario;
-            header("Location:PHP/menu-controlEscolar.php");
-        }
-        */
+        
     } else {
         echo "USUARIO INCORRECTO";
     }
+    }
+    else{
+        echo "USUARIO INCORRECTO";
+    }
+   
 }
 else if(!empty($_POST['curp'])){
     $curp= $_POST['curp'];
@@ -70,12 +52,20 @@ else if(!empty($_POST['RFC'])){
     $cantidadCE= mysqli_fetch_array($consultaCE);
     $cantidadP=mysqli_fetch_array($consultaP);
     if($cantidadCE['contar']>0){
-        $_SESSION['rfc']=$RFC;
-        header("location: PHP/menu-controlEscolar.php");
+        $role_usuario = "Control-Escolar";
+        $_SESSION['username'] = array();
+        $_SESSION['username'][0] = $RFC;
+        $_SESSION['username'][1] = $role_usuario;
+        header("Location:PHP/menu-controlEscolar.php");
     }
-    elseif ($cantidadP['contar']>0) {
-        $_SESSION['rfc']=$RFC;
-        header("location: PHP/menu-profesor.php");
+    else if ($cantidadP['contar']>0) {
+            $role_usuario = "Profesor";
+            $_SESSION['username'] = array();
+            $_SESSION['username'][0] = $RFC;
+            $_SESSION['username'][1] = $role_usuario;
+            header("Location:PHP/menu-profesor.php");
+            
+        
     }
     else{
         echo "USUARIO INCORRECTO";
