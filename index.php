@@ -1,17 +1,25 @@
 <?php
 session_start();
 require('PHP/conexion.php');
-if (!empty($_POST['username'])) {
-    $usuario = $_POST['username'];
-    $password = $_POST['password'];
-    $query = "select count(*) as contar From padre where noControl='$usuario' and password='$password'";
-    $role = "select role from usuarios where numerousuario='$usuario' and password='$password'";
-    $consulta = mysqli_query($con, $query);
-    $consulta2 = mysqli_query($con, $role);
-    $arreglo = mysqli_fetch_array($consulta2);
-    $array = mysqli_fetch_array($consulta);
-    if ($array['contar'] > 0) {
+if (!empty($_POST['noControl'])) {
+    $noControl = $_POST['noControl'];
+    $password = $_POST['passwordT'];
+    $alumno = "select id_padre From alumno where noControl='$noControl'";
+    $consultaA = mysqli_query($con, $alumno);
+    $arregloA = mysqli_fetch_array($consultaA);
+    $padre = "select count(*) as contar, id_padre from padre where id_padre=$arregloA[id_padre] and password='$password'";
+    $consultaT = mysqli_query($con, $padre);
+    $arregloA = mysqli_fetch_array($consultaA);
+    $arregloT = mysqli_fetch_array($consultaT);
+    if ($arregloT['contar'] > 0) {
+            $role_usuario = "Padre";
+            $_SESSION['username'] = array();
+            $_SESSION['username'][0] = $arregloT['id_padre'];
+            $_SESSION['username'][1] = $role_usuario;
+            header("Location:PHP/menu-padre.php");
+       
         //crear una variable de sesion
+        /*
         if ($arreglo['role'] == 1) {
             $role_usuario = "Padre";
             $_SESSION['username'] = array();
@@ -33,6 +41,7 @@ if (!empty($_POST['username'])) {
             $_SESSION['username'][1] = $role_usuario;
             header("Location:PHP/menu-controlEscolar.php");
         }
+        */
     } else {
         echo "USUARIO INCORRECTO";
     }
@@ -53,7 +62,7 @@ else if(!empty($_POST['curp'])){
 else if(!empty($_POST['RFC'])){
 
     $RFC= $_POST['RFC'];
-    $password = $_POST['password'];
+    $password = $_POST['passwordP'];
     $control_escolar= "select count(*) as contar From control_escolar where RFC='$RFC' and password='$password' ";
     $profesor= "select count(*) as contar From profesor where RFC='$RFC' and password='$password' ";
     $consultaCE=mysqli_query($con,$control_escolar);
@@ -61,8 +70,12 @@ else if(!empty($_POST['RFC'])){
     $cantidadCE= mysqli_fetch_array($consultaCE);
     $cantidadP=mysqli_fetch_array($consultaP);
     if($cantidadCE['contar']>0){
-        $_SESSION['curp']=$curp;
-        header("location: PHP/infoficha.php");
+        $_SESSION['rfc']=$RFC;
+        header("location: PHP/menu-controlEscolar.php");
+    }
+    elseif ($cantidadP['contar']>0) {
+        $_SESSION['rfc']=$RFC;
+        header("location: PHP/menu-profesor.php");
     }
     else{
         echo "USUARIO INCORRECTO";
@@ -97,9 +110,9 @@ else if(!empty($_POST['RFC'])){
                 <div class="usuario1 active" id="usuario1">
                     <form action="index.php" method="post">
                         <p>Numero de control</p>
-                        <input type="text" name="username" id="" class="informacion">
+                        <input type="text" name="noControl" id="" class="informacion">
                         <p>Contraseña</p>
-                        <input type="password" name="password" id="" class="informacion">
+                        <input type="password" name="passwordT" id="" class="informacion">
                         <br>
 
                         <input type="submit" name="" id="" value="Iniciar" class="inicio" onclick="foo();">
@@ -111,7 +124,7 @@ else if(!empty($_POST['RFC'])){
                         <p>RFC</p>
                         <input type="text" name="RFC" id="" class="informacion">
                         <p>Contraseña</p>
-                        <input type="password" name="password" id="" class="informacion">
+                        <input type="password" name="passwordP" id="" class="informacion">
                         <br>
                         <input type="submit" name="" id="" value="Iniciar" class="inicio">
                     </form>
