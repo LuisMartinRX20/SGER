@@ -10,6 +10,7 @@ require('conexion.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../CSS/formulario.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>SGER:FIcha</title>
 </head>
 <body>
@@ -19,46 +20,80 @@ require('conexion.php');
             aqui deben poner el nombre de los inputs */
 			if(isset($_POST['enviar'])){
                 /**si se necesitan mas variables copiar y pegar si no borrar las que sobran */
-				$nombre		     = mysqli_real_escape_string($con,(strip_tags($_POST["nombre"],ENT_QUOTES)));//Escanpando caracteres 
-				$ap		     = mysqli_real_escape_string($con,(strip_tags($_POST["ap"],ENT_QUOTES)));//Escanpando caracteres 
-				$apm	 = mysqli_real_escape_string($con,(strip_tags($_POST["apm"],ENT_QUOTES)));//Escanpando caracteres 
-                $curp	 = mysqli_real_escape_string($con,(strip_tags($_POST["curp"],ENT_QUOTES)));//Escanpando caracteres 
-				$fecha_nac	 = mysqli_real_escape_string($con,(strip_tags($_POST["fecha_nac"],ENT_QUOTES)));//Escanpando caracteres 
-				$calle	     = mysqli_real_escape_string($con,(strip_tags($_POST["calle"],ENT_QUOTES)));//Escanpando caracteres 
-				$no		 = mysqli_real_escape_string($con,(strip_tags($_POST["no"],ENT_QUOTES)));//Escanpando caracteres 
-				$colonia			 = mysqli_real_escape_string($con,(strip_tags($_POST["colonia"],ENT_QUOTES)));//Escanpando caracteres 
-                $cp			 = mysqli_real_escape_string($con,(strip_tags($_POST["cp"],ENT_QUOTES)));//Escanpando caracteres 
-                $nombreT			 = mysqli_real_escape_string($con,(strip_tags($_POST["nombreT"],ENT_QUOTES)));//Escanpando caracteres 
-                $apT			 = mysqli_real_escape_string($con,(strip_tags($_POST["apT"],ENT_QUOTES)));//Escanpando caracteres 
-                $apmT			 = mysqli_real_escape_string($con,(strip_tags($_POST["apmT"],ENT_QUOTES)));//Escanpando caracteres 
-                $fecha_nacT			 = mysqli_real_escape_string($con,(strip_tags($_POST["fecha_nacT"],ENT_QUOTES)));//Escanpando caracteres 
-                $calleT			 = mysqli_real_escape_string($con,(strip_tags($_POST["calleT"],ENT_QUOTES)));//Escanpando caracteres 
-                $noT			 = mysqli_real_escape_string($con,(strip_tags($_POST["noT"],ENT_QUOTES)));//Escanpando caracteres 
-                $coloniaT		 = mysqli_real_escape_string($con,(strip_tags($_POST["coloniaT"],ENT_QUOTES)));//Escanpando caracteres 
-                $cpT		 = mysqli_real_escape_string($con,(strip_tags($_POST["cpT"],ENT_QUOTES)));//Escanpando caracteres 
-                $telT		 = mysqli_real_escape_string($con,(strip_tags($_POST["telT"],ENT_QUOTES)));//Escanpando caracteres 
+				
+				$id_alumno = ''; // Valor autoincremental, puedes dejarlo vacío
+                $noControl = mysqli_real_escape_string($con, (strip_tags($_POST["n_control"], ENT_QUOTES)));
+                $nombre = mysqli_real_escape_string($con, (strip_tags($_POST["nombre"], ENT_QUOTES))); // Escapa y elimina caracteres especiales del campo 'nombre'
+                $apellido_P = mysqli_real_escape_string($con, (strip_tags($_POST["ap"], ENT_QUOTES)));
+                $apellido_M = mysqli_real_escape_string($con, (strip_tags($_POST["apm"], ENT_QUOTES)));
+                $curp = mysqli_real_escape_string($con, (strip_tags($_POST["curp"], ENT_QUOTES)));
+                $fecha_nac = mysqli_real_escape_string($con, (strip_tags($_POST["fecha_nac"], ENT_QUOTES)));
+                $fecha_registro = mysqli_real_escape_string($con, (strip_tags($_POST["fecha_reg"], ENT_QUOTES)));
+                $estado_act = mysqli_real_escape_string($con, (strip_tags($_POST["estatus"], ENT_QUOTES)));
+                $id_grupo = mysqli_real_escape_string($con, (strip_tags($_POST["Grupo"], ENT_QUOTES)));
+                $grado = mysqli_real_escape_string($con, (strip_tags($_POST["Grado"], ENT_QUOTES)));
+                $id_padre = mysqli_real_escape_string($con, (strip_tags($_POST["IdPadre"], ENT_QUOTES))); 
 				/*consulta que verifica que no exista otro igual */
-                $miConsulta = "select * from ficha where curp ='$curp'"; //crear consulta que seleccione el registro donde el campo codigo sea igual a la variable $codigo
+                $miConsulta = "select * from alumno where nombre ='$nombre'"; //crear consulta que seleccione el registro donde el campo codigo sea igual a la variable $codigo
                 $cek = mysqli_query($con, $miConsulta);
                 /*condicion */
                 if(mysqli_num_rows($cek) == 0){
                         /*inserta los valores que estan en los campos de texto */
-                        $miConsulta = "INSERT INTO ficha (Nombre,ApeP,ApeM,curp,fecha_nac,calle,Provincia,Poblacion,CP,nombreT,ApeP_T,ApeM_T,fecha_nac_T,calle_T,provincia_T,Poblacion_T,CP_T,telefono ,precio) VALUES('{$_POST["nombre"]}','{$_POST["ap"]}','{$_POST["apm"]}','{$_POST["curp"]}','{$_POST["fecha_nac"]}','{$_POST["calle"]}','{$_POST["no"]}','{$_POST["colonia"]}','{$_POST["cp"]}','{$_POST["nombreT"]}','{$_POST["apT"]}','{$_POST["apmT"]}','{$_POST["fecha_nacT"]}','{$_POST["calleT"]}','{$_POST["noT"]}','{$_POST["coloniaT"]}','{$_POST["cpT"]}','{$_POST["telT"]}',300)"; //crear la consulta del INSERT INTO 
+                        $query = "INSERT INTO alumno (id_alumno, noControl, nombre, apellido_P, apellido_M, curp, fecha_nac, 
+                        fecha_registro, estado_act, id_grupo, grado, id_padre)
+                        VALUES ('$id_alumno', '$noControl', '$nombre', '$apellido_P', '$apellido_M', '$curp', '$fecha_nac', 
+                        '$fecha_registro', '$estado_act', '$id_grupo', '$grado', '$id_padre')";
+
 						$insert = mysqli_query($con, $miConsulta) or die(mysqli_error());
 						if($insert){
-                            /**Alerta de se hizo el registro */
-							echo '<script type="text/javascript">
-                            alert("Ficha Guardada");
-                            </script>';
+                            ?>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                        // Tu código SweetAlert aquí
+                        swal({
+                                title: "Genial!",
+                                text: "Se Registro un alumno con éxito",
+                                icon: "success",
+                                button: "Listo"
+                            }).then(function() {
+                                window.location.href = "../PHP/mostar_alumno.php";
+                            });
+                        });
+                    </script>
+         <?php
 						}else{
-							echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Error. No se pudo guardar los datos !</div>';
-						}
+                            ?>
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function() {
+                                // Tu código SweetAlert aquí
+                                swal({
+                                        title: "",
+                                        text: "Ocurrio un error inesperado",
+                                        icon: "error",
+                                        button: "Listo"
+                                    }).then(function() {
+                                        window.location.href = "../PHP/agregar_alumno.php";
+                                    });
+                                });
+                            </script>
+                 <?php						}
                     }
                 else{
-                    /**Alerta de que existe el registro cambiar a lo que se este registrando */
-                    echo '<script type="text/javascript">
-                            alert("Curp ya existe");
-                            </script>';
+                    ?>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                        // Tu código SweetAlert aquí
+                        swal({
+                                title: "",
+                                text: "El alumno ya extiste",
+                                icon: "info",
+                                button: "Listo"
+                            }).then(function() {
+                                window.location.href = "../PHP/agregar_alumno.php";
+                            });
+                        });
+                    </script>
+         <?php
                 }
 			}
 			?>

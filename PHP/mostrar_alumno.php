@@ -6,13 +6,13 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="../CSS/mostrar.css" rel="stylesheet" type="text/css">
+	<link href="../CSS/pro.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 	<title>Lista de Profesores</title>
 
 </head>
 <body>
-	<div>
+	<div clas="container">
 		<div >
 			<h2 class="h2">Lista de alumnos</h2>
 			<hr />
@@ -51,8 +51,8 @@
 			</form>
 			<br />
 
-			<div >
-			<table  class="tabladatos">
+			<div clas="g" >
+			<table  class="table">
 				<!--Aqui se agregan los campos que van a mostrar en la tabla los titulos solamente-->
 				<tr>
                     <th>No</th>
@@ -75,24 +75,19 @@
 				 * si no necesitan el filtro deberan borrar esta parte del codigo que va desde 
 				 * AQUI
 				 */
+				include 'conexion.php';
 				if($filter){
-                    $miConsulta = "select * from profesor";   //crear una consulta que muestre a todos los empleados de la tabla empleados 
+                    $miConsulta = "select * from alumno";   //crear una consulta que muestre a todos los empleados de la tabla empleados 
                                         //que coincidan con el contenido del campo estado y de la variable $filter
 					$sql = mysqli_query($con, $miConsulta);
 				}else{
-                    $miConsulta = "select * from profesor"; //crear una consulta que muestre a todos los empleados de la tabla empleados ordenadas por el campo código
+                    $miConsulta = "select * from alumno"; //crear una consulta que muestre a todos los empleados de la tabla empleados ordenadas por el campo código
 					$sql = mysqli_query($con, $miConsulta);
 				}
 				/**
 				 * HASTA AQUI
 				 */
 				if(mysqli_num_rows($sql) == 0){
-					/***
-					 * en cuanto funcione toda la parte de base de datos sustitir las etiquetas i en la parte de botnes 
-					 * en la parte de abajo pero sin quitar funcionalidad
-					 */
-					echo '<tr><td colspan="8">Proximamente datos </td><td></td><td></td><td><a href="#"><i class="bi bi-clipboard">Editar</i></a> <br> <a href="#"><i class="bi bi-trash">Borrar</i></a></td></tr>';
-					echo '';
 				}else{
 					$no = 1;
 					while($row = mysqli_fetch_assoc($sql)){
@@ -102,31 +97,26 @@
 						echo '
 						<tr>
 							
-							<td>'.$row['profesor_id'].'</td>
-							<td><a href="profile.php?nik='.$row['profesor_id'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['nombre'].'</a></td>
-                            <td>'.$row['lugar_nacimiento'].'</td>
-                            <td>'.$row['fecha_nacimiento'].'</td>
-							<td>'.$row['telefono'].'</td>
-                            <td>'.$row['puesto'].'</td>
-							<td>';
-							
-							/**
-							 * estos son botones los cuales sirven para eliminar y editar deben poner los campos de
-							 * la base de datos correspondientes
-							 */
-						echo '
-							</td>
-							<td>
+						<td>'.$row['id_alumno'].'</td>
+						<td>'.$row['noControl'].'</td>
+						<td>'.$row['nombre'].'</td>
+						<td>'.$row['apellido_P'].'</td>
+						<td>'.$row['apellido_M'].'</td>
+						<td>'.$row['fecha_nac'].'</td>
+						<td>'.$row['fecha_registro'].'</td>
+						<td>'.$row['estado_act'].'</td>
+						<td>'.$row['id_grupo'].'</td>
+						<td>'.$row['curp'].'</td>
+						<td>'.$row['grado'].'</td>
+						<td>'.$row['id_padre'].'</td>
 
-								
-							</td>
-							<td></td>
-							<td>
-							</td>
-
-
+						<td>
+								<a href="editar_alumno.php?nik='.$row['id_alumno'].'"><i class="bi bi-clipboard">Editar</i></a>
+								<a href="mostrar_alumno.php?nik='.$row['id_alumno'].'" name="aksi"><i class="bi bi-trash">Borrar</a></i>
+                                </td>
 						</tr>
 						';
+						
 						$no++;
 					}
 				}
