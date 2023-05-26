@@ -6,6 +6,11 @@
   <link rel="stylesheet" type="text/css" href="../CSS/horario.css">
 </head>
 <body>
+<div class="vid">
+  <p>Maestro: Andres Alvarado Escutia</p>
+  <p>Grupo: A</p>
+</div>
+
   <table>
     <tr>
       <th>Hora</th>

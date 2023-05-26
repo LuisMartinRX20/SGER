@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+body{
+    background-color: #15223b;
+}
+
+.todo{
+    background-color: #fff;
+    position: relative;
+    margin-top:5%;
+    margin-block-end: 5%;
+    margin-left: 10%;
+    margin-right: 100%;
+    height:500px;
+    width: 1010px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.imagen{
+    position: absolute;
+    
+    
+    padding-left: 8%;
+    padding-top: 12%;
+}
+.logo{
+    height: 300px;
+    width: 300px;
+}
+.login{
+   
+    float: right;
+    width: 60%;
+   /* margin-right: 32%;*/
+   
+}
+
+/*Botones */
+#botones{
+  left: 43%;
+  margin-top: 21.5%;
+}
+.opciones{
+    margin-top: 20%;
+}
+ul {
+    list-style-type: none;
+    text-align: center
+
+  }
+  
+.padre {
+    position: relative;
+    background-color: white;
+    border-style: none;
+    color: #15223b;
+    /*border: 2px solid  #15223b;*/
+    height: 30px;
+    width: 160px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 12px;
+    margin-right: 20px;
+    
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .personal {
+    position: relative;
+    background-color: white;
+    border-style: none;
+    color: #15223b;
+    /*border: 2px solid  #15223b;*/
+    height: 30px;
+    width: 160px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 12px;
+    margin-right: 20px;
+    
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .ficha {
+    position: relative;
+    background-color: white;
+    border-style: none;
+    color: #15223b;
+    /*border: 2px solid  #15223b;*/
+    height: 30px;
+    width: 160px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 12px;
+    margin-right: 20px;
+    
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+ li{
+    display: inline;
+    
+ } 
+
+.padre:hover {
+    background-color: #a0deea;
+    color: #15223b;
+    
+  }
+  .personal:hover {
+    background-color: #a0deea;
+    color: #15223b;
+    
+  }
+  .ficha:hover {
+    background-color: #a0deea;
+    color: #15223b;
+    
+  }
+
+.inicio{
+    position: relative;
+    left: 60%;
+    margin-top: 5%;
+    background-color: #a0deea;
+    color: #15223b;
+    border: 2px solid  #a0deea;
+    height: 30px;
+    width: 120px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    border-radius: 12px;
+    
+}
+
+.inicio:hover {
+    
+    color: #15223b;
+    background-color: #a0deea;
+}
+
+p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+.informacion{
+    width: 80%;
+    height: 20px;
+}
+#texto{
+ position: relative;
+  left: 10%;
+}
+
+.formulario{
+    display: flex;
+    margin-top: 8%;
+    margin-left: 11.5%;
+}
+
+a {
+    color: black;
+    padding: 0 4px;
+    text-decoration: none;
+  }
+
+/* animacion de paginado*/
+.usuario1{
+    min-width: 100% ;
+    opacity: 0;
+}
+.usuario2{
+  min-width: 100% ;
+  opacity: 0;
+}
+.usuario3{
+  min-width: 100% ;
+  opacity: 0;
+}
+
+/*activar formulario*/
+.usuario1.active{
+  opacity: 1;
+}
+.usuario2.active{
+  opacity: 1;
+}
+.usuario3.active{
+  opacity: 1;
+}
+
+/*mover formulario*/
+.usuario1.left{
+    margin-left: -100%;
+    opacity: 0;
+}
+.usuario2.left{
+  margin-left: -110%;
+  opacity: 0;
+}
+.usuario2.rigt{
+  margin-right: 100%;
+  opacity: 0;
+}
+/*activar botones*/
+.personal.active{
+  background-color:#a0deea ;
+}
+.padre.active{
+  background-color: #a0deea;
+
+}
+.ficha.active{
+  background-color: #a0deea;
+
+}
+

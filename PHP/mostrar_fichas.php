@@ -98,7 +98,52 @@
 					 * en cuanto funcione toda la parte de base de datos sustitir las etiquetas i en la parte de botnes 
 					 * en la parte de abajo pero sin quitar funcionalidad
 					 */
-					echo '<tr><td colspan="8">Proximamente datos </td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td><a href="#"><i class="bi bi-clipboard">Editar</i></a> <br> <a href="#"><i class="bi bi-trash">Borrar</i></a></td></tr>';
+					echo '<tr>
+					<th>1</th>
+                    <th>as-12</th>
+					<th>Arturo</th>
+                    <th>Mendez</th>
+                    <th>Velasco</th>
+					<th>28/05/2002</th>
+					<th>Camacho</th>
+                    <th>Mendez</th>
+                    <th>Guzman</th>
+					<th>20/08/1978</th>
+                    <th>23/05/2023</th>
+                    <th>Revolucion</th>
+					<th>independencia</th>
+                    <th>4</th>
+					<th>No Pagado</th>
+                    <th>224343@gmail.com</th>
+                    <th>PEREJPJ4345A2</th>
+					<td><a href="#"><i class="bi bi-clipboard">Editar</i></a>
+					 <br> <a href="#"><i class="bi bi-trash">Borrar</i></a></td>
+					 </tr>
+					 
+					 <tr>
+					<th>2</th>
+                    <th>as-13</th>
+					<th>Pablo</th>
+                    <th>Mendez</th>
+                    <th>Velasco</th>
+					<th>21/05/2002</th>
+					<th>Camacho</th>
+                    <th>Mendez</th>
+                    <th>Guzman</th>
+					<th>20/08/1978</th>
+                    <th>23/05/2023</th>
+                    <th>Revolucion</th>
+					<th>independencia</th>
+                    <th>4</th>
+					<th>No Pagado</th>
+                    <th>224343@gmail.com</th>
+                    <th>PEREJPJ4345A2</th>
+					<td><a href="#"><i class="bi bi-clipboard">Editar</i></a>
+					 <br> <a href="#"><i class="bi bi-trash">Borrar</i></a></td>
+					 </tr>
+					 
+					 
+					 ';
 					echo '';
 				}else{
 					$no = 1;

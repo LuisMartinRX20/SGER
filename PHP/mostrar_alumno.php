@@ -16,8 +16,7 @@
 		<div >
 			<h2 class="h2">Lista de alumnos</h2>
 			<hr />
-<!--
-			</*?php
+<?php
             // VALOR aksi es para borrar aqui esta la funcion borrar
 			if(isset($_GET['aksi']) == 'delete'){
 				// escaping, additionally removing everything that could be (html/javascript-) code
@@ -35,7 +34,7 @@
 					}
 				}
 			}
-			?>-->
+			?>
 <!--Si lo necesitan este es una lista para filtrar datos-->
 			<form  method="get">
 				<div class="form-group">

@@ -92,7 +92,45 @@
 					 * en cuanto funcione toda la parte de base de datos sustitir las etiquetas i en la parte de botnes 
 					 * en la parte de abajo pero sin quitar funcionalidad
 					 */
-					echo '<tr><td colspan="8">Proximamente datos </td><td></td><td></td><td></td><td></td><td><a href="#"><i class="bi bi-clipboard">Editar</i></a> <br> <a href="#"><i class="bi bi-trash">Borrar</i></a></td></tr>';
+					echo '<tr>
+					<th>1</th>
+					<th>osvaldo</th>
+                    <th>Gonzales</th>
+                    <th>Gonzales</th>
+                    <th>Primera</th>
+					<th>Las soledad</th>
+                    <th>12</th>
+					<th>12/02/2000</th>
+					<th>23/05/2023</th>
+					<th>Activo</th>
+                    <th>assaj@gmail.com</th>
+                    <th>987612hvsd</th>
+
+					<td>
+					<a href="#"><i class="bi bi-clipboard">Editar</i></a> <br> 
+					<a href="#"><i class="bi bi-trash">Borrar</i></a></td>
+					</tr>
+					
+					<tr>
+					<th>2</th>
+					<th>lalo</th>
+                    <th>kachi</th>
+                    <th>Garcia</th>
+                    <th>PrimeraSegunda</th>
+					<th>Las soledad</th>
+                    <th>12</th>
+					<th>12/12/2000</th>
+					<th>23/05/2023</th>
+					<th>Inactivo</th>
+                    <th>assaj@gmail.com</th>
+                    <th>987612hvsd</th>
+
+					<td>
+					<a href="#"><i class="bi bi-clipboard">Editar</i></a> <br> 
+					<a href="#"><i class="bi bi-trash">Borrar</i></a></td>
+					</tr>
+					
+					';
 					echo '';
 				}else{
 					$no = 1;
