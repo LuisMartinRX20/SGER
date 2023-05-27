@@ -28,7 +28,7 @@ require('conexion.php');
                             <!-- campos del formulario cambiar los que sean necesarios maximo 4 por pagina-->
                             <label for="nombre_materia">Nombre de la Materia:</label>
 
-                            <input type="text" name="nombre_materia" id="informacion" requiered>
+                            <input type="text" name="nombre_materia" id="informacion" required>
                     
                             <!--Indica en que pagina se encuentra agregar manualmente -->
                             <p>Pagina 1 de 1</p>

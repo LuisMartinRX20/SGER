@@ -103,11 +103,11 @@ require('conexion.php');
                         
                         
                         <p>Grado </p>
-                        <input type="text" name="grado" id="grado">
+                        <input type="text" name="grado" id="grado" required>
                         <p>Cantidad de alumnos </p>
-                        <input type="text" name="cantidad" id="cantidad">
+                        <input type="text" name="cantidad" id="cantidad" required>
                         <label for="id_profe">Seleccionar Profesor:</label>
-                        <select id="id_profe" name="id_profe">
+                        <select id="id_profe" name="id_profe" required>
                             <option value="">Seleccionar un Profesor</option>
                             <?php 
                             include '../PHP/obtener_profe.php';

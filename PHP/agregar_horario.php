@@ -86,7 +86,7 @@
 <div class="vid">
         <form action="../PHP/agregar_horario.php" method="POST">
             <label for="grupo"></label>
-            <select id="grupo" name="grupo">
+            <select id="grupo" name="grupo" required>
                 <option value="">Selecciona Grupo</option>
                 <?php 
                 include '../PHP/obtener_grupo.php';
@@ -98,7 +98,7 @@
             </select>
         </div>
         <label for="numeromaterias"></label>
-            <select name="n_materias" id="n_materias">
+            <select name="n_materias" id="n_materias" required>
                 <option value="6">Minimo materias 6</option>
                 <option value="8">Maximo materias 8</option>
             </select>

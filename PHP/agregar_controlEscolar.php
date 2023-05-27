@@ -74,13 +74,13 @@ include ('conexion.php');
                     <p>Nombre</p>
                     <!-- input donde se obtienen datos cambiar el nombre("name") ah el nombre del campo
                         que se esta menejando y ponerlos en las variables de arria -->
-                    <input type="text" name="nombre" id="informacion">
+                    <input type="text" name="nombre" id="informacion" required>
                     <p>Apellido Paterno</p>
-                    <input type="text" name="ap" id="informacion">
+                    <input type="text" name="ap" id="informacion" required>
                     <p>Apellido Materno</p>
-                    <input type="text" name="apm" id="informacion">
+                    <input type="text" name="apm" id="informacion" required>
                     <p>Calle</p>
-                    <input type="text" name="calle" id="informacion">
+                    <input type="text" name="calle" id="informacion" required>
                       <!--Indica en que pagina se encuentra agregar manualmente -->
                     <p>Pagina 1 de 3</p>
                     
@@ -97,7 +97,7 @@ include ('conexion.php');
                     <p>Colonia</p>
                     <input type="text" name="colonia" id="informacion">
                     <p>telefono</p>
-                    <input type="text" name="telefono" id="informacion">
+                    <input type="text" name="telefono" id="informacion" required>
                     <p>Correo</p>
                     <input type="text" name="correo" id="informacion">
                       <!--Indica en que pagina se encuentra agregar manualmente -->

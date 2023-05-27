@@ -16,7 +16,7 @@ Email	 	 : info@obedalvarado.pw
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/bootstrap-datepicker.css" rel="stylesheet">
-	<link href="../CSS/editar.css" rel="stylesheet">
+	<link href="../CSS/edit_horario.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	
@@ -104,45 +104,65 @@ Email	 	 : info@obedalvarado.pw
 				</script>
 				<?php			}
 			?>
-			<form class="form-horizontal" action="" method="POST">
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">ID Horario: </label>
-                    <div class="col-sm-2">
-                        <input type="text" name="id_horario" value="<?php echo $row['id_horario']; ?>" class="form-control" placeholder="ID horario" required>
-                    </div>
-                </div>
-                <label for="grupo"></label>
-                    <select id="grupo" name="grupo">
-                        <option value="">Selecciona Grupo</option>
-                        <?php 
-                        include '../PHP/obtener_grupo.php';
-                        foreach ($grupos as $grupo) { ?>
-                            <option value="<?php echo $grupo['id']; ?>">
-                                <?php echo $grupo['grado'] . ' ' . $grupo['grupo'] . ' ' . $grupo['profe']; ?>
-                            </option>
-                        <?php } ?>
-                    </select>
-                </div>
-                <label for="numeromaterias"></label>
-                    <select name="n_materias" id="n_materias">
-                        <option value="6">Minimo materias 6</option>
-                        <option value="8">Maximo materias 8</option>
-                    </select>
-                <label for="turno"></label>
-                    <select name="turno" id="turno">
-                        <option value='2'>Vespertino</option>
-                        <option value='1'>Matutino</option>
-                    </select>
 
+         <div class="vid">
+                        <form class="form-horizontal" action="editar_horario.php" method="POST">
+                            <div class="form-group">
+                                <label for="grupo" class="col-sm-3 control-label">Grupo:</label>
+                                <div class="col-sm-6">
+                                    <select id="grupo" name="grupo" class="form-control">
+                                        <option value="">Selecciona Grupo</option>
+                                        <?php 
+                                        include '../PHP/obtener_grupo.php';
+                                        foreach ($grupos as $grupo) { ?>
+                                            <option value="<?php echo $grupo['id']; ?>">
+                                                <?php echo $grupo['grado'] . ' ' . $grupo['grupo'] . ' ' . $grupo['profe']; ?>
+                                            </option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="numeromaterias" class="col-sm-3 control-label">Número de materias:</label>
+                                <div class="col-sm-6">
+                                    <select name="n_materias" id="n_materias" class="form-control">
+                                        <option value="6">Mínimo 6 materias</option>
+                                        <option value="8">Máximo 8 materias</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="turno" class="col-sm-3 control-label">Turno:</label>
+                                <div class="col-sm-6">
+                                    <select name="turno" id="turno" class="form-control">
+                                        <option value="2">Vespertino</option>
+                                        <option value="1">Matutino</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="id_horario" class="col-sm-3 control-label">ID Horario:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" name="id_horario" value="<?php echo $row['id_horario']; ?>" class="form-control" placeholder="ID horario" required>
+                                </div>
+                            </div>
 
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">&nbsp;</label>
-                    <div class="col-sm-6">
-                        <input type="submit" name="save" class="btn btn-sm btn-primary" value="Guardar datos">
-                        <a href="../PHP/mostrar_grupos.php" class="btn btn-sm btn-danger">Cancelar</a>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">&nbsp;</label>
+                                <div class="col-sm-6">
+                                    <input type="submit" name="save" class="boton" value="Guardar datos">
+                                    <a href="../PHP/mostrar_grupos.php" class="boton">Cancelar</a>
+                                </div>
+                            </div>
+
+                            
+                        </form>
                     </div>
-                </div>
-            </form>
+
+		
 
 		</div>
 	</div>

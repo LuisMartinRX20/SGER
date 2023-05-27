@@ -109,11 +109,11 @@ require('conexion.php');
                     <br>
                     <!-- campos del formulario cambiar los que sean necesarios maximo 4 por pagina-->
                     <p>Nombre</p>
-                    <input type="text" name="nombre" id="informacion">
+                    <input type="text" name="nombre" id="informacion"required>
                     <p>Apellido Paterno</p>
-                    <input type="text" name="ap" id="informacion">
+                    <input type="text" name="ap" id="informacion"required>
                     <p>Apellido Materno</p>
-                    <input type="text" name="apm" id="informacion">
+                    <input type="text" name="apm" id="informacion"required>
                     <p>Estado Actividad</p>
                     <select id="estatus" name="estatus" required>
                                 <option value="">Selecciona una opción</option>
@@ -132,13 +132,13 @@ require('conexion.php');
                 <p  class="encabezado2">Datos de Profesor</p>
                     <br>
                     <p >Calle</p>
-                    <input type="text" name="calle" id="informacion">
+                    <input type="text" name="calle" id="informacion"required>
                     <p>No.</p>
                     <input type="text" name="no" id="informacion">
                     <p>Colonia</p>
-                    <input type="text" name="colonia" id="informacion">
+                    <input type="text" name="colonia" id="informacion"required>
                     <p>Contraseña</p>
-                    <input type="text" name="contraseña" id="informacion">
+                    <input type="text" name="contraseña" id="informacion"required>
                       <!--Indica en que pagina se encuentra agregar manualmente -->
                     <p>Pagina 2 de 3</p>
                     
@@ -154,13 +154,13 @@ require('conexion.php');
                 <p  class="encabezado3">Datos de Profesor</p>
                 <br>
                     <p>Cedula</p>
-                    <input type="text" name="cedula" id="informacion">
+                    <input type="text" name="cedula" id="informacion" required>
                     <p>Telefono</p>
-                    <input type="text" name="telefono" id="informacion">
+                    <input type="text" name="telefono" id="informacion"required>
                     <p>Correo</p>
-                    <input type="text" name="correo" id="informacion">
+                    <input type="text" name="correo" id="informacion"required>
                     <p>RFC</p>
-                    <input type="text" name="RFC" id="informacion">
+                    <input type="text" name="RFC" id="informacion"required>
                     <br>
                     
                     <!--Indica en que pagina se encuentra agregar manualmente -->

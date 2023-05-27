@@ -148,7 +148,7 @@
                             <td>'.$row['id_grupo'].'</td>
 							<td> 
 								<a href="../PHP/editar_horario.php?nik='.$row['id_horario'].'"><i class="bi bi-clipboard">Editar</i></a> <br> 
-								<a href="mostrar_horario.php?aksi=delete&nik='.$row['id_horario'].'" name="aksi"><i class="bi bi-trash">Borrar</i></a>
+								<a href="mostrar_horarios.php?aksi=delete&nik='.$row['id_horario'].'" name="aksi"><i class="bi bi-trash">Borrar</i></a>
 							</td>
 							</tr>';
 						$no++;
