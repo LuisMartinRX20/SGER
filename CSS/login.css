@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 body{
     background-color: #15223b;
 }
@@ -13,6 +14,7 @@ body{
     height:500px;
     width: 1010px;
     overflow: hidden;
+    border-radius: 12px;
     border-radius: 12px;
 }
 
@@ -164,8 +166,8 @@ p{
 }
 
 .informacion{
-    width: 80%;
-    /*height: 20px;*/
+    width: 60%;
+    height: 20px;
 }
 #texto{
  position: relative;

@@ -105,7 +105,7 @@
                 <ul id="m4" class="list_show">
 
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Registrar pago</a>
+                        <a href="pago.php" target="frame" class="nav_link nav_link--inside">Registrar pago</a>
                     </li>
                 </ul>
 

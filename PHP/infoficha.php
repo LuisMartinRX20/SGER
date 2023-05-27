@@ -1,8 +1,8 @@
 <?php
 require('conexion.php');
 session_start();
-if(!isset($_SESSION['curp'])){
-	header("location: index.php");
+if(!isset($_SESSION['curpA'])){
+	header("location:../index.php");
 }
 
 ?>
@@ -22,16 +22,16 @@ if(!isset($_SESSION['curp'])){
     <div class="contenedor">
         <div class="info">
             <?php 
-                $curp=$_SESSION['curp'];
-                $consulta ="select * from ficha where curp='$curp'";
+                $curpA=$_SESSION['curpA'];
+                $consulta ="select * from ficha where curpA='$curpA'";
                 $query=mysqli_query($con,$consulta);
                 $row = mysqli_fetch_assoc($query);
                 ?>
             <ul>
-                <li>No Ficha: <?php echo $row['ficha_id'];?></li>
-                <li>Nombre Aspirante:<?php echo $row['Nombre']." ".$row['ApeP']." ".$row['ApeM'];?></li>
-                <li>CURP:<?php echo $row['curp'];?></li>
-                <li>Nombre Padre/Tutor:<?php echo $row['nombreT']." ".$row['ApeP_T']." ".$row['ApeM_T'];?></li>
+                <li>No Ficha: <?php echo $row['id_ficha'];?></li>
+                <li>Nombre Aspirante:<?php echo $row['nombreA']." ".$row['apellido_PA']." ".$row['apellido_MA'];?></li>
+                <li>CURP:<?php echo $row['curpA'];?></li>
+                <li>Nombre Padre/Tutor:<?php echo $row['nombreT']." ".$row['apellido_PT']." ".$row['apellido_MT'];?></li>
                 <li>Fecha de Pago:</li>
                 <li>Precio: <?php echo $row['precio'];?></li>
             </ul>
