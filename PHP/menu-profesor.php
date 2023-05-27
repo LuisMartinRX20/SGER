@@ -40,21 +40,21 @@
 
                 <div class="list_button list_button--click-1" id="Reinscripcion">
                     <img src="../ICONS/reinscripcion.svg" class="list_img">
-                    <a  class="nav_link">Tareas</a>
+                    <a href="#" class="nav_link">Tareas</a>
                     <img src="../ICONS/submenu.svg" class="list_arrow">
                 </div>
 
                 <ul id="m1" class="list_show">
                     <li class="list_inside" id="definir">
-                        <a href="nuevaTarea.php" target="frame" class="nav_link nav_link--inside">Nueva tarea</a>
+                        <a href="#" class="nav_link nav_link--inside">Nueva tarea</a>
                     </li>
 
                     <li class="list_inside">
-                        <a href="tarea.php" target="frame"  class="nav_link nav_link--inside">Mostrar tareas</a>
+                        <a href="#" class="nav_link nav_link--inside">Mostrar tareas</a>
                     </li>
 
                     <li class="list_inside">
-                        <a href="RevTarea.php" target="frame"  class="nav_link nav_link--inside">Revisar tarea</a>
+                        <a href="#" class="nav_link nav_link--inside">Revisar tarea</a>
                     </li>
                 </ul>
 
@@ -63,7 +63,7 @@
             <li class="list_item">
                 <div class="list_button" id="En-curso">
                     <img src="../ICONS/cursando.svg" class="list_img">
-                    <a href="VerCalif.php" target="frame"  class="nav_link">Calificaciones</a>
+                    <a href="#" class="nav_link">Calificaciones</a>
                 </div>
             </li>
            
@@ -77,11 +77,11 @@
 
                 <ul id="m2" class="list_show">
                     <li class="list_inside">
-                        <a href="NewPlaneacion.php" target="frame"  class="nav_link nav_link--inside">Crear planeicacion</a>
+                        <a href="#" class="nav_link nav_link--inside">Crear planeicacion</a>
                     </li>
 
                     <li class="list_inside">
-                        <a href="agregar_profesor.php" target="frame"  class="nav_link nav_link--inside">Mostrar planeacion</a>
+                        <a href="#" class="nav_link nav_link--inside">Mostrar planeacion</a>
                     </li>
 
                     
