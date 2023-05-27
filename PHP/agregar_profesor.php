@@ -45,7 +45,7 @@ require('conexion.php');
                         colonia, cedula, telefono, correo,estado_act, password) VALUES (' ', '$nombre', 
                         '$ap', '$apm','$RFC', '$calle','$no','$colonia','$cedula', 
                         '$tel', '$correo','$estadoA', '$password')"; //crear la consulta del INSERT INTO 
-						$insert = mysqli_query($con, $miConsulta) or die(mysqli_error());
+						$insert = mysqli_query($con, $miConsulta) or die(mysqli_error($con));
 						if($insert){
                             ?>
                             <script>

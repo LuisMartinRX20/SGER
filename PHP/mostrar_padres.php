@@ -6,18 +6,18 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="../CSS/mostrar.css" rel="stylesheet" type="text/css">
+	<link href="../CSS/pro.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 	<title>Lista de Profesores</title>
 
 </head>
 <body>
-	<div>
+	<div class="container">
 		<div >
 			<h2 class="h2">Lista de Padres</h2>
 			<hr />
-<!--
-			</*?php
+
+			<?php
             // VALOR aksi es para borrar aqui esta la funcion borrar
 			if(isset($_GET['aksi']) == 'delete'){
 				// escaping, additionally removing everything that could be (html/javascript-) code
@@ -35,7 +35,7 @@
 					}
 				}
 			}
-			?>-->
+			?>
 <!--Si lo necesitan este es una lista para filtrar datos-->
 			<form  method="get">
 				<div class="form-group">
@@ -51,8 +51,8 @@
 			</form>
 			<br />
 
-			<div >
-			<table  class="tabladatos">
+			<div class="g">
+			<table  class="table">
 				<!--Aqui se agregan los campos que van a mostrar en la tabla los titulos solamente-->
 				<tr>
                     <th>No</th>
@@ -60,112 +60,65 @@
                     <th>Apellido Materno</th>
                     <th>Apellido Paterno</th>
                     <th>Calle</th>
+					<th>Numero de casa</th>
 					<th>Colonia</th>
-                    <th>Numero de casa</th>
+                    <th>CP</th>
 					<th>Fecha Nacimiento</th>
 					<th>Fecha Registro</th>
-					<th>Estado</th>
+					<th>Estado de Actividad</th>
                     <th>Correo</th>
+					<th>Telefono</th>
                     <th>Contraseña</th>
-					
+					<th>Acciones</th>
 					
                     
 				</tr>
 				<?php
+				include 'conexion.php';
 				/**aqui se hace la consulta
 				 * si no necesitan el filtro deberan borrar esta parte del codigo que va desde 
 				 * AQUI
 				 */
 				if($filter){
-                    $miConsulta = "select * from profesor";   //crear una consulta que muestre a todos los empleados de la tabla empleados 
+                    $miConsulta = "select * from padre";   //crear una consulta que muestre a todos los empleados de la tabla empleados 
                                         //que coincidan con el contenido del campo estado y de la variable $filter
 					$sql = mysqli_query($con, $miConsulta);
 				}else{
-                    $miConsulta = "select * from profesor"; //crear una consulta que muestre a todos los empleados de la tabla empleados ordenadas por el campo código
+                    $miConsulta = "select * from padre"; //crear una consulta que muestre a todos los empleados de la tabla empleados ordenadas por el campo código
 					$sql = mysqli_query($con, $miConsulta);
 				}
 				/**
 				 * HASTA AQUI
 				 */
 				if(mysqli_num_rows($sql) == 0){
-					/***
-					 * en cuanto funcione toda la parte de base de datos sustitir las etiquetas i en la parte de botnes 
-					 * en la parte de abajo pero sin quitar funcionalidad
-					 */
-					echo '<tr>
-					<th>1</th>
-					<th>osvaldo</th>
-                    <th>Gonzales</th>
-                    <th>Gonzales</th>
-                    <th>Primera</th>
-					<th>Las soledad</th>
-                    <th>12</th>
-					<th>12/02/2000</th>
-					<th>23/05/2023</th>
-					<th>Activo</th>
-                    <th>assaj@gmail.com</th>
-                    <th>987612hvsd</th>
-
-					<td>
-					<a href="#"><i class="bi bi-clipboard">Editar</i></a> <br> 
-					<a href="#"><i class="bi bi-trash">Borrar</i></a></td>
-					</tr>
 					
-					<tr>
-					<th>2</th>
-					<th>lalo</th>
-                    <th>kachi</th>
-                    <th>Garcia</th>
-                    <th>PrimeraSegunda</th>
-					<th>Las soledad</th>
-                    <th>12</th>
-					<th>12/12/2000</th>
-					<th>23/05/2023</th>
-					<th>Inactivo</th>
-                    <th>assaj@gmail.com</th>
-                    <th>987612hvsd</th>
-
-					<td>
-					<a href="#"><i class="bi bi-clipboard">Editar</i></a> <br> 
-					<a href="#"><i class="bi bi-trash">Borrar</i></a></td>
-					</tr>
-					
-					';
-					echo '';
 				}else{
 					$no = 1;
 					while($row = mysqli_fetch_assoc($sql)){
-						/**en esta parte deben poner los campos de la base de datos debe conincidir el nombre
-						 * con la base de datos si es necesario agregar mas 
-						 */
+						
 						echo '
 						<tr>
+						<td>'.$row['id_padre'].'</td>
+						<td>'.$row['nombre'].'</td>
+						<td>'.$row['apellidoP'].'</td>
+						<td>'.$row['apellidoM'].'</td>
+						<td>'.$row['calle'].'</td>
+						<td>'.$row['no'].'</td>
+						<td>'.$row['colonia'].'</td>
+						<td>'.$row['CP'].'</td>
+						<td>'.$row['fecha_nac'].'</td>
+						<td>'.$row['fecha_registro'].'</td>
+						<td>'.$row['estado_act'].'</td>
+						<td>'.$row['correo'].'</td>
+						<td>'.$row['telefono'].'</td>
+						<td>'.$row['password'].'</td>
+							<td> 
+							<a href="../PHP/editar_padre.php?nik='.$row['id_padre'].'"><i class="bi bi-clipboard">Editar</i></a> <br> 
+						<a href="#"><i class="bi bi-trash">Borrar</i></a></td>
+							</td>
+						
+						</tr>';
 							
-							<td>'.$row['profesor_id'].'</td>
-							<td><a href="profile.php?nik='.$row['profesor_id'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['nombre'].'</a></td>
-                            <td>'.$row['lugar_nacimiento'].'</td>
-                            <td>'.$row['fecha_nacimiento'].'</td>
-							<td>'.$row['telefono'].'</td>
-                            <td>'.$row['puesto'].'</td>
-							<td>';
-							
-							/**
-							 * estos son botones los cuales sirven para eliminar y editar deben poner los campos de
-							 * la base de datos correspondientes
-							 */
-						echo '
-							</td>
-							<td>
-
-								
-							</td>
-							<td></td>
-							<td>
-							</td>
-
-
-						</tr>
-						';
 						$no++;
 					}
 				}

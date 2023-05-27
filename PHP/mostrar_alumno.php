@@ -67,6 +67,7 @@
                     <th>Curp</th>
 					<th>ID Padre</th>
 					
+					<th>Acciones</th>
 					
                     
 				</tr>

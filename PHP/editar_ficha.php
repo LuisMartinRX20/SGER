@@ -52,11 +52,10 @@ Email	 	 : info@obedalvarado.pw
 			if(isset($_POST['save'])){
 				$id_materia = mysqli_real_escape_string($con,(strip_tags($_POST["id_ficha"],ENT_QUOTES)));//Escanpando caracteres 
 				$estado_pago = mysqli_real_escape_string($con,(strip_tags($_POST["estado_pago"],ENT_QUOTES)));//Escanpando caracteres 
-				
+				$miConsulta = "UPDATE ficha set id_ficha='$id_ficha', estado_pago='$estado_pago' where id_ficha='$nik' "; //Crear el UPDATE para el campo codigo igual a variable $nik
                 
-                $miConsulta = "UPDATE ficha set id_ficha='$id_ficha', estado_pago='$estado_pago' where id_ficha='$nik' "; //Crear el UPDATE para el campo codigo igual a variable $nik
-                
-				$update = mysqli_query($con, $miConsulta) or die(mysqli_error());
+				$update = mysqli_query($con, $miConsulta) or die(mysqli_error($con));
+
 				if($update){
 					header("Location: editar_ficha.php?nik=".$nik."&pesan=sukses");
 				}else{
