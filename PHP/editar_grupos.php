@@ -40,26 +40,29 @@ Email	 	 : info@obedalvarado.pw
 			// escaping, additionally removing everything that could be (html/javascript-) code
 			$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
             //Buscar en el campo codigo el dato que coindica con la variable $nik para editar el registro
-            $miConsulta = "select * from materia where id_materia='{$_GET["nik"]}'"; 
+            $miConsulta = "select * from grupo where id_grupo='{$_GET["nik"]}'"; 
 			$sql = mysqli_query($con, $miConsulta);
 			if(mysqli_num_rows($sql) == 0){
 				/**RETORNA A LA TABLA ANTERIOR */
-				header("Location: mostrar_materias.php");
+				header("Location: mostrar_grupos.php");
 				
 			}else{
 				$row = mysqli_fetch_assoc($sql);
 			}
 
 			if(isset($_POST['save'])){
-				$id_materia = mysqli_real_escape_string($con,(strip_tags($_POST["id_materia"],ENT_QUOTES)));//Escanpando caracteres 
-				$nombre_materia = mysqli_real_escape_string($con,(strip_tags($_POST["nombre"],ENT_QUOTES)));//Escanpando caracteres 
-				
+				$id_grupo = mysqli_real_escape_string($con,(strip_tags($_POST["id_grupo"],ENT_QUOTES)));//Escanpando caracteres 
+				$grado = mysqli_real_escape_string($con,(strip_tags($_POST["grado"],ENT_QUOTES)));//Escanpando caracteres 
+				$grupo= mysqli_real_escape_string($con,(strip_tags($_POST["grupo"],ENT_QUOTES)));//Escanpando caracteres 
+				$id_profe = mysqli_real_escape_string($con,(strip_tags($_POST["id_profe"],ENT_QUOTES)));//Escanpando caracteres 
+				$cantidad = mysqli_real_escape_string($con,(strip_tags($_POST["cantidad"],ENT_QUOTES)));//Escanpando caracteres 
                 
-                $miConsulta = "UPDATE materia set id_materia='$id_materia', nombre='$nombre_materia' where id_materia='$nik' "; //Crear el UPDATE para el campo codigo igual a variable $nik
+                $miConsulta = "UPDATE grupo set id_grupo='$id_grupo', grado='$grado', grupo='$grupo', id_profe='$id_profe', cantidad_alumnos='$cantidad'
+                 where id_grupo='$nik' "; //Crear el UPDATE para el campo codigo igual a variable $nik
                 $update = mysqli_query($con, $miConsulta) or die(mysqli_error($con));
 
 				if($update){
-					header("Location: editar_materia.php?nik=".$nik."&pesan=sukses");
+					header("Location: editar_grupos.php?nik=".$nik."&pesan=sukses");
 				}else{
 					?>
 					<script>
@@ -70,7 +73,7 @@ Email	 	 : info@obedalvarado.pw
 						icon: "error",
 						button: "Listo"
 					}).then(function() {
-						window.location.href = "../PHP/mostrar_materias.php"; // Página a la que deseas redirigir después de la eliminación
+						window.location.href = "../PHP/mostrar_grupos.php"; // Página a la que deseas redirigir después de la eliminación
 					});})
 					</script>
 					<?php				}
@@ -86,30 +89,49 @@ Email	 	 : info@obedalvarado.pw
 					icon: "success",
 					button: "Listo"
 				}).then(function() {
-					window.location.href = "../PHP/mostrar_materias.php"; // Página a la que deseas redirigir después de la eliminación
+					window.location.href = "../PHP/mostrar_grupos.php"; // Página a la que deseas redirigir después de la eliminación
 				});})
 				</script>
 				<?php			}
 			?>
 			<form class="form-horizontal" action="" method="post">
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">ID Materia</label>
+                    <label class="col-sm-3 control-label">ID Grupo: </label>
                     <div class="col-sm-2">
-                        <input type="text" name="id_materia" value="<?php echo $row['id_materia']; ?>" class="form-control" placeholder="ID Materia" required>
+                        <input type="text" name="id_grupo" value="<?php echo $row['id_grupo']; ?>" class="form-control" placeholder="ID Grupo" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Nombre de la materia</label>
+                    <label class="col-sm-3 control-label"> Grado:  </label>
                     <div class="col-sm-4">
-                        <input type="text" name="nombre" value="<?php echo $row['nombre']; ?>" class="form-control" placeholder="Nombre de la materia" required>
+                        <input type="text" name="grado" value="<?php echo $row['grado']; ?>" class="form-control" placeholder="Grado" required>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Grupo: </label>
+                    <div class="col-sm-2">
+                        <input type="text" name="grupo" value="<?php echo $row['grupo']; ?>" class="form-control" placeholder="Grupo" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"> ID Profesor: </label>
+                    <div class="col-sm-4">
+                        <input type="text" name="id_profe" value="<?php echo $row['id_profe']; ?>" class="form-control" placeholder="ID Profesor" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"> Cantidad Alumnos: </label>
+                    <div class="col-sm-4">
+                        <input type="text" name="cantidad" value="<?php echo $row['cantidad_alumnos']; ?>" class="form-control" placeholder="Cantidad Alumnos" required>
+                    </div>
+                </div>
+
 
                 <div class="form-group">
                     <label class="col-sm-3 control-label">&nbsp;</label>
                     <div class="col-sm-6">
                         <input type="submit" name="save" class="btn btn-sm btn-primary" value="Guardar datos">
-                        <a href="../PHP/mostrar_materias.php" class="btn btn-sm btn-danger">Cancelar</a>
+                        <a href="../PHP/mostrar_grupos.php" class="btn btn-sm btn-danger">Cancelar</a>
                     </div>
                 </div>
             </form>

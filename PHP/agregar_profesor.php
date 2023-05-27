@@ -33,7 +33,7 @@ require('conexion.php');
 
                 $correo			 = mysqli_real_escape_string($con,(strip_tags($_POST["correo"],ENT_QUOTES)));//Escanpando caracteres 
                 $estadoA		 = mysqli_real_escape_string($con,(strip_tags($_POST["estatus"],ENT_QUOTES)));//Escanpando caracteres 
-                $password		 = mysqli_real_escape_string($con,(strip_tags($_POST["password"],ENT_QUOTES)));//Escanpando caracteres 
+                $password		 = mysqli_real_escape_string($con,(strip_tags($_POST["contraseña"],ENT_QUOTES)));//Escanpando caracteres 
                 
 				/*consulta que verifica que no exista otro igual */
                 $miConsulta = "select * from ficha where RFC ='$RFC'"; //crear consulta que seleccione el registro donde el campo codigo sea igual a la variable $codigo
@@ -159,8 +159,10 @@ require('conexion.php');
                     <input type="text" name="telefono" id="informacion">
                     <p>Correo</p>
                     <input type="text" name="correo" id="informacion">
+                    <p>RFC</p>
+                    <input type="text" name="RFC" id="informacion">
                     <br>
-                    <br><br><br>
+                    
                     <!--Indica en que pagina se encuentra agregar manualmente -->
                     <p>Pagina 3 de 3</p>
                     <!--boton que cambia de ventana a la anterior -->

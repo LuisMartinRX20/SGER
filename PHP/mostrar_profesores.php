@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Lista de Profesores</title>
-	<link href="../CSS/pro.css" rel="stylesheet" >
+	<link href="../CSS/prof.css" rel="stylesheet" >
 </head>
 <body>
 	<div class="container">
@@ -15,21 +15,64 @@
 			<hr />
 
 			<?php
+			include 'conexion.php';
             // VALOR aksi es para borrar aqui esta la funcion borrar
 			if(isset($_GET['aksi']) == 'delete'){
 				// escaping, additionally removing everything that could be (html/javascript-) code
 				$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
-                $miConsulta = "select * from profesor where codigo='$nik'"; //buscar el empleado que tenga en el campo codigo lo que hay en la variable $nik para ser eliminado
+                $miConsulta = "select * from profesor where id_profesor='$nik'"; //buscar el empleado que tenga en el campo codigo lo que hay en la variable $nik para ser eliminado
 				$cek = mysqli_query($con,$miConsulta);
 				if(mysqli_num_rows($cek) == 0){
-					echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> No se encontraron datos.</div>';
+					?>
+					<script>
+						document.addEventListener("DOMContentLoaded", function() {
+								// Tu código SweetAlert aquí
+								swal({
+									title: "¿Ah caray?",
+									text: "No se encontraron datos",
+									icon: "info",
+									button: "Listo"
+								}).then(function() {
+									window.location.href = "../PHP/mostrar_profesores.php";
+								});
+							});
+					</script>
+					<?php
 				}else{
-					$delete = mysqli_query($con, "DELETE FROM profesor WHERE codigo='$nik'");
+					$delete = mysqli_query($con, "DELETE FROM profesor WHERE id_profesor='$nik'");
 					if($delete){
-						echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Datos eliminado correctamente.</div>';
+						?>
+						<script>
+								document.addEventListener("DOMContentLoaded", function() {
+								// Tu código SweetAlert aquí
+								swal({
+									title: "",
+									text: "Se elimino el Profesor de forma correcta",
+									icon: "success",
+									button: "Listo"
+								}).then(function() {
+									window.location.href = "../PHP/mostrar_profesores.php";
+								});
+							});
+						</script>
+						<?php
+
 					}else{
-						echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error, no se pudo eliminar los datos.</div>';
-					}
+						?>
+						<script>
+								document.addEventListener("DOMContentLoaded", function() {
+								// Tu código SweetAlert aquí
+								swal({
+									title: "¿Ah caray?",
+									text: "No se pudo eliminar el profesor",
+									icon: "error",
+									button: "Listo"
+								}).then(function() {
+									window.location.href = "../PHP/mostrar_profesores.php";
+								});
+							});
+						</script>
+						<?php					}
 				}
 			}
 			?>
@@ -37,13 +80,11 @@
 			<form  method="get">
 				<div class="form-group">
 					<select name="filter" class="form-control" onchange="form.submit()">
-						<option value="0">Filtros de datos por</option>
+						<option value="">Filtros de datos por</option>
 						<!--Estos son los campos que deben modificar si desean aplicar filtros-->
 						<?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
-						<option value="1" <?php if($filter == 'Tetap'){ echo 'selected'; } ?>>Activo</option>
-						<option value="2" <?php if($filter == 'Kontrak'){ echo 'selected'; } ?>>Inactivo</option>
-                        <option value="2" <?php if($filter == 'Kontrak'){ echo 'selected'; } ?>>Grupo</option>
-						<option value="2" <?php if($filter == 'Kontrak'){ echo 'selected'; } ?>>Grado</option>
+						<option value="1" <?php if($filter == '1'){ echo 'selected'; } ?>>Activo</option>
+						<option value="2" <?php if($filter == '2' ){ echo 'selected'; } ?>>Inactivo</option>
 					</select>
 				</div>
 			</form>
@@ -71,20 +112,16 @@
                     
 				</tr>
 				<?php
-				/**aqui se hace la consulta
-				 * si no necesitan el filtro deberan borrar esta parte del codigo que va desde 
-				 * AQUI
-				 */
-				include 'conexion.php';
-				if($filter){
-                    $miConsulta = "select * from profesor";   //crear una consulta que muestre a todos los empleados de la tabla empleados 
-                                        //que coincidan con el contenido del campo estado y de la variable $filter
+				if ($filter) {
+					if ($filter === '1' || $filter === '2'){
+						$miConsulta = "SELECT * FROM profesor WHERE estado_act = '$filter' "; // Consulta con filtro por estado
+					} 
+					$sql = mysqli_query($con, $miConsulta);
+				} else {
+					$miConsulta = "SELECT * FROM profesor"; // Consulta sin filtro
 					$sql = mysqli_query($con, $miConsulta);
 				}
-				$sql = "SELECT * FROM profesor";
-                $result = mysqli_query($con, $sql);
-
-                if (mysqli_num_rows($result) == 0) {
+                if (mysqli_num_rows($sql) == 0) {
                     ?>
                             <script>
                             document.addEventListener("DOMContentLoaded", function() {
@@ -102,7 +139,7 @@
                             <?php
                 } else {
                     $no = 1;
-                    while ($row = mysqli_fetch_assoc($result)) {
+                    while ($row = mysqli_fetch_assoc($sql)) {
                         echo '<tr>
                                 <td>'.$row['id_profesor'].'</td>
                                 <td>'.$row['nombre'].'</td>
@@ -121,7 +158,7 @@
 								
                                 <td>
 								<a href="editar_profesor.php?nik='.$row['id_profesor'].'"><i class="bi bi-clipboard">Editar</i></a>
-								<a href="mostrar_profesores.php?nik='.$row['id_profesor'].'" name="aksi"><i class="bi bi-trash">Borrar</a></i>
+								<a href="mostrar_profesores.php?aksi=delete&nik='.$row['id_profesor'].'" name="aksi"><i class="bi bi-trash">Borrar</i></a>
                                 </td>
                             </tr>';
                         $no++;

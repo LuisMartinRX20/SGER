@@ -20,23 +20,66 @@
             <hr />
 
 			<?php
-				// VALOR aksi es para borrar aqui esta la funcion borrar
-				if(isset($_GET['aksi']) == 'delete'){
-					// escaping, additionally removing everything that could be (html/javascript-) code
-					$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
-					$miConsulta = "select * from materias where id_materia='$nik'"; //buscar el empleado que tenga en el campo codigo lo que hay en la variable $nik para ser eliminado
-					$cek = mysqli_query($con,$miConsulta);
-					if(mysqli_num_rows($cek) == 0){
-						echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> No se encontraron datos.</div>';
+			include 'conexion.php';
+            // VALOR aksi es para borrar aqui esta la funcion borrar
+			if(isset($_GET['aksi']) == 'delete'){
+				// escaping, additionally removing everything that could be (html/javascript-) code
+				$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
+                $miConsulta = "select * from materia where id_materia='$nik'"; //buscar el empleado que tenga en el campo codigo lo que hay en la variable $nik para ser eliminado
+				$cek = mysqli_query($con,$miConsulta);
+				if(mysqli_num_rows($cek) == 0){
+					?>
+					<script>
+						document.addEventListener("DOMContentLoaded", function() {
+								// Tu código SweetAlert aquí
+								swal({
+									title: "¿Ah caray?",
+									text: "No se encontraron datos",
+									icon: "info",
+									button: "Listo"
+								}).then(function() {
+									window.location.href = "../PHP/mostrar_materias.php";
+								});
+							});
+					</script>
+					<?php
+				}else{
+					$delete = mysqli_query($con, "DELETE FROM materia WHERE id_materia='$nik'");
+					if($delete){
+						?>
+						<script>
+								document.addEventListener("DOMContentLoaded", function() {
+								// Tu código SweetAlert aquí
+								swal({
+									title: "",
+									text: "Se elimino la materia de forma correcta",
+									icon: "success",
+									button: "Listo"
+								}).then(function() {
+									window.location.href = "../PHP/mostrar_materias.php";
+								});
+							});
+						</script>
+						<?php
+
 					}else{
-						$delete = mysqli_query($con, "DELETE FROM materia WHERE id_materia='$nik'");
-						if($delete){
-							echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Datos eliminado correctamente.</div>';
-						}else{
-							echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error, no se pudo eliminar los datos.</div>';
-						}
-					}
+						?>
+						<script>
+								document.addEventListener("DOMContentLoaded", function() {
+								// Tu código SweetAlert aquí
+								swal({
+									title: "¿Ah caray?",
+									text: "No se pudo eliminar la materia",
+									icon: "error",
+									button: "Listo"
+								}).then(function() {
+									window.location.href = "../PHP/mostrar_materias.php";
+								});
+							});
+						</script>
+						<?php					}
 				}
+			}
 			?>
 
 
@@ -81,7 +124,7 @@
                                 <td>'.$row['nombre'].'</td>
                                 <td>
 								<a href="../PHP/editar_materia.php?nik='.$row['id_materia'].'"><i class="bi bi-clipboard">Editar</i></a>
-								<a href="#?nik='.$row['id_materia'].'" name="aksi"><i class="bi bi-trash">Borrar</a></i>
+								<a href="../PHP/mostrar_materias.php?aksi=delete&nik='.$row['id_materia'].'" name="aksi"><i class="bi bi-trash">Borrar</i></a>
                                 </td>
                             </tr>';
                         $no++;

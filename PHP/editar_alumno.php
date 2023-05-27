@@ -11,7 +11,7 @@ Email	 	 : info@obedalvarado.pw
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Datos del Profesor</title>
+	<title>Datos del Alumno</title>
 
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -32,57 +32,55 @@ Email	 	 : info@obedalvarado.pw
 	</nav>
 	<div class="container">
 		<div class="content">
-			<h2>Datos del Profesor &raquo; Editar datos</h2>
+			<h2>Datos del Alumno &raquo; Editar datos</h2>
 			<hr />
 			
 			<?php
-			include 'conexion.php';
+			include '../PHP/conexion.php';
 			// escaping, additionally removing everything that could be (html/javascript-) code
 			$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
             //Buscar en el campo codigo el dato que coindica con la variable $nik para editar el registro
-            $miConsulta = "select * from profesor where id_profesor='{$_GET["nik"]}'"; 
+            $miConsulta = "select * from alumno where id_alumno='{$_GET["nik"]}'"; 
 			$sql = mysqli_query($con, $miConsulta);
 			if(mysqli_num_rows($sql) == 0){
 				/**RETORNA A LA TABLA ANTERIOR */
-				header("Location: mostrar_profesores.php");
+				header("Location: mostrar_alumno.php");
 				
 			}else{
 				$row = mysqli_fetch_assoc($sql);
 			}
 			if(isset($_POST['save'])){
-                $id_profesor = mysqli_real_escape_string($con, (strip_tags($_POST["id_profesor"], ENT_QUOTES))); // Escapando caracteres
+                $id_alumno = mysqli_real_escape_string($con, (strip_tags($_POST["id_alumno"], ENT_QUOTES))); // Escapando caracteres
                 $nombre = mysqli_real_escape_string($con, (strip_tags($_POST["nombre"], ENT_QUOTES))); // Escapando caracteres
                 $apellido_P = mysqli_real_escape_string($con, (strip_tags($_POST["apellido_P"], ENT_QUOTES))); // Escapando caracteres
                 $apellido_M = mysqli_real_escape_string($con, (strip_tags($_POST["apellido_M"], ENT_QUOTES))); // Escapando caracteres
-                $RFC = mysqli_real_escape_string($con, (strip_tags($_POST["RFC"], ENT_QUOTES))); // Escapando caracteres
-                $calle = mysqli_real_escape_string($con, (strip_tags($_POST["calle"], ENT_QUOTES))); // Escapando caracteres
-                $no = mysqli_real_escape_string($con, (strip_tags($_POST["no"], ENT_QUOTES))); // Escapando caracteres
-                $colonia = mysqli_real_escape_string($con, (strip_tags($_POST["colonia"], ENT_QUOTES))); // Escapando caracteres
-                $cedula = mysqli_real_escape_string($con, (strip_tags($_POST["cedula"], ENT_QUOTES))); // Escapando caracteres
-                $telefono = mysqli_real_escape_string($con, (strip_tags($_POST["telefono"], ENT_QUOTES))); // Escapando caracteres
-                $correo = mysqli_real_escape_string($con, (strip_tags($_POST["correo"], ENT_QUOTES))); // Escapando caracteres
-                $estado_act = mysqli_real_escape_string($con, (strip_tags($_POST["estado_act"], ENT_QUOTES))); // Escapando caracteres
-                $password = mysqli_real_escape_string($con, (strip_tags($_POST["password"], ENT_QUOTES))); // Escapando caracteres
+                $curp = mysqli_real_escape_string($con, (strip_tags($_POST["curp"], ENT_QUOTES))); // Escapando caracteres
+                $fecha_nac = mysqli_real_escape_string($con, (strip_tags($_POST["fecha_nac"], ENT_QUOTES))); // Escapando caracteres
+                $fecha_registro = mysqli_real_escape_string($con, (strip_tags($_POST["fecha_registro"], ENT_QUOTES))); // Escapando caracteres
+                $estado_act = mysqli_real_escape_string($con, (strip_tags($_POST["estado_act"], ENT_QUOTES))); // Escapando caracteress
+
+                $id_grupo = mysqli_real_escape_string($con, (strip_tags($_POST["id_grupo"], ENT_QUOTES))); // Escapando caracteres
+                $grado = mysqli_real_escape_string($con, (strip_tags($_POST["grado"], ENT_QUOTES))); // Escapando caracteres
+                $id_padre = mysqli_real_escape_string($con, (strip_tags($_POST["id_padre"], ENT_QUOTES))); // Escapando caracteress
                                 
                 
-                $miConsulta = "UPDATE profesor set 
+                $miConsulta = "UPDATE alumno set 
+                            id_alumno='$id_alumno',
                             nombre = '$nombre',
                             apellido_P = '$apellido_P',
                             apellido_M = '$apellido_M',
-                            RFC = '$RFC',
-                            calle = '$calle',
-                            no = '$no',
-                            colonia = '$colonia',
-                            cedula = '$cedula',
-                            telefono = '$telefono',
-                            correo = '$correo',
+                            curp = '$curp',
+                            fecha_nac = '$fecha_nac',
+                            fecha_registro = '$fecha_registro',
                             estado_act = '$estado_act',
-                            password = '$password'
-                            WHERE id_profesor = '$id_profesor'"; //Crear el UPDATE para el campo codigo igual a variable $nik
+                            id_grupo='$id_grupo',
+                            grado='$grado',
+                            id_padre='$id_padre'
+                            WHERE id_alumno = '$id_alumno' "; //Crear el UPDATE para el campo codigo igual a variable $nik
                 
 				$update = mysqli_query($con, $miConsulta) or die(mysqli_error($con));
 				if($update){
-					header("Location: editar_profesor.php?nik=".$nik."&pesan=sukses");
+					header("Location: editar_alumno.php?nik=".$nik."&pesan=sukses");
 				}else{
 					?>
 					<script>
@@ -93,7 +91,7 @@ Email	 	 : info@obedalvarado.pw
 						icon: "error",
 						button: "Listo"
 					}).then(function() {
-						window.location.href = "../PHP/mostrar_profesores.php"; // Página a la que deseas redirigir después de la eliminación
+						window.location.href = "../PHP/mostrar_alumno.php"; // Página a la que deseas redirigir después de la eliminación
 					});})
 					</script>
 					<?php				}
@@ -109,22 +107,22 @@ Email	 	 : info@obedalvarado.pw
 					icon: "success",
 					button: "Listo"
 				}).then(function() {
-					window.location.href = "../PHP/mostrar_profesores.php"; // Página a la que deseas redirigir después de la eliminación
+					window.location.href = "../PHP/mostrar_alumno.php"; // Página a la que deseas redirigir después de la eliminación
 				});})
 				</script>
 				<?php			}
 			?>
-			<form class="form-horizontal" action="" method="post">
+			<form class="form-horizontal" action="" method="POST">
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">ID Profesor</label>
+                        <label class="col-sm-3 control-label">ID Alumno</label>
                         <div class="col-sm-2">
-                            <input type="text" name="id_profesor" value="<?php echo $row['id_profesor']; ?>" class="form-control" placeholder="ID profesor" required>
+                            <input type="text" name="id_alumno" value="<?php echo $row['id_alumno']; ?>" class="form-control" placeholder="ID Materia" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Nombre del Profesor</label>
+                        <label class="col-sm-3 control-label">Nombre del Alumno</label>
                         <div class="col-sm-4">
-                            <input type="text" name="nombre" value="<?php echo $row['nombre']; ?>" class="form-control" placeholder="Nombre" required>
+                            <input type="text" name="nombre" value="<?php echo $row['nombre']; ?>" class="form-control" placeholder="Nombre de la materia" required>
                         </div>
                     </div>
 
@@ -141,45 +139,21 @@ Email	 	 : info@obedalvarado.pw
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">RFC</label>
-                        <div class="col-sm-4">
-                            <input type="text" name="RFC" value="<?php echo $row['RFC']; ?>" class="form-control" placeholder="RFC" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label class="col-sm-3 control-label">Calle</label>
                         <div class="col-sm-4">
-                            <input type="text" name="calle" value="<?php echo $row['calle']; ?>" class="form-control" placeholder="Calle" required>
+                            <input type="text" name="curp" value="<?php echo $row['curp']; ?>" class="form-control" placeholder="curp" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Número</label>
-                        <div class="col-sm-2">
-                            <input type="text" name="no" value="<?php echo $row['no']; ?>" class="form-control" placeholder="Número" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Colonia</label>
+                        <label class="col-sm-3 control-label">Fecha Nacimiento</label>
                         <div class="col-sm-4">
-                            <input type="text" name="colonia" value="<?php echo $row['colonia']; ?>" class="form-control" placeholder="Colonia" required>
+                            <input type="text" name="fecha_nac" value="<?php echo $row['fecha_nac']; ?>" class="form-control" placeholder="fecha nacimiento" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Cédula</label>
+                        <label class="col-sm-3 control-label">Fecha registro</label>
                         <div class="col-sm-4">
-                            <input type="text" name="cedula" value="<?php echo $row['cedula']; ?>" class="form-control" placeholder="Cédula" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Teléfono</label>
-                        <div class="col-sm-4">
-                            <input type="text" name="telefono" value="<?php echo $row['telefono']; ?>" class="form-control" placeholder="Teléfono" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Correo</label>
-                        <div class="col-sm-4">
-                            <input type="email" name="correo" value="<?php echo $row['correo']; ?>" class="form-control" placeholder="Correo" required>
+                            <input type="text" name="fecha_registro" value="<?php echo $row['fecha_registro']; ?>" class="form-control" placeholder="fecha registro" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -189,9 +163,21 @@ Email	 	 : info@obedalvarado.pw
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Contraseña</label>
+                        <label class="col-sm-3 control-label">Grupo</label>
                         <div class="col-sm-4">
-                            <input type="password" name="password" value="<?php $row['password']; ?>" class="form-control" placeholder="Contraseña" required>
+                            <input type="text" name="id_grupo" value="<?php echo $row['id_grupo']; ?>" class="form-control" placeholder="Grupo" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Grado</label>
+                        <div class="col-sm-4">
+                            <input type="text" name="grado" value="<?php echo $row['grado']; ?>" class="form-control" placeholder="Grado" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">ID Padre</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="id_padre" value="<?php echo $row['id_padre']; ?>" class="form-control" placeholder="ID Padre" required>
                         </div>
                     </div>
 
@@ -199,7 +185,7 @@ Email	 	 : info@obedalvarado.pw
                         <label class="col-sm-3 control-label">&nbsp;</label>
                         <div class="col-sm-6">
                             <input type="submit" name="save" class="btn btn-sm btn-primary" value="Guardar datos">
-                            <a href="../PHP/mostrar_profesor.php" class="btn btn-sm btn-danger">Cancelar</a>
+                            <a href="../PHP/mostrar_alumno.php" class="btn btn-sm btn-danger">Cancelar</a>
                         </div>
                     </div>
                 </form>

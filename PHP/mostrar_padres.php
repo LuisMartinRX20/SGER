@@ -6,9 +6,9 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="../CSS/pro.css" rel="stylesheet" type="text/css">
+	<link href="../CSS/mostrar_padre.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-	<title>Lista de Profesores</title>
+	<title>Lista de Padres</title>
 
 </head>
 <body>
@@ -18,35 +18,77 @@
 			<hr />
 
 			<?php
+			include 'conexion.php';
             // VALOR aksi es para borrar aqui esta la funcion borrar
 			if(isset($_GET['aksi']) == 'delete'){
 				// escaping, additionally removing everything that could be (html/javascript-) code
 				$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
-                $miConsulta = "select * from profesor where codigo='$nik'"; //buscar el empleado que tenga en el campo codigo lo que hay en la variable $nik para ser eliminado
+                $miConsulta = "select * from padre where id_padre='$nik'"; //buscar el empleado que tenga en el campo codigo lo que hay en la variable $nik para ser eliminado
 				$cek = mysqli_query($con,$miConsulta);
 				if(mysqli_num_rows($cek) == 0){
-					echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> No se encontraron datos.</div>';
+					?>
+					<script>
+						document.addEventListener("DOMContentLoaded", function() {
+								// Tu código SweetAlert aquí
+								swal({
+									title: "¿Ah caray?",
+									text: "No se encontraron datos",
+									icon: "info",
+									button: "Listo"
+								}).then(function() {
+									window.location.href = "../PHP/mostrar_padres.php";
+								});
+							});
+					</script>
+					<?php
 				}else{
-					$delete = mysqli_query($con, "DELETE FROM profesor WHERE codigo='$nik'");
+					$delete = mysqli_query($con, "DELETE FROM padre WHERE id_padre='$nik'");
 					if($delete){
-						echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Datos eliminado correctamente.</div>';
+						?>
+						<script>
+								document.addEventListener("DOMContentLoaded", function() {
+								// Tu código SweetAlert aquí
+								swal({
+									title: "",
+									text: "Se elimino el Padre de forma correcta",
+									icon: "success",
+									button: "Listo"
+								}).then(function() {
+									window.location.href = "../PHP/mostrar_padres.php";
+								});
+							});
+						</script>
+						<?php
+
 					}else{
-						echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error, no se pudo eliminar los datos.</div>';
-					}
+						?>
+						<script>
+								document.addEventListener("DOMContentLoaded", function() {
+								// Tu código SweetAlert aquí
+								swal({
+									title: "¿Ah caray?",
+									text: "No se pudo eliminar el padre",
+									icon: "error",
+									button: "Listo"
+								}).then(function() {
+									window.location.href = "../PHP/mostrar_padres.php";
+								});
+							});
+						</script>
+						<?php					}
 				}
-			}
-			?>
+			}?>
 <!--Si lo necesitan este es una lista para filtrar datos-->
 			<form  method="get">
 				<div class="form-group">
-					<select name="filter" class="form-control" onchange="form.submit()">
-						<option value="0">Filtros de datos por</option>
-						<!--Estos son los campos que deben modificar si desean aplicar filtros-->
-						<?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
-						<option value="1" <?php if($filter == 'Tetap'){ echo 'selected'; } ?>>Activo</option>
-						<option value="2" <?php if($filter == 'Kontrak'){ echo 'selected'; } ?>>Inactivo</option>
-                        <option value="2" <?php if($filter == 'Kontrak'){ echo 'selected'; } ?>>Colonia</option>
-					</select>
+				<select name="filter" class="form-control" onchange="form.submit()">
+							<option value="0" >Filtros de datos por</option>
+							<!--Estos son los campos que deben modificar si desean aplicar filtros-->
+							<?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
+
+							<option value="1" <?php if($filter == '1'){ echo 'selected'; } ?>>Activo</option>
+							<option value="2" <?php if($filter == '0'){ echo 'selected'; } ?>>Inactivo</option>
+						</select>
 				</div>
 			</form>
 			<br />
@@ -80,8 +122,9 @@
 				 * AQUI
 				 */
 				if($filter){
-                    $miConsulta = "select * from padre";   //crear una consulta que muestre a todos los empleados de la tabla empleados 
-                                        //que coincidan con el contenido del campo estado y de la variable $filter
+                    if($filter==='1'|| $filter==='2'){
+						$miConsulta = "SELECT * FROM padre WHERE estado_act = '$filter'"; 
+					} //que coincidan con el contenido del campo estado y de la variable $filter
 					$sql = mysqli_query($con, $miConsulta);
 				}else{
                     $miConsulta = "select * from padre"; //crear una consulta que muestre a todos los empleados de la tabla empleados ordenadas por el campo código
@@ -114,7 +157,7 @@
 						<td>'.$row['password'].'</td>
 							<td> 
 							<a href="../PHP/editar_padre.php?nik='.$row['id_padre'].'"><i class="bi bi-clipboard">Editar</i></a> <br> 
-						<a href="#"><i class="bi bi-trash">Borrar</i></a></td>
+							<a href="../PHP/mostrar_padres.php?aksi=delete&nik='.$row['id_padre'].'" name="aksi"><i class="bi bi-trash">Borrar</i></a>
 							</td>
 						
 						</tr>';
