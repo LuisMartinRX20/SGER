@@ -144,12 +144,9 @@
                 </div>
 
                 <ul id="m6" class="list_show">
-                    <li class="list_inside">
-                        <a href="mostrar_horarioM.php" target="frame" class="nav_link nav_link--inside">Crear horario matutino</a>
-                    </li>
 
                     <li class="list_inside">
-                        <a href="mostrar_horarioV.php" target="frame" class="nav_link nav_link--inside">Crear horario matutino</a>
+                        <a href="agregar_horario.php" target="frame" class="nav_link nav_link--inside">Crear horario matutino</a>
                     </li>
 
                     <li class="list_inside">
@@ -179,7 +176,7 @@
                     </li>
 
                     <li class="list_inside">
-                        <a href="#agregar_grupo.php" target="frame" class="nav_link nav_link--inside">Llenar grupo</a>
+                        <a href="../PHP/llenar_grupo.php" target="frame" class="nav_link nav_link--inside">Llenar grupo</a>
                     </li>
 
                     <li class="list_inside">

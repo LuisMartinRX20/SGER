@@ -34,8 +34,8 @@ if ($result->num_rows > 0) {
         $grupos[] = $grupo;
     }
 
-    // Imprimir el array de grupos
-    print_r($grupos);
+    //Imprimir el array de grupos
+    //print_r($grupos);
 } else {
     echo "No se encontraron datos en la tabla grupo.";
 }

@@ -11,7 +11,7 @@ require('conexion.php');
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>    
     <link rel="stylesheet" href="../CSS//materia.css">
-    <title>SGER:FIcha</title>
+    <title>Materia</title>
 </head>
 <body>
     <div class="containe">
@@ -37,7 +37,6 @@ require('conexion.php');
                 </div>
             </form>
     </div>
-    <script src="../JS/paginaficha.js"></script>
 
     <?php
             include '../PHP/conexion.php';
