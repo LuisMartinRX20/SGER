@@ -58,13 +58,13 @@ Email	 	 : info@obedalvarado.pw
 				$id_grupo = mysqli_real_escape_string($con,(strip_tags($_POST["id_grupo"],ENT_QUOTES)));//Escanpando caracteres 
                 
                 if($turno=='1'){
-                    $miConsulta = "UPDATE horario set id_horario='$id_horario', id_materias='$n_materias', 
+                    $miConsulta = "UPDATE horario set id_horario='$id_horario', id_materia='$n_materias', 
                     nombre_materia='$grado','8:00','12:30', id_grupo='$id_grupo'
                      where id_horario='$nik' "; //Crear el UPDATE para el campo codigo igual a variable $nik
                 $update = mysqli_query($con, $miConsulta) or die(mysqli_error($con));
 
                 }else{
-                         $miConsulta = "UPDATE horario set id_horario='$id_horario', id_materias='$n_materias', 
+                         $miConsulta = "UPDATE horario set id_horario='$id_horario', id_materia='$n_materias', 
                         nombre_materia='$grado','14:00','18:00', id_grupo='$id_grupo'
                         where id_horario='$nik' "; //Crear el UPDATE para el campo codigo igual a variable $nik
                     $update = mysqli_query($con, $miConsulta) or die(mysqli_error($con));
@@ -104,7 +104,7 @@ Email	 	 : info@obedalvarado.pw
 				</script>
 				<?php			}
 			?>
-			<form class="form-horizontal" action="" method="post">
+			<form class="form-horizontal" action="" method="POST">
                 <div class="form-group">
                     <label class="col-sm-3 control-label">ID Horario: </label>
                     <div class="col-sm-2">
@@ -133,12 +133,6 @@ Email	 	 : info@obedalvarado.pw
                         <option value='2'>Vespertino</option>
                         <option value='1'>Matutino</option>
                     </select>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label"> Cantidad Alumnos: </label>
-                    <div class="col-sm-4">
-                        <input type="text" name="cantidad" value="<?php echo $row['cantidad_alumnos']; ?>" class="form-control" placeholder="Cantidad Alumnos" required>
-                    </div>
-                </div>
 
 
                 <div class="form-group">
