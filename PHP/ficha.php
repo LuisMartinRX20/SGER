@@ -43,8 +43,8 @@ require('conexion.php');
                 $CP		 = mysqli_real_escape_string($con,(strip_tags($_POST["CP"],ENT_QUOTES)));//Escanpando caracteres 
                 date_default_timezone_set('America/Mexico_City');
 
-                $fechaActual = new DateTime(); 
-                $fechaActual->modify('-1 hours'); 
+                $fechaActual = date("Y-m-d"); 
+                
                 
 				
                 $miConsulta = "select * from ficha where curpA ='$curpA'"; //crear consulta que seleccione el registro donde el campo codigo sea igual a la variable $codigo
