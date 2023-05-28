@@ -19,15 +19,36 @@ if (!empty($_POST['noControl'])) {
             $_SESSION['username'][1] = $role_usuario;
             header("Location:PHP/menu-padre.php");
         
-    } else {
-        echo "USUARIO INCORRECTO";
-    }
-    }
-    else{
-        echo "USUARIO INCORRECTO";
-    }
-   
+    } else { ?>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+            Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Contraseña o numero de control incorrectos'
+            });
+        });
+        </script>
+    <?php } ?>
+
+    <?php }
+
+    else{ ?>
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Contraseña o numero de control incorrectos'
+        });
+    });
+    </script>
+    <?php }
+    
 }
+
+
+
 else if(!empty($_POST['curpA'])){
     $curpA= $_POST['curpA'];
     $quer= "select count(*) as contar From ficha where curpA='$curpA' ";
@@ -38,7 +59,17 @@ else if(!empty($_POST['curpA'])){
         header("location: PHP/infoficha.php");
     }
     else{
-        echo "USUARIO INCORRECTO";
+        ?>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+            Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'La curp no se encuentra registrada en el sistema'
+            });
+        });
+        </script>
+    <?php
     }
 }
 else if(!empty($_POST['RFC'])){
@@ -68,7 +99,17 @@ else if(!empty($_POST['RFC'])){
         
     }
     else{
-        echo "USUARIO INCORRECTO";
+        ?>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+            Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Contraseña o RFC incorrectos'
+            });
+        });
+        </script>
+    <?php
     }
 }
 ?>
@@ -100,21 +141,21 @@ else if(!empty($_POST['RFC'])){
                 <div class="usuario1 active" id="usuario1">
                     <form action="index.php" method="post">
                         <p>Numero de control</p>
-                        <input type="text" name="noControl" id="" class="informacion">
+                        <input type="text" name="noControl" id="" class="informacion" required>
                         <p>Contraseña</p>
-                        <input type="password" name="passwordT" id="" class="informacion">
+                        <input type="password" name="passwordT" id="" class="informacion" required>
                         <br>
 
-                        <input type="submit" name="" id="" value="Iniciar" class="inicio" onclick="foo();">
+                        <input type="submit" name="" id="" value="Iniciar" class="inicio">
                     </form>
                 </div>
 
                 <div class="usuario2" id="usuario2">
                     <form action="index.php" method="post">
                         <p>RFC</p>
-                        <input type="text" name="RFC" id="" class="informacion">
+                        <input type="text" name="RFC" id="" class="informacion"  required>
                         <p>Contraseña</p>
-                        <input type="password" name="passwordP" id="" class="informacion">
+                        <input type="password" name="passwordP" id="" class="informacion" required>
                         <br>
                         <input type="submit" name="" id="" value="Iniciar" class="inicio">
                     </form>
@@ -122,7 +163,7 @@ else if(!empty($_POST['RFC'])){
                 <div class="usuario3" id="usuario3">
                     <form action="index.php" method="post">
                         <p id="texto">CURP</p>
-                        <input type="text" name="curpA" id="texto" class="informacion">
+                        <input type="text" name="curpA" id="texto" class="informacion"  required>
                         <br>
                         <input type="submit" name="" id="botones" value="Iniciar" class="inicio">
                         <a href="PHP/ficha.php" class="inicio" id="botones">Solicitar Ficha</a>

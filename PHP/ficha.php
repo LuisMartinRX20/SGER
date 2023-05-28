@@ -54,23 +54,41 @@ require('conexion.php');
  //crear la consulta del INSERT INTO 
 						$insert = mysqli_query($con, $miConsulta) or die(mysqli_error($con));
 						if($insert){
-							echo '<script type="text/javascript">
-                            alert("Ficha Guardada");
-                            </script>';
                             session_start();
-                            $_SESSION['curpA']=$curpA;
-                            header("location:infoficha.php");
-						}else{
+                            $_SESSION['curpA']=$curpA;?>
+                            <script>
+                            document.addEventListener("DOMContentLoaded", function() {
+                            // Tu código SweetAlert aquí
+                            Swal.fire({
+                                    title:"Ficha registrada",
+                                    text: "La ficha ha sido registrada exitosamente",
+                                    icon: "success",
+                                    confirmButtonText: "Ok"
+                                }).then(function() {
+                                window.location.href = "infoficha.php";
+                                });
+                            });
+                            </script>
+                        
+						<?php } else{
 							echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Error. No se pudo guardar los datos !</div>';
 						}
                     }
-                else{
-                    echo '<script type="text/javascript">
-                            alert("Curp ya existe");
-                            </script>';
-                }
-			}
-			?>
+                else{ ?>
+                    <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                    // Tu código SweetAlert aquí
+                    Swal.fire({
+                            title:"Usuario no registrado",
+                            text: "La curp ya se encuentra asociada a un alumno",
+                            icon: "error",
+                            confirmButtonText: "Ok"
+                        });
+                    });
+                    </script>
+               <?php }
+            }
+?>
             
             <form action="ficha.php" method="post" class="form">
             <div class="formulario">
@@ -88,6 +106,8 @@ require('conexion.php');
                     <input type="date" name="fecha_nacA" id="informacion">
                     <p>Curp</p>
                     <input type="text" name="curpA" id="informacion">
+                    <a href="https://www.gob.mx/curp/" target="_blank">Consultar curp</a>
+                    <br>
                     <br>
                  
                     <a href="../index.php" id="boton"class="cancelar">Cancelar</a>
@@ -130,15 +150,15 @@ require('conexion.php');
                
                 <p  class="encabezado3">Datos del Padre/ Tutor</p>
                     <p>Telefono</p>
-                    <input type="text" name="telefono" id="informacion">
+                    <input type="text" name="telefono" id="informacion" required>
                     <p >Calle</p>
-                    <input type="text" name="calle" id="informacion">
+                    <input type="text" name="calle" id="informacion" required>
                     <p>No.</p>
-                    <input type="text" name="num" id="informacion">
+                    <input type="text" name="num" id="informacion" required>
                     <p>Colonia</p>
-                    <input type="text" name="colonia" id="informacion">
+                    <input type="text" name="colonia" id="informacion" required>
                     <p>Codigo Postal</p>
-                    <input type="text" name="CP" id="informacion">
+                    <input type="text" name="CP" id="informacion" required>
                     
                     <br>
                     

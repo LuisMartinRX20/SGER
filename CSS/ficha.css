@@ -5,6 +5,13 @@ body{
     position: relative;
 }
 
+input{
+    border: 0;
+    outline:none;
+    border-bottom:1px solid black;
+    font-size: 16px;
+  }
+
 p{
     font-size: 18px;
     
@@ -43,7 +50,7 @@ p{
     margin-left: 28%;
     margin-right: 28%;
     border-radius: 12px;
-    height: 42%;
+    height: 16%;
     
 }
 ul{
