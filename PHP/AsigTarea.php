@@ -1,5 +1,10 @@
+<?php
+require('conexionRodri.php');
+
+?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,37 +15,47 @@
 </head>
 
 <body>
+    <?php
+    $sql = "SELECT * FROM tarea";
+    $result = mysqli_query($con, $sql);
 
-<div class="grid-cont">
-    <div id="tareas">
-        <h2>29 ABRIL</h2>
-    <a href="editarTarea.php" class="editTarea">
-        <div class="tareasAsignadas"> 
-            <p>Ejercicios sumas y restas</p>
-            <p>Matematicas / Grupo 2B / Vence 29 de Abril 23:59 PM</p>
+    $tareas = array();
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $tareas[] = $row;
+        }
+    }
+    ?>
+    <div class="grid-cont">
+        <div id="tareas">
+
+
+            <?php
+            foreach ($tareas as $tarea) { ?>
+                <?php 
+                $sql1 = "SELECT nombre FROM materia where id_materia= $tarea[id_materia]";
+                $result1 = mysqli_query($con, $sql1);
+                $row1 = mysqli_fetch_assoc($result1);
+                $materiaNombre = $row1['nombre'];
+                
+                echo '<a href="editarTarea.php?id=' . $tarea['id_tarea'] . '" class="editTarea">'; ?>
+                <div class="tareasAsignadas">
+                    <p> <?php echo $tarea['nombre_tarea']; ?> </p>
+                    <p><?php echo $materiaNombre.' / Grupo '.$tarea['id_grupo'].' / Fecha de vencimiento: '.$tarea['fecha_limite']?></p>
+                    
+                </div>
+                <br>
+                </a>
+            <?php } ?>
+            <br>
         </div>
-    </a>
-    <br>
-    <a href="editarTarea.php" class="editTarea">
-        <div class="tareasAsignadas"> 
-            <p>Investigar: ¿Que es la independencia de mexico?</p>
-            <p>Historia / Grupo 2B / Vence 29 de Abril 23:59 PM</p>
+        <div id="asignarTareas">
+            <a href="nuevaTarea.php">
+                <input type="button" id="nuevaTarea" value="NUEVA">
+            </a>
         </div>
-    </a>
-    <br>
-    <h2>3 MAYO</h2>
-    <a href="editarTarea.php" class="editTarea">
-        <div class="tareasAsignadas"> 
-            <p>Investigar 5 valores</p>
-            <p>F C y E / Grupo 2B / Vence 3 de Mayo 23:59 PM</p>
-        </div>
-    </a>
     </div>
-    <div id="asignarTareas">
-    <a href="nuevaTarea.php">
-        <input type="button" id="nuevaTarea" value="NUEVA">
-    </a>
-    </div>
-</div>
 </body>
+
 </html>

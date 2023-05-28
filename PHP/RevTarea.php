@@ -1,3 +1,7 @@
+<?php
+require('conexionRodri.php');
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -12,33 +16,43 @@
 
 <body>
 
+<?php
+    $sql = "SELECT * FROM tarea";
+    $result = mysqli_query($con, $sql);
+
+    $tareas = array();
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $tareas[] = $row;
+        }
+    }
+    ?>
     <div class="grid-contmostrar">
         <div id="tareas">
 
-            <a href="Revision.php" class="editTarea">
-                <div class="tareasAsignadasrev">
-                    <p>Ejercicios sumas y restas</p>
-                    <p>Matematicas / Grupo 2B / Vence 29 de Abril 23:59 PM</p>
-                </div>
-            </a>
-            <p class="revisados">Revisados 13/28</p>
-            <br>
-            <a href="Revision.php" class="editTarea">
-                <div class="tareasAsignadasrev">
-                    <p>Investigar: ¿Que es la independencia de mexico?</p>
-                    <p>Historia / Grupo 2B / Vence 29 de Abril 23:59 PM</p>
-                </div>
-            </a>
-            <p class="revisados">Revisados 28/28</p>
-            <br>
 
-            <a href="Revision.php" class="editTarea">
-                <div class="tareasAsignadasrev">
-                    <p>Investigar 5 valores</p>
-                    <p>F C y E / Grupo 2B / Vence 3 de Mayo 23:59 PM</p>
+            <?php
+            foreach ($tareas as $tarea) { ?>
+                <?php 
+                $sql1 = "SELECT nombre FROM materia where id_materia= $tarea[id_materia]";
+                $result1 = mysqli_query($con, $sql1);
+                $row1 = mysqli_fetch_assoc($result1);
+                $materiaNombre = $row1['nombre'];
+                
+                echo '<a href="revision.php?id=' . $tarea['id_tarea'] . '" class="editTarea">'; ?>
+                <div class="tareasAsignadas">
+                    <p> <?php echo $tarea['nombre_tarea']; ?> </p>
+                    <p><?php echo $materiaNombre.' / Grupo '.$tarea['id_grupo'].' / Fecha de vencimiento: '.$tarea['fecha_limite']?></p>
+                    
                 </div>
-            </a>
-            <p class="revisados">Revisados 28/28</p>
+                
+                
+                </a>
+                <p class="revisados">Revisados: 0/0</p>
+                <br>
+            <?php } ?>
+            <br>
         </div>
         
     </div>

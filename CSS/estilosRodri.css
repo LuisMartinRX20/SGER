@@ -184,6 +184,10 @@ th, td {
   padding: 15px;
   font-weight: bold;
 }
+#califRev{
+  height: 30px;
+  width: 40px;
+}
 
 #ptitcal {
   font-weight: bold;
