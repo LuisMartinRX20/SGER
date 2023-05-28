@@ -8,13 +8,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="../CSS/mostrar_tablaG.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-	<title>Lista de Profesores</title>
+	<title>Lista de Horarios</title>
 
 </head>
 <body>
 	<div class="container">
 		<div >
-			<h2 class="h2">Lista de Grupos</h2>
+			<h2 class="h2">Lista de Horarios</h2>
 			<hr />
 
 			<?php
@@ -54,7 +54,7 @@
 									icon: "success",
 									button: "Listo"
 								}).then(function() {
-									window.location.href = "../PHP/mostrar_hoarios.php";
+									window.location.href = "../PHP/mostrar_horarios.php";
 								});
 							});
 						</script>
@@ -71,7 +71,7 @@
 									icon: "error",
 									button: "Listo"
 								}).then(function() {
-									window.location.href = "../PHP/mostrar_hoarios.php";
+									window.location.href = "../PHP/mostrar_horarios.php";
 								});
 							});
 						</script>
@@ -86,10 +86,12 @@
 							<option value="0" >Filtros de datos por</option>
 							<!--Estos son los campos que deben modificar si desean aplicar filtros-->
 							<?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
-
-							<option value="A" <?php if($filter == 'A'){ echo 'selected'; } ?>>A</option>
-							<option value="B" <?php if($filter == 'B'){ echo 'selected'; } ?>>B</option>
-							<option value="C" <?php if($filter == 'C'){ echo 'selected'; } ?>>C</option>
+							<option value="8" <?php if($filter == '8'){ echo 'selected'; } ?>>N°Materias 8</option>
+							<option value="6" <?php if($filter == '6'){ echo 'selected'; } ?>>N°Materias 6</option>
+							<option value="14:00" <?php if($filter == '14:00'){ echo 'selected'; } ?>>Vespertino</option>
+							<option value="8:00" <?php if($filter == '8:00'){ echo 'selected'; } ?>>Matutino</option>
+							
+							
 							
 						</select>
 					</div>
@@ -115,11 +117,11 @@
 						* AQUI
 						*/
 						if($filter){
-							if ($filter == '1' || $filter == '2' || $filter == '' || $filter == '4' ||
-							 $filter == '5' || $filter == '6') {
-								$miConsulta = "SELECT * FROM horario WHERE nombre_materia = '$filter'"; // Consulta con filtro por grado
-							} else {
-								$miConsulta = "SELECT * FROM horario WHERE id_materia = '$filter'"; // Consulta con filtro por grupo
+							if ($filter == '8:00' || $filter=='14:00') {
+								$miConsulta = "SELECT * FROM horario WHERE hora_inicio = '$filter'"; // Consulta con filtro por grado
+							} 
+							if($filter == '6' || $filter == '8'){
+								$miConsulta="SELECT * FROM horario WHERE id_materia='$filter'";
 							}
 							$sql = mysqli_query($con, $miConsulta);
 						} else {

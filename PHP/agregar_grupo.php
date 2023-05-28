@@ -110,7 +110,7 @@ require('conexion.php');
                         <select id="id_profe" name="id_profe" required>
                             <option value="">Seleccionar un Profesor</option>
                             <?php 
-                            include '../PHP/obtener_profe.php';
+                            include '../PHP/obtener_profesor.php';
                             foreach ($profes as $profe) { ?>
                                 <option value="<?php echo $profe['id']; ?>">
                                 <?php echo $profe['nombre']; ?></option>

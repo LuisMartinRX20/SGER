@@ -118,7 +118,7 @@
             <th>Viernes</th>
         </tr>
         <tr>
-            <td>8:00 am - 9:00 am</td>
+            <td>00:00 - 00:00</td>
             <td>Español</td>
             <td>Matemáticas</td>
             <td>Ciencias Naturales</td>
@@ -126,7 +126,7 @@
             <td>Historia</td>
         </tr>
         <tr>
-            <td>9:00 am - 10:00 am</td>
+            <td>00:00 - 00:00</td>
             <td>Educación Física</td>
             <td>Artes</td>
             <td>Ciencias Naturales</td>
@@ -134,11 +134,11 @@
             <td>Español</td>
         </tr>
         <tr class="receso">
-            <td>10:00 am - 10:30 am</td>
+            <td>00:00 - 00:00</td>
             <td colspan="5">Receso</td>
         </tr>
         <tr>
-            <td>10:30 am - 11:30 am</td>
+            <td>00:00 - 00:00</td>
             <td>Computación</td>
             <td>Español</td>
             <td>Formación Cívica y Ética</td>
@@ -146,7 +146,7 @@
             <td>Geografía</td>
         </tr>
         <tr>
-            <td>11:30 am - 12:30 pm</td>
+            <td>00:00 - 00:00</td>
             <td>Historia</td>
             <td>Matemáticas</td>
             <td>Educación Física</td>

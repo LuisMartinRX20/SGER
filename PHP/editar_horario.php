@@ -40,7 +40,7 @@ Email	 	 : info@obedalvarado.pw
 			// escaping, additionally removing everything that could be (html/javascript-) code
 			$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
             //Buscar en el campo codigo el dato que coindica con la variable $nik para editar el registro
-            $miConsulta = "select * from horario where id_horario='{$_GET["nik"]}'"; 
+            $miConsulta = "select * from horario where id_horario='$nik'"; 
 			$sql = mysqli_query($con, $miConsulta);
 			if(mysqli_num_rows($sql) == 0){
 				/**RETORNA A LA TABLA ANTERIOR */
@@ -49,64 +49,74 @@ Email	 	 : info@obedalvarado.pw
 			}else{
 				$row = mysqli_fetch_assoc($sql);
 			}
-
-			if(isset($_POST['save'])){
-				$id_horario = mysqli_real_escape_string($con,(strip_tags($_POST["id_horario"],ENT_QUOTES)));//Escanpando caracteres 
-				$n_materias = mysqli_real_escape_string($con,(strip_tags($_POST["n_materias"],ENT_QUOTES)));//Escanpando caracteres 
-				$grado= mysqli_real_escape_string($con,(strip_tags($_POST["grado"],ENT_QUOTES)));//Escanpando caracteres 
-				$turno = mysqli_real_escape_string($con,(strip_tags($_POST["turno"],ENT_QUOTES)));//Escanpando caracteres 
-				$id_grupo = mysqli_real_escape_string($con,(strip_tags($_POST["id_grupo"],ENT_QUOTES)));//Escanpando caracteres 
-                
-                if($turno=='1'){
-                    $miConsulta = "UPDATE horario set id_horario='$id_horario', id_materia='$n_materias', 
-                    nombre_materia='$grado','8:00','12:30', id_grupo='$id_grupo'
-                     where id_horario='$nik' "; //Crear el UPDATE para el campo codigo igual a variable $nik
-                $update = mysqli_query($con, $miConsulta) or die(mysqli_error($con));
-
-                }else{
-                         $miConsulta = "UPDATE horario set id_horario='$id_horario', id_materia='$n_materias', 
-                        nombre_materia='$grado','14:00','18:00', id_grupo='$id_grupo'
-                        where id_horario='$nik' "; //Crear el UPDATE para el campo codigo igual a variable $nik
+            if (isset($_POST['save'])) {
+                $id_horario = mysqli_real_escape_string($con, (strip_tags($_POST["id_horario"], ENT_QUOTES)));
+                $n_materias = mysqli_real_escape_string($con, (strip_tags($_POST["n_materias"], ENT_QUOTES)));
+                $grado = mysqli_real_escape_string($con, (strip_tags($_POST["grado"], ENT_QUOTES)));
+                $turno = mysqli_real_escape_string($con, (strip_tags($_POST["turno"], ENT_QUOTES)));
+                $id_grupo = mysqli_real_escape_string($con, (strip_tags($_POST["grupo"], ENT_QUOTES)));
+            
+                // Validar que los campos no estén vacíos
+                if (!empty($id_horario) && !empty($n_materias)  && !empty($turno) && !empty($id_grupo)) {
+                    if ($turno === '1') {
+                        $miConsulta = "UPDATE horario SET id_horario='$id_horario', id_materia='$n_materias', nombre_materia='Basico', hora_inicio='8:00', hora_fin='12:30', id_grupo='$id_grupo' WHERE id_horario='$nik'";
+                    } else {
+                        $miConsulta = "UPDATE horario SET id_horario='$id_horario', id_materia='$n_materias', nombre_materia='Basico', hora_inicio='14:00', hora_fin='18:00', id_grupo='$id_grupo' WHERE id_horario='$nik'";
+                    }
+                    
                     $update = mysqli_query($con, $miConsulta) or die(mysqli_error($con));
+            
+                    if ($update) {
+                        ?>
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function() {
+                                swal({
+                                    title: "",
+                                    text: "Se modificaron los datos de manera correcta",
+                                    icon: "success",
+                                    button: "Listo"
+                                }).then(function() {
+                                    window.location.href = "../PHP/mostrar_horarios.php";
+                                });
+                            });
+                        </script>
+                        <?php
+                    } else {
+                        ?>
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function() {
+                                swal({
+                                    title: "",
+                                    text: "Ocurrió un error inesperado",
+                                    icon: "error",
+                                    button: "Listo"
+                                }).then(function() {
+                                    window.location.href = "../PHP/editar_horario.php";
+                                });
+                            });
+                        </script>
+                        <?php
+                    }
+                } else {
+                   ?>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            swal({
+                                title: "",
+                                text: "Por favor, completa todos los campos",
+                                icon: "warning",
+                                button: "OK"
+                            });
+                        });
+                    </script>
+                    <?php
                 }
-               
-
-				if($update){
-					header("Location: editar_horario.php?nik=".$nik."&pesan=sukses");
-				}else{
-					?>
-					<script>
-					document.addEventListener("DOMContentLoaded", function() {
-					swal({
-						title: "",
-						text: "Ocurrio un error inesperado",
-						icon: "error",
-						button: "Listo"
-					}).then(function() {
-						window.location.href = "../PHP/mostrar_horarios.php"; // Página a la que deseas redirigir después de la eliminación
-					});})
-					</script>
-					<?php				}
-			}
-			
-			if(isset($_GET['pesan']) == 'sukses'){
-				?>
-				<script>
-			document.addEventListener("DOMContentLoaded", function() {
-				swal({
-					title: "",
-					text: "Se Modificaron los datos de manera correcta",
-					icon: "success",
-					button: "Listo"
-				}).then(function() {
-					window.location.href = "../PHP/mostrar_horarios.php"; // Página a la que deseas redirigir después de la eliminación
-				});})
-				</script>
-				<?php			}
-			?>
+            }
+            
+?>            
 
          <div class="vid">
-                        <form class="form-horizontal" action="editar_horario.php" method="POST">
+                        <form class="form-horizontal" action="" method="POST">
                             <div class="form-group">
                                 <label for="grupo" class="col-sm-3 control-label">Grupo:</label>
                                 <div class="col-sm-6">
@@ -154,7 +164,7 @@ Email	 	 : info@obedalvarado.pw
                                 <label class="col-sm-3 control-label">&nbsp;</label>
                                 <div class="col-sm-6">
                                     <input type="submit" name="save" class="boton" value="Guardar datos">
-                                    <a href="../PHP/mostrar_grupos.php" class="boton">Cancelar</a>
+                                    <a href="../PHP/mostrar_horarios.php" class="boton">Cancelar</a>
                                 </div>
                             </div>
 

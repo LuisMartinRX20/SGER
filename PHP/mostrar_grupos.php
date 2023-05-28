@@ -119,7 +119,7 @@
 						* AQUI
 						*/
 						if($filter){
-							if ($filter == '1' || $filter == '2' || $filter == '' || $filter == '4' ||
+							if ($filter == '1' || $filter == '2' || $filter == '3' || $filter == '4' ||
 							 $filter == '5' || $filter == '6') {
 								$miConsulta = "SELECT * FROM grupo WHERE grado = '$filter'"; // Consulta con filtro por grado
 							} else {

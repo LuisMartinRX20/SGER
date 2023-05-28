@@ -1,8 +1,12 @@
 <?php
 include 'conexion.php';
 
-// Consulta SQL para obtener los datos de la tabla "grupo"
-$sql = "SELECT id_grupo, grado, grupo, id_profe FROM grupo";
+// Consulta SQL para obtener los grupos que no están en la tabla "horario"
+$sql = "SELECT g.id_grupo, g.grado, g.grupo, p.nombre AS nombre_profesor
+        FROM grupo g
+        LEFT JOIN profesor p ON g.id_profe = p.id_profesor
+        WHERE g.id_profe IS NOT NULL
+        AND g.id_grupo NOT IN (SELECT DISTINCT id_grupo FROM horario)";
 $result = $con->query($sql);
 
 // Verificar si se obtuvieron resultados
@@ -11,32 +15,19 @@ if ($result->num_rows > 0) {
 
     // Recorrer los resultados y guardar los datos en el array
     while ($row = $result->fetch_assoc()) {
-        $idProfesor = $row['id_profe'];
-
-        // Consulta SQL para obtener el nombre del profesor por su ID
-        $sqlProfesor = "SELECT nombre FROM profesor WHERE id_profesor = '$idProfesor'";
-        $resultProfesor = $con->query($sqlProfesor);
-
-        if ($resultProfesor->num_rows > 0) {
-            $rowProfesor = $resultProfesor->fetch_assoc();
-            $nombreProfesor = $rowProfesor['nombre'];
-        } else {
-            $nombreProfesor = "Desconocido";
-        }
-
         $grupo = array(
             'id' => $row['id_grupo'],
             'grado' => $row['grado'],
             'grupo' => $row['grupo'],
-            'profe' => $nombreProfesor
+            'profe' => $row['nombre_profesor']
         );
 
         $grupos[] = $grupo;
     }
 
-    //Imprimir el array de grupos
-    //print_r($grupos);
+    // Imprimir el array de grupos
+    print_r($grupos);
 } else {
-    echo "No se encontraron datos en la tabla grupo.";
+    echo "No se encontraron grupos con profesores asignados que no estén en la tabla horario.";
 }
 ?>
