@@ -15,7 +15,7 @@ try{
         $consultarpadre="select id_padre from padre where nombre='$row[nombreT]' and apellidoP='$row[apellido_PT]' and apellidoM='$row[apellido_MT]' and fecha_nac='$row[fecha_nacT]'";
         $validarconsulta=mysqli_query($con,$consultarpadre);
         $arreglo=mysqli_fetch_array($validarconsulta); 
-        $con->query("INSERT INTO alumno(id_alumno,noControl,nombre,apellido_P,apellido_M,curp,fecha_nac,fecha_registro,estado_act,id_grupo,grado,id_padre) VALUES(NULL,null,'$row[nombreA]','$row[apellido_PA]','$row[apellido_MA]','$row[fecha_nacA]','$row[curpA]','$row[fecha_registro]','1',null,'1','$arreglo[id_padre]')");  
+        $con->query("INSERT INTO alumno(id_alumno,noControl,nombre,apellido_P,apellido_M,curp,fecha_nac,fecha_registro,estado_act,id_grupo,grado,id_padre) VALUES(NULL,null,'$row[nombreA]','$row[apellido_PA]','$row[apellido_MA]','$row[curpA]','$row[fecha_nacA]','$row[fecha_registro]','1',null,'1','$arreglo[id_padre]')");  
         $idAlumno="SELECT id_alumno FROM alumno where curp='$row[curpA]'";
         $consulta1=mysqli_query($con,$idAlumno);
         $array=mysqli_fetch_array($consulta1);
@@ -47,8 +47,34 @@ try{
         $consultarpadre="select password from padre where nombre='$row[nombreT]' and apellidoP='$row[apellido_PT]' and apellidoM='$row[apellido_MT]' and fecha_nac='$row[fecha_nacT]'";
         $validarconsulta=mysqli_query($con,$consultarpadre);
         $arreglopadre=mysqli_fetch_array($validarconsulta); 
-        echo $noControl['noControl'];
+        
         echo '<br>';
-        echo $arreglopadre['password'];
+       
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGER: INFO FICHA</title>
+    <link href="../CSS/registrarpago.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="contenedor">
+        <div class="info">
+            <ul>
+                <li>Numero de Control: <?php echo $noControl['noControl'];?></li>
+                <li>Contraseña:<?php  echo $arreglopadre['password'];?></li>
+            </ul>
+           <div class="boton">
+            <a href="pago.php" class="button">Salir</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
