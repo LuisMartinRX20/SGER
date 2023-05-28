@@ -10,12 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ruta_archivo_temporal = $_FILES['archivo']['tmp_name'];
     $ruta_destino = $directorio_destino . $nombre_archivo;
 
-
     // Obtener otros datos del formulario
     $id_alumno = 4; // Suponiendo que el ID del alumno se envía mediante un campo oculto en el formulario
-
-    // Definir la ruta de destino para guardar el archivo
-    $ruta_destino = 'archivos/'; // Reemplaza "carpeta_destino" con la ruta deseada en tu servidor
 
     // Mover el archivo a la ruta de destino
     if (move_uploaded_file($ruta_archivo_temporal, $ruta_destino))  {
@@ -26,10 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Insertar los datos en la tabla de tareas
         $sql = "INSERT INTO tarea_entregada (id_tarea, id_alumno, archivo, fecha_entregada, calificacion, estado_entregada) 
-                VALUES ('1', '$id_alumno', 'tarea', '$fecha_entregada', '$calificacion', '$estado_entregada')";
+                VALUES ('1', '$id_alumno', '$nombre_archivo', '$fecha_entregada', '$calificacion', '$estado_entregada')";
 
         if ($con->query($sql) === TRUE) {
-            // Tarea guardada exitosamente
+            echo '<script>alert("Tarea subida con éxito.");</script>';
+      echo '<script>window.location.href = "bienvenida.php";</script>';
             echo "Tarea guardada exitosamente.";
         } else {
             // Error al guardar la tarea

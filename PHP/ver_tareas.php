@@ -12,30 +12,42 @@
 <body>
 
 <div class="grid-cont">
-<a href="../PHP/subir_tarea.php">
-    <div id="tareas">
-        <h2>29 ABRIL</h2>
-        <div class="tareasAsignadas"> 
-            <p>Ejercicios sumas y restas</p>
-            <p>Matematicas / Grupo 2B / Vence 29 de Abril 23:59 PM / Calificación:  /10</p>
-          
-        </div>
-    <br>
-        <div class="tareasAsignadas"> 
-            <p>Investigar: ¿Que es la independencia de mexico?</p>
-            <p>Historia / Grupo 2B / Vence 29 de Abril 23:59 PM/ Calificación:  /10</p>
-        </div>
+<?php
+    require('conexion.php');
+    $con = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+
+    // Consultar los datos de la tabla
+    $sql = "SELECT * FROM tarea";
+    $result = $con->query($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $id_tarea = $row['id_tarea'];
+            $nombre_tarea = $row['nombre_tarea'];
+            $descripion = $row['descripion'];
+            $fecha_limite = $row['fecha_limite'];
+            $id_profe = $row['id_profe'];
+            $id_grupo = $row['id_grupo'];
+            $id_materia = $row['id_materia'];
+            
+            echo '<a href="../PHP/subir_tarea.php">';
+            echo '<div id="tareas">';
+            echo '<h2>' . $fecha_limite . '</h2>';
+            echo '<div class="tareasAsignadas">';
+            echo '<p>' . $nombre_tarea . '</p>';
+            echo '<p>Vence ' . $fecha_limite . ' / Calificación:  /10/ Descripción: ' . $descripion .'</p>';
+            echo '</div>';
+            echo '</div>';
+            echo '</a>';
+            echo '<br>'; // Agregar un salto de línea entre las tareas
+        }
+    } else {
+        echo '<p>No hay tareas disponibles.</p>';
+    }
+
     
-    <br>
-    <h2>3 MAYO</h2>
-   
-        <div class="tareasAsignadas"> 
-            <p>Investigar 5 valores</p>
-            <p>F C y E / Grupo 2B / Vence 3 de Mayo 23:59 PM/ Calificación:  /10</p>
-        </div>
-    
-    </div>
-    </a>
+    $con->close();
+?>
 </div>
 </body>
 </html>
