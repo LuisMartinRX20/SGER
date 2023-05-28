@@ -58,70 +58,63 @@
         </style>
     </head>
     <body>
+    <?php
+require('conexion.php');
+$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+
+if ($conn->connect_error) {
+    die("Error de conexión: " . $conn->connect_error);
+}
+
+$sql = "SELECT m.nombre, c.calif_P1, c.calif_P2, calif_P3 FROM materia m INNER JOIN calificaciones c ON m.id_materia = c.id_materia";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    ?>
+
     <div class="contenido">
         <div class="contenido_principal" id="contenido_menu">
-        <div class="contenido_principal_header" id="contenido_menu_header">
-            <h1>Boletas de calificaciones</h1>
-		<table>
-			<tr>
-				<th>Materia</th>
-				<th>1er trimestre</th>
-				<th>2do trimestre</th>
-				<th>3er trimestre</th>
-			</tr>
-			<tr>
-				<td>Matemáticas</td>
-				<td>8.5</td>
-				<td>9.0</td>
-				<td>9.2</td>
-			</tr>
-			<tr>
-				<td>Español</td>
-				<td>9.2</td>
-				<td>9.5</td>
-				<td>9.4</td>
-			</tr>
-			<tr>
-				<td>Historia</td>
-					<td>7.8</td>
-					<td>8.0</td>
-				<td>8.5</td>
-			</tr>
-			<tr>
-				<td>Ciencias naturales</td>
-				<td>8.9</td>
-				<td>9.2</td>
-				<td>9.0</td>
-			</tr>
-			<tr>
-				<td>Formación cívica y ética</td>
-				<td>9.1</td>
-				<td>9.3</td>
-				<td>9.5</td>
-			</tr>
-			<tr>
-				<td>Educación física</td>
-				<td>8.0</td>
-				<td>8.5</td>
-				<td>8.7</td>
-			</tr>
-			<tr>
-				<td>Geografía</td>
-				<td>8.3</td>
-				<td>8.8</td>
-				<td>8.6</td>
-			</tr>
-			<tr>
-				<td>Biología general</td>
-				<td>9.5</td>
-				<td>9.6</td>
-				<td>9.7</td>
-			</tr>
-		</table>
-        <div class="Butoon">
-            <div>
-            <a class="regresar" href="../PHP/bienvenida.php"><button type="submit">Regresar</button></a>  
+            <div class="contenido_principal_header" id="contenido_menu_header">
+                <h1>Boletas de calificaciones</h1>
+                <table>
+                    <tr>
+                        <th>Materia</th>
+                        <th>1er trimestre</th>
+                        <th>2do trimestre</th>
+                        <th>3er trimestre</th>
+                        <th>Califiación final</th>
+                    </tr>
+                    <?php
+                    while ($row = $result->fetch_assoc()) {
+                        $nombre = $row["nombre"];
+                        $calificacion1 = $row["calif_P1"];
+                        $calificacion2 = $row["calif_P2"];
+                        $calificacion3 = $row["calif_P3"];
+                        $calificacionf = ($calificacion1 + $calificacion2 + $calificacion3)/3 ;
+                        ?>
+                        <tr>
+                            <td><?php echo $nombre; ?></td>
+                            <td><?php echo $calificacion1; ?></td>
+                            <td><?php echo $calificacion2; ?></td>
+                            <td><?php echo $calificacion3; ?></td>
+                            <td><?php echo $calificacionf; ?></td>
+                        </tr>
+                        <?php
+                    }
+                    ?>
+                </table>
+                <div class="Butoon">
+                    <div>
+                        <a class="regresar" href="../PHP/bienvenida.php"><button type="submit">Regresar</button></a>
+                    </div>
+                </div>
             </div>
-        </div> 
-    </body>
-</html>
+        </div>
+    </div>
+    <?php
+} else {
+    echo "No se encontraron calificaciones en la base de datos.";
+}
+
+$conn->close();
+?>
