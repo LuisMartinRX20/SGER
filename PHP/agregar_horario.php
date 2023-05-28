@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Horario de Clases</title>
-  <link rel="stylesheet" type="text/css" href="../CSS/horario.css">
+  <link rel="stylesheet" type="text/css" href="../CSS/horarioGa.css">
 </head>
 <body>
 <?php

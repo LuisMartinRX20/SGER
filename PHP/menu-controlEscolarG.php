@@ -64,7 +64,7 @@
 
                 <ul id="m2" class="list_show">
                     <li class="list_inside" id="definir">
-                        <a href="mostrar_calificaciones.php" target="frame" class="nav_link nav_link--inside">Calificaciones registradas</a>
+                        <a href="../PHP//buscarAlumno_Cal.php" target="frame" class="nav_link nav_link--inside">Calificaciones registradas</a>
                     </li>
                 </ul>
 

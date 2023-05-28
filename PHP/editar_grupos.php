@@ -16,7 +16,7 @@ Email	 	 : info@obedalvarado.pw
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/bootstrap-datepicker.css" rel="stylesheet">
-	<link href="../CSS/editar.css" rel="stylesheet">
+	<link href="../CSS/editarGa.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	
