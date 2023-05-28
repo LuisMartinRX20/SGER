@@ -31,14 +31,16 @@ session_start();
             <?php 
 if (!empty($_POST['noficha'])) {
     $noficha = $_POST['noficha'];
-    $buscarficha="select count(*) as contar from ficha where id_ficha='$noficha' and estado_pago='0'";
+    $buscarficha="select count(*) as contar from ficha where id_ficha='$noficha' ";
     $consulta=mysqli_query($con,$buscarficha);
     $arreglo=mysqli_fetch_array($consulta);
     if($arreglo['contar']>0){
-                $consulta ="select * from ficha where id_ficha='$noficha' ";
+                $consulta ="select * from ficha where id_ficha='$noficha' and estado_pago='0'";
                 $query=mysqli_query($con,$consulta);
+                $arreglo=mysqli_fetch_array($query);
                 $row = mysqli_fetch_assoc($query);
-                echo '
+                if(!isset($arreglo['id_ficha'])===NULL){
+                    echo '
 
                 <ul>
                 <li>No Ficha:'.$row['id_ficha'].'</li>
@@ -52,10 +54,15 @@ if (!empty($_POST['noficha'])) {
                 <a href="registrarpago.php?nik='.$row['id_ficha'].'" id="button">Pagar</a>   
                 </div>
                 ';
-                $aux=$row;         
+                $aux=$row; 
+                }
+                else{
+                    echo 'FICHA YA FUE PAGADA';
+                }
+                        
     }
     else{
-        echo 'Ficha ya fue pagada o No existe';
+        echo 'FICHA NO EXISTE';
     }
 }         
 ?>
