@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+.container {
+  max-width: 400px;
+  padding: 20px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #9fffd2bd; /*pone color en las filas, es el color que empieza*/
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border-color: blanchedalmond;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #4CAF50;
+  font-weight: bold;
+
+}
+
+.table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table a {
+  margin-right: 10px;
+  color: #333;
+}
+
+.table a:hover {
+  text-decoration: none;
+}
+.h2{
+  color:aliceblue
+
+}

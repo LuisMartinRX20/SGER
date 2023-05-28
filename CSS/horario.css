@@ -1,3 +1,4 @@
+
 table {
     border-collapse: collapse;
     width: 95%;
@@ -18,7 +19,6 @@ th {
     background-color: rgba(76, 175, 175, 0.603);
     color: white;
 }
-
 .vid {
     background-color: #4CAF50;
     border: 1px solid #ccc;
@@ -31,11 +31,37 @@ th {
     margin-left: 2%;
     margin-top: 20px;
     margin-bottom: 12px;
-  }
-  
-  .vid p {
+}
+
+.vid label {
     margin: 0;
     padding: 5px;
     text-align: left;
-  }
+    color: #ffffffc2;
+}
+.vid select{
+    color: #033474;
+  font-family: cursive;
+  background-color: #ffffff8f;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  padding: 10px;
+
+}
+.boton {
+    position: relative;
+    background-color: #008CBA;
+    color: white;
+    border: 2px solid  #15223b;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    border-radius: 12px;
+    padding: 0 1rem;
+    margin-left: 90%;
+}
+.boton:hover {
+    color: black;
+    background-color: white; 
+}
+
     

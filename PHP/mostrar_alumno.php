@@ -6,36 +6,78 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="../CSS/mostrar.css" rel="stylesheet" type="text/css">
+	<link href="../CSS/pro.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 	<title>Lista de Profesores</title>
 
 </head>
 <body>
-	<div>
+	<div clas="container">
 		<div >
 			<h2 class="h2">Lista de alumnos</h2>
 			<hr />
-<!--
-			</*?php
+			<?php
+			include 'conexion.php';
             // VALOR aksi es para borrar aqui esta la funcion borrar
 			if(isset($_GET['aksi']) == 'delete'){
 				// escaping, additionally removing everything that could be (html/javascript-) code
 				$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
-                $miConsulta = "select * from profesor where codigo='$nik'"; //buscar el empleado que tenga en el campo codigo lo que hay en la variable $nik para ser eliminado
+                $miConsulta = "select * from alumno where id_alumno='$nik'"; //buscar el empleado que tenga en el campo codigo lo que hay en la variable $nik para ser eliminado
 				$cek = mysqli_query($con,$miConsulta);
 				if(mysqli_num_rows($cek) == 0){
-					echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> No se encontraron datos.</div>';
+					?>
+					<script>
+						document.addEventListener("DOMContentLoaded", function() {
+								// Tu código SweetAlert aquí
+								swal({
+									title: "¿Ah caray?",
+									text: "No se encontraron datos",
+									icon: "info",
+									button: "Listo"
+								}).then(function() {
+									window.location.href = "../PHP/mostrar_alumno.php";
+								});
+							});
+					</script>
+					<?php
 				}else{
-					$delete = mysqli_query($con, "DELETE FROM profesor WHERE codigo='$nik'");
+					$delete = mysqli_query($con, "DELETE FROM alumno WHERE id_alumno='$nik'");
 					if($delete){
-						echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Datos eliminado correctamente.</div>';
+						?>
+						<script>
+								document.addEventListener("DOMContentLoaded", function() {
+								// Tu código SweetAlert aquí
+								swal({
+									title: "",
+									text: "Se elimino el Alumno de forma correcta",
+									icon: "success",
+									button: "Listo"
+								}).then(function() {
+									window.location.href = "../PHP/mostrar_alumno.php";
+								});
+							});
+						</script>
+						<?php
+
 					}else{
-						echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error, no se pudo eliminar los datos.</div>';
-					}
+						?>
+						<script>
+								document.addEventListener("DOMContentLoaded", function() {
+								// Tu código SweetAlert aquí
+								swal({
+									title: "¿Ah caray?",
+									text: "No se pudo eliminar el alumno",
+									icon: "error",
+									button: "Listo"
+								}).then(function() {
+									window.location.href = "../PHP/mostrar_alumno.php";
+								});
+							});
+						</script>
+						<?php					}
 				}
 			}
-			?>-->
+			?>
 <!--Si lo necesitan este es una lista para filtrar datos-->
 			<form  method="get">
 				<div class="form-group">
@@ -52,8 +94,8 @@
 			</form>
 			<br />
 
-			<div >
-			<table  class="tabladatos">
+			<div clas="g" >
+			<table  class="table">
 				<!--Aqui se agregan los campos que van a mostrar en la tabla los titulos solamente-->
 				<tr>
                     <th>No</th>
@@ -68,6 +110,7 @@
                     <th>Curp</th>
 					<th>ID Padre</th>
 					
+					<th>Acciones</th>
 					
                     
 				</tr>
@@ -76,24 +119,19 @@
 				 * si no necesitan el filtro deberan borrar esta parte del codigo que va desde 
 				 * AQUI
 				 */
+				include 'conexion.php';
 				if($filter){
-                    $miConsulta = "select * from profesor";   //crear una consulta que muestre a todos los empleados de la tabla empleados 
+                    $miConsulta = "select * from alumno";   //crear una consulta que muestre a todos los empleados de la tabla empleados 
                                         //que coincidan con el contenido del campo estado y de la variable $filter
 					$sql = mysqli_query($con, $miConsulta);
 				}else{
-                    $miConsulta = "select * from profesor"; //crear una consulta que muestre a todos los empleados de la tabla empleados ordenadas por el campo código
+                    $miConsulta = "select * from alumno"; //crear una consulta que muestre a todos los empleados de la tabla empleados ordenadas por el campo código
 					$sql = mysqli_query($con, $miConsulta);
 				}
 				/**
 				 * HASTA AQUI
 				 */
 				if(mysqli_num_rows($sql) == 0){
-					/***
-					 * en cuanto funcione toda la parte de base de datos sustitir las etiquetas i en la parte de botnes 
-					 * en la parte de abajo pero sin quitar funcionalidad
-					 */
-					echo '<tr><td colspan="8">Proximamente datos </td><td></td><td></td><td><a href="#"><i class="bi bi-clipboard">Editar</i></a> <br> <a href="#"><i class="bi bi-trash">Borrar</i></a></td></tr>';
-					echo '';
 				}else{
 					$no = 1;
 					while($row = mysqli_fetch_assoc($sql)){
@@ -103,31 +141,26 @@
 						echo '
 						<tr>
 							
-							<td>'.$row['profesor_id'].'</td>
-							<td><a href="profile.php?nik='.$row['profesor_id'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['nombre'].'</a></td>
-                            <td>'.$row['lugar_nacimiento'].'</td>
-                            <td>'.$row['fecha_nacimiento'].'</td>
-							<td>'.$row['telefono'].'</td>
-                            <td>'.$row['puesto'].'</td>
-							<td>';
-							
-							/**
-							 * estos son botones los cuales sirven para eliminar y editar deben poner los campos de
-							 * la base de datos correspondientes
-							 */
-						echo '
-							</td>
-							<td>
+						<td>'.$row['id_alumno'].'</td>
+						<td>'.$row['noControl'].'</td>
+						<td>'.$row['nombre'].'</td>
+						<td>'.$row['apellido_P'].'</td>
+						<td>'.$row['apellido_M'].'</td>
+						<td>'.$row['fecha_nac'].'</td>
+						<td>'.$row['fecha_registro'].'</td>
+						<td>'.$row['estado_act'].'</td>
+						<td>'.$row['id_grupo'].'</td>
+						<td>'.$row['curp'].'</td>
+						<td>'.$row['grado'].'</td>
+						<td>'.$row['id_padre'].'</td>
 
-								
-							</td>
-							<td></td>
-							<td>
-							</td>
-
-
+						<td>
+								<a href="editar_alumno.php?nik='.$row['id_alumno'].'"><i class="bi bi-clipboard">Editar</i></a>
+								<a href="mostrar_alumno.php?aksi=delete&nik='.$row['id_alumno'].'" name="aksi"><i class="bi bi-trash">Borrar</i></a>
+                                </td>
 						</tr>
 						';
+						
 						$no++;
 					}
 				}

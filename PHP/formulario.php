@@ -1,5 +1,5 @@
 <?php
-include ('conexion.php');
+require('conexion.php');
 
 ?>
 <!DOCTYPE html>
@@ -38,7 +38,7 @@ include ('conexion.php');
                 $cpT		 = mysqli_real_escape_string($con,(strip_tags($_POST["cpT"],ENT_QUOTES)));//Escanpando caracteres 
                 $telT		 = mysqli_real_escape_string($con,(strip_tags($_POST["telT"],ENT_QUOTES)));//Escanpando caracteres 
 				/*consulta que verifica que no exista otro igual */
-                $miConsulta = "select * from nombre where curp ='$nombre'"; //crear consulta que seleccione el registro donde el campo codigo sea igual a la variable $codigo
+                $miConsulta = "select * from ficha where curp ='$curp'"; //crear consulta que seleccione el registro donde el campo codigo sea igual a la variable $codigo
                 $cek = mysqli_query($con, $miConsulta);
                 /*condicion */
                 if(mysqli_num_rows($cek) == 0){
@@ -63,24 +63,24 @@ include ('conexion.php');
 			}
 			?>
         <!-- formulario -->
-            <form action="agregar_alumno.php" method="post" class="form">
+            <form action="ficha.php" method="post" class="form">
             <div class="formulario">
             
                 <div class="pagina1 active " id="contenido1">
                      <!-- Pagina 1 -->
-                    <p  class="encabezado2">Datos del Alumno</p>
+                    <p  class="encabezado2">Datos del Profesor</p>
                     <br>
                     <!-- campos del formulario cambiar los que sean necesarios maximo 4 por pagina-->
                     <p>Nombre</p>
                     <!-- input donde se obtienen datos cambiar el nombre("name") ah el nombre del campo
                         que se esta menejando y ponerlos en las variables de arria -->
-                    <input type="text" name="nombre" id="informacion" required>
+                    <input type="text" name="nombre" id="informacion">
                     <p>Apellido Paterno</p>
-                    <input type="text" name="ap" id="informacion" required>
+                    <input type="text" name="ap" id="informacion">
                     <p>Apellido Materno</p>
-                    <input type="text" name="apm" id="informacion" required>
-                    <p>Calle</p>
-                    <input type="text" name="calle" id="informacion" required>
+                    <input type="text" name="apm" id="informacion">
+                    <p>RFC</p>
+                    <input type="text" name="fecha_nac" id="informacion">
                       <!--Indica en que pagina se encuentra agregar manualmente -->
                     <p>Pagina 1 de 3</p>
                     
@@ -90,16 +90,16 @@ include ('conexion.php');
                 </div>
                  <!-- Pagina 2 -->
                 <div class="pagina2 " id="contenido2">
-                <p  class="encabezado2">Datos del Alumno</p>
+                <p  class="encabezado2">Datos de Profesor</p>
                     <br>
-                    <p >No</p>
+                    <p >Calle</p>
+                    <input type="text" name="calle" id="informacion">
+                    <p>No.</p>
                     <input type="text" name="no" id="informacion">
                     <p>Colonia</p>
                     <input type="text" name="colonia" id="informacion">
-                    <p>telefono</p>
-                    <input type="text" name="telefono" id="informacion" required>
-                    <p>Correo</p>
-                    <input type="text" name="correo" id="informacion">
+                    <p>Codigo Postal</p>
+                    <input type="text" name="cp" id="informacion">
                       <!--Indica en que pagina se encuentra agregar manualmente -->
                     <p>Pagina 2 de 3</p>
                     
@@ -112,16 +112,15 @@ include ('conexion.php');
                 <!--Pagina 3 -->
                 <div class="pagina3 "  id="contenido3">
                
-                <p  class="encabezado3">Datos del Alumno</p>
+                <p  class="encabezado3">Datos de Profesor</p>
                 <br>
-                    <p>Contraseña</p>
-                    <input type="text" name="contraseña" id="informacion">
-                    <label for="estatus">Estatus:</label>
-                            <select id="estatus" name="estatus" required>
-                                <option value="">Selecciona una opción</option>
-                                <option value="Activo">Activo</option>
-                                <option value="Inactivo">Inactivo</option>
-                            </select>
+                    <p>Cedula</p>
+                    <input type="text" name="cedula" id="informacion">
+                    <p>Telefono</p>
+                    <input type="text" name="telefono" id="informacion">
+                    <p>Correo</p>
+                    <input type="text" name="correo" id="informacion">
+                    <br>
                     <br><br><br>
                     <!--Indica en que pagina se encuentra agregar manualmente -->
                     <p>Pagina 3 de 3</p>
@@ -135,6 +134,6 @@ include ('conexion.php');
             </div>
             </form>
     </div>
-    <script src="../JS/paginacionControlEscolar.js"></script>
+    <script src="../JS/paginaficha.js"></script>
 </body>
 </html>

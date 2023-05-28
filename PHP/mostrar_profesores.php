@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,33 +5,74 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="../CSS/profesores.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 	<title>Lista de Profesores</title>
-
+	<link href="../CSS/prof.css" rel="stylesheet" >
 </head>
 <body>
-	<div>
+	<div class="container">
 		<div >
 			<h2 class="h2">Lista de Profesores</h2>
 			<hr />
 
 			<?php
+			include 'conexion.php';
             // VALOR aksi es para borrar aqui esta la funcion borrar
 			if(isset($_GET['aksi']) == 'delete'){
 				// escaping, additionally removing everything that could be (html/javascript-) code
 				$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
-                $miConsulta = "select * from profesor where codigo='$nik'"; //buscar el empleado que tenga en el campo codigo lo que hay en la variable $nik para ser eliminado
+                $miConsulta = "select * from profesor where id_profesor='$nik'"; //buscar el empleado que tenga en el campo codigo lo que hay en la variable $nik para ser eliminado
 				$cek = mysqli_query($con,$miConsulta);
 				if(mysqli_num_rows($cek) == 0){
-					echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> No se encontraron datos.</div>';
+					?>
+					<script>
+						document.addEventListener("DOMContentLoaded", function() {
+								// Tu código SweetAlert aquí
+								swal({
+									title: "¿Ah caray?",
+									text: "No se encontraron datos",
+									icon: "info",
+									button: "Listo"
+								}).then(function() {
+									window.location.href = "../PHP/mostrar_profesores.php";
+								});
+							});
+					</script>
+					<?php
 				}else{
-					$delete = mysqli_query($con, "DELETE FROM profesor WHERE codigo='$nik'");
+					$delete = mysqli_query($con, "DELETE FROM profesor WHERE id_profesor='$nik'");
 					if($delete){
-						echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Datos eliminado correctamente.</div>';
+						?>
+						<script>
+								document.addEventListener("DOMContentLoaded", function() {
+								// Tu código SweetAlert aquí
+								swal({
+									title: "",
+									text: "Se elimino el Profesor de forma correcta",
+									icon: "success",
+									button: "Listo"
+								}).then(function() {
+									window.location.href = "../PHP/mostrar_profesores.php";
+								});
+							});
+						</script>
+						<?php
+
 					}else{
-						echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error, no se pudo eliminar los datos.</div>';
-					}
+						?>
+						<script>
+								document.addEventListener("DOMContentLoaded", function() {
+								// Tu código SweetAlert aquí
+								swal({
+									title: "¿Ah caray?",
+									text: "No se pudo eliminar el profesor",
+									icon: "error",
+									button: "Listo"
+								}).then(function() {
+									window.location.href = "../PHP/mostrar_profesores.php";
+								});
+							});
+						</script>
+						<?php					}
 				}
 			}
 			?>
@@ -40,186 +80,91 @@
 			<form  method="get">
 				<div class="form-group">
 					<select name="filter" class="form-control" onchange="form.submit()">
-						<option value="0">Filtros de datos por</option>
+						<option value="">Filtros de datos por</option>
 						<!--Estos son los campos que deben modificar si desean aplicar filtros-->
 						<?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
-						<option value="1" <?php if($filter == 'Tetap'){ echo 'selected'; } ?>>Activo</option>
-						<option value="2" <?php if($filter == 'Kontrak'){ echo 'selected'; } ?>>Inactivo</option>
-                        <option value="2" <?php if($filter == 'Kontrak'){ echo 'selected'; } ?>>Grupo</option>
-						<option value="2" <?php if($filter == 'Kontrak'){ echo 'selected'; } ?>>Grado</option>
+						<option value="1" <?php if($filter == '1'){ echo 'selected'; } ?>>Activo</option>
+						<option value="2" <?php if($filter == '2' ){ echo 'selected'; } ?>>Inactivo</option>
 					</select>
 				</div>
 			</form>
 			<br />
-			<div >
-			<table  class="tabladatos">
+
+			<div class="g">
+			<table  class="table">
 				<!--Aqui se agregan los campos que van a mostrar en la tabla los titulos solamente-->
 				<tr>
                     <th>No</th>
 					<th>Nombre</th>
                     <th>Apellido Materno</th>
                     <th>Apellido Paterno</th>
-					<th>Direccion</th>
+					<th>RFC</th>
+					<th>calle</th>
+					<th>Numero de casa</th>
+					<th>colonia</th>
 					<th>Cedula</th>
-					<th>Estado</th>
+					<th>Telefono</th>
                     <th>Correo</th>
+					<th>Estado</th>
 					<th>Contraseña</th>
-					<th>Grupo</th>
+					<th>Acciones</th>
 					
                     
 				</tr>
 				<?php
-				/**aqui se hace la consulta
-				 * si no necesitan el filtro deberan borrar esta parte del codigo que va desde 
-				 * AQUI
-				 */
-				if($filter){
-                    $miConsulta = "select * from profesor";   //crear una consulta que muestre a todos los empleados de la tabla empleados 
-                                        //que coincidan con el contenido del campo estado y de la variable $filter
+				if ($filter) {
+					if ($filter === '1' || $filter === '2'){
+						$miConsulta = "SELECT * FROM profesor WHERE estado_act = '$filter' "; // Consulta con filtro por estado
+					} 
 					$sql = mysqli_query($con, $miConsulta);
-				}else{
-                    $miConsulta = "select * from profesor"; //crear una consulta que muestre a todos los empleados de la tabla empleados ordenadas por el campo código
+				} else {
+					$miConsulta = "SELECT * FROM profesor"; // Consulta sin filtro
 					$sql = mysqli_query($con, $miConsulta);
 				}
-				/**
-				 * HASTA AQUI
-				 */
-				if(mysqli_num_rows($sql) == 0){
-					/***
-					 * en cuanto funcione toda la parte de base de datos sustitir las etiquetas i en la parte de botnes 
-					 * en la parte de abajo pero sin quitar funcionalidad
-					 */
-					echo '<tr>
-					<th>1</th>
-					<th>Saul</th>
-                    <th>Palomares</th>
-                    <th>Garcia</th>
-					<th>isaac Calderon 982 lomas de morelia</th>
-					<th>124GRE537S</th>
-					<th>Activo</th>
-                    <th>Saleu@gmail.com</th>
-					<th>Contraseña</th>
-					<th>A</th>
-					
-					 <td> 
-					 <a href="#"><i class="bi bi-clipboard">Editar</i>
-					 </a> <br> <a href="#"><i class="bi bi-trash">Borrar</i></a>
-					 </td></tr>
-					 
-					 <tr>
-					 <th>2</th>
-					<th>Paulo</th>
-                    <th>Linares</th>
-                    <th>Garcia</th>
-					<th>BellaVista 82 lomas del sur</th>
-					<th>6H4H474</th>
-					<th>Activo</th>
-                    <th>Aulpu@gmail.com</th>
-					<th>12334</th>
-					<th>B</th>
-					<td> 
-					 <a href="#"><i class="bi bi-clipboard">Editar</i>
-					 </a> <br> <a href="#"><i class="bi bi-trash">Borrar</i></a>
-					 </td>
-					 </tr>
-             
-					 <tr>
-					 <th>3</th>
-					<th>Paola</th>
-                    <th>Linares</th>
-                    <th>Garcia</th>
-					<th>BellaVista 82 lomas del sur</th>
-					<th>1234HDJJ/th>
-					<th>Activo</th>
-                    <th>lina@gmail.com</th>
-					<th>1tt34</th>
-					<th>A</th>
-					<td> 
-					 <a href="#"><i class="bi bi-clipboard">Editar</i>
-					 </a> <br> <a href="#"><i class="bi bi-trash">Borrar</i></a>
-					 </td>
-					 </tr>
-
-					 <tr>
-					 <th>4</th>
-					<th>Andres</th>
-                    <th>camarena</th>
-                    <th>Bosquejos</th>
-					<th>Salamanca 23 col. charo</th>
-					<th>6H4H474</th>
-					<th>Activo</th>
-                    <th>sd@gmail.com</th>
-					<th>876</th>
-					<th>A</th>
-					<td> 
-					<a href="#"><i class="bi bi-clipboard">Editar</i>
-					</a> <br> <a href="#"><i class="bi bi-trash">Borrar</i></a>
-					</td>
-
-					 </tr>
-
-					 <tr>
-					 <th>5</th>
-					<th>Julio</th>
-                    <th>Garcia</th>
-                    <th>Garcia</th>
-					<th>Buenos aires 12 lomas del sur</th>
-					<th>6HTR474</th>
-					<th>Activo</th>
-                    <th>Aulpu@gmail.com</th>
-					<th>12334</th>
-					<th>B</th>
-
-					<td> 
-					 <a href="#"><i class="bi bi-clipboard">Editar</i>
-					 </a> <br> <a href="#"><i class="bi bi-trash">Borrar</i></a>
-					 </td>
-					 </tr>
-					 
-					 
-					 
-					 
-					 
-					 ';
-					echo '';
-				}else{
-					$no = 1;
-					while($row = mysqli_fetch_assoc($sql)){
-						/**en esta parte deben poner los campos de la base de datos debe conincidir el nombre
-						 * con la base de datos si es necesario agregar mas 
-						 */
-						echo '
-						<tr>
-							
-							<td>'.$row['profesor_id'].'</td>
-							<td><a href="profile.php?nik='.$row['profesor_id'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['nombre'].'</a></td>
-                            <td>'.$row['lugar_nacimiento'].'</td>
-                            <td>'.$row['fecha_nacimiento'].'</td>
-							<td>'.$row['telefono'].'</td>
-                            <td>'.$row['puesto'].'</td>
-							<td>';
-							
-							/**
-							 * estos son botones los cuales sirven para eliminar y editar deben poner los campos de
-							 * la base de datos correspondientes
-							 */
-						echo '
-							</td>
-							<td>
-
+                if (mysqli_num_rows($sql) == 0) {
+                    ?>
+                            <script>
+                            document.addEventListener("DOMContentLoaded", function() {
+                            // Tu código SweetAlert aquí
+                            swal({
+                                title: "¿Ah caray?",
+                                text: "No se encontraron datos",
+                                icon: "info",
+                                button: "Listo"
+                            }).then(function() {
+                                window.location.href = "../PHP/mostrar_profesores.php";
+                            });
+                        });
+                            </script>
+                            <?php
+                } else {
+                    $no = 1;
+                    while ($row = mysqli_fetch_assoc($sql)) {
+                        echo '<tr>
+                                <td>'.$row['id_profesor'].'</td>
+                                <td>'.$row['nombre'].'</td>
+								<td>'.$row['apellido_P'].'</td>
+                                <td>'.$row['apellido_M'].'</td>
+								<td>'.$row['RFC'].'</td>
+                                <td>'.$row['calle'].'</td>
+								<td>'.$row['no'].'</td>
+                                <td>'.$row['colonia'].'</td>
+								<td>'.$row['cedula'].'</td>
+                                <td>'.$row['telefono'].'</td>
+								<td>'.$row['correo'].'</td>
+                                <td>'.$row['estado_act'].'</td>
+								<td>'.$row['password'].'</td>
+                                
 								
-							</td>
-							<td></td>
-							<td>
-							</td>
-
-
-						</tr>
-						';
-						$no++;
-					}
-				}
-				?>
+                                <td>
+								<a href="editar_profesor.php?nik='.$row['id_profesor'].'"><i class="bi bi-clipboard">Editar</i></a>
+								<a href="mostrar_profesores.php?aksi=delete&nik='.$row['id_profesor'].'" name="aksi"><i class="bi bi-trash">Borrar</i></a>
+                                </td>
+                            </tr>';
+                        $no++;
+                    }
+                }
+                ?>
 				
 			</table>
 			</div>

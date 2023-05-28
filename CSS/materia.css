@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+.containe {
+    max-width: 7000px;
+    padding: 20px;
+    margin-left: 25px;
+  }
 body{
     font-family: 'Roboto', sans-serif;
-    position: relative;
-    
+    position: relative;    
 }
 /*tamaño de letra*/
 p{
@@ -27,7 +31,7 @@ p{
 }
 .formulario{
      margin:center;
-     margin-left: 20%;
+     margin-left: 5px;
 }
 /*paginacion del formulario*/
 .pagina1{

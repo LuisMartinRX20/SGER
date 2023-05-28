@@ -44,7 +44,7 @@ require('conexion.php');
                 if(mysqli_num_rows($cek) == 0){
                         /*inserta los valores que estan en los campos de texto */
                         $miConsulta = "INSERT INTO ficha (Nombre,ApeP,ApeM,curp,fecha_nac,calle,Provincia,Poblacion,CP,nombreT,ApeP_T,ApeM_T,fecha_nac_T,calle_T,provincia_T,Poblacion_T,CP_T,telefono ,precio) VALUES('{$_POST["nombre"]}','{$_POST["ap"]}','{$_POST["apm"]}','{$_POST["curp"]}','{$_POST["fecha_nac"]}','{$_POST["calle"]}','{$_POST["no"]}','{$_POST["colonia"]}','{$_POST["cp"]}','{$_POST["nombreT"]}','{$_POST["apT"]}','{$_POST["apmT"]}','{$_POST["fecha_nacT"]}','{$_POST["calleT"]}','{$_POST["noT"]}','{$_POST["coloniaT"]}','{$_POST["cpT"]}','{$_POST["telT"]}',300)"; //crear la consulta del INSERT INTO 
-						$insert = mysqli_query($con, $miConsulta) or die(mysqli_error());
+						$insert = mysqli_query($con, $miConsulta) or die(mysqli_error($con));
 						if($insert){
                             /**Alerta de se hizo el registro */
 							echo '<script type="text/javascript">
@@ -74,13 +74,13 @@ require('conexion.php');
                     <p>Nombre</p>
                     <!-- input donde se obtienen datos cambiar el nombre("name") ah el nombre del campo
                         que se esta menejando y ponerlos en las variables de arria -->
-                    <input type="text" name="nombre" id="informacion">
+                    <input type="text" name="nombre" id="informacion" required>
                     <p>Apellido Paterno</p>
-                    <input type="text" name="ap" id="informacion">
+                    <input type="text" name="ap" id="informacion" required>
                     <p>Apellido Materno</p>
-                    <input type="text" name="apm" id="informacion">
+                    <input type="text" name="apm" id="informacion" required>
                     <p >Calle</p>
-                    <input type="text" name="calle" id="informacion">
+                    <input type="text" name="calle" id="informacion" required>
                     
                       <!--Indica en que pagina se encuentra agregar manualmente -->
                     <p>Pagina 1 de 3</p>
@@ -94,9 +94,9 @@ require('conexion.php');
                 <p  class="encabezado2">Datos del Padre</p>
                     <br>
                     <p>No.</p>
-                    <input type="text" name="no" id="informacion">
+                    <input type="text" name="no" id="informacion" >
                     <p>Colonia</p>
-                    <input type="text" name="colonia" id="informacion">
+                    <input type="text" name="colonia" id="informacion" required>
                     <p>Estado Actividad</p>
                     <select id="estatus" name="estatus" required>
                                 <option value="">Selecciona una opción</option>
@@ -120,13 +120,13 @@ require('conexion.php');
                 <p  class="encabezado3">Datos del Padre</p>
                 <br>
                     <p>Fecha Nacimiento</p>
-                    <input type="date" name="fecha_nac" id="informacion">
+                    <input type="date" name="fecha_nac" id="informacion" required>
                     <p>Fecha Registro</p>
-                    <input type="date" name="fecha_reg" id="informacion">
+                    <input type="date" name="fecha_reg" id="informacion"required>
                     <p>Telefono</p>
-                    <input type="text" name="telefono" id="informacion">
+                    <input type="text" name="telefono" id="informacion"required>
                     <p>Correo</p>
-                    <input type="text" name="correo" id="informacion">
+                    <input type="text" name="correo" id="informacion"required>
                     
                     <!--Indica en que pagina se encuentra agregar manualmente -->
                     <p>Pagina 3 de 3</p>
