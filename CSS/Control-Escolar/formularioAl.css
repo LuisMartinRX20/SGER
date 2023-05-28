@@ -1,17 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 body{
     font-family: 'Roboto', sans-serif;
-    background-color: #15223b;
     position: relative;
+    
 }
-
-input{
-    border: 0;
-    outline:none;
-    border-bottom:1px solid black;
-    font-size: 16px;
-  }
-
+/*tamaño de letra*/
 p{
     font-size: 18px;
     
@@ -20,6 +13,7 @@ p{
     text-align: center;
 }
 
+/*el div que contiene la informacion*/
 .formulario{
     background-color: #fdfefe;
     
@@ -31,6 +25,7 @@ p{
     overflow: hidden;
     
 }
+/*formulario que envia la informacion*/
 .form{
     background-color: #fdfefe;
     
@@ -43,45 +38,11 @@ p{
     overflow: hidden;
     
 }
-.titulo{
-    background-color: #fdfefe;
-    position: relative;
-    margin-top: -1%;
-    margin-left: 28%;
-    margin-right: 28%;
-    border-radius: 12px;
-    height: 16%;
-    
-}
-ul{
-    list-style-type: none;
-    text-align: center
-    
-}
-.opcion{
-    color: black;
-    background-color: white; 
-    border:  2px solid #15223b;
-    display: inline;
-    margin-right: 10px;
-    padding: 0 4px;
-    border-radius: 12px;
-    
- } 
 
-.opcion.active{
-    color: white;
-    background-color: #008CBA; 
-}
-li{
-    color: white;
-    background-color: #008CBA; 
-}
 
-.fondo{
-    overflow: hidden;
-}
 
+
+/*paginacion del formulario*/
 .pagina1{
     margin-left: 10%;
     margin-right: 10%;
@@ -113,7 +74,7 @@ li{
     height: 1.2rem;
    
 }
-
+/*titulo que esta arriba del formulario*/
 .encabezado1{
     margin-left: 33%;
     margin-block-end: -2%;
@@ -124,11 +85,14 @@ li{
 .encabezado3{
     margin-left: 27%;
 }
-
+.encabezado4{
+    margin-left: 27%;
+}
+/*botones */
 #boton {
     position: relative;
-    background-color: #a0deea;
-    color:  #15223b;
+    background-color: #008CBA;
+    color: white;
     border: 2px solid  #15223b;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
@@ -137,10 +101,15 @@ li{
     margin-left: 14%;
 }
 #boton:hover {
-    
+    color: black;
     background-color: white; 
 }
-
+.botonS1{
+    left: 40%;
+}
+.botonA2{
+    margin-top: 2%;
+}
 .cancelar{
     position: relative;
     background-color: #008CBA;
@@ -154,7 +123,10 @@ li{
     margin-left: 12%;
 
 }
-
+.cancelar:hover{
+    color: black;
+    background-color: white; 
+}
 
 /*activar paginas*/
 .pagina1.active{
@@ -178,5 +150,8 @@ li{
     margin-left: -100%;
 }
 .pagina3.left{
+    margin-left: -130%;
+}
+.pagina4.left{
     margin-left: -130%;
 }

@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+.containe {
+    max-width: 7000px;
+    padding: 20px;
+    margin-left: 25px;
+  }
+body{
+    font-family: 'Roboto', sans-serif;
+    position: relative;    
+}
+/*tamaño de letra*/
+p{
+    font-size: 18px;
+    
+}
+#encabezado{
+    text-align: center;
+}
+/*formulario que envia la informacion*/
+.form{
+    background-color: #ffffff;
+    margin-top: 1%;
+    margin-left: 20%;
+    margin-right: 28%;
+    border-radius: 12px;
+    height: 27rem;
+    display: flex;
+    overflow: hidden;
+
+    
+}
+.formulario{
+     margin:center;
+     margin-left: 5px;
+}
+/*paginacion del formulario*/
+.pagina1{
+    margin-left: 50%;
+    margin-right: 50%;
+    width: 100%;
+}
+#informacion{
+    display: flex;
+    left: -1rem;
+    width: 150%;
+    height: 1.2rem;
+   
+}
+/*titulo que esta arriba del formulario*/
+.encabezado2{
+   margin: center;
+   margin-top: 20px;
+   margin-bottom: 1%;
+}
+/*botones */
+#boton {
+    position: relative;
+    background-color: #008CBA;
+    color: white;
+    border: 2px solid  #15223b;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    border-radius: 12px;
+    padding: 0 1rem;
+    margin-left: 14%;
+}
+#boton:hover {
+    color: black;
+    background-color: white; 
+}
+.botonA2{
+    margin-top: 2%;
+}
+/*activar paginas*/
+.pagina1.active{
+    opacity: 1;
+}
+
