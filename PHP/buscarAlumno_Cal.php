@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <title>AlumnosCalificaciones</title>
     <style>
         .search-form {
@@ -46,13 +47,13 @@
   }
     </style>
 </head>
-<body>
-            <form action="../PHP/Mostar_AluCal.php" method="POST" class="search-form">
-                   <label for="id" class="search-label">Buscar alumno por matrícula:</label>
-                         <div class="search-container">
-                         <input type="text" id="id" name="id" class="search-input">
-                         <button type="submit" class="search-button" >Buscar</button>
-                         </div>
-            </form>             
-</body>
+  <body>
+              <form action="../PHP/Mostar_AluCal.php" method="POST" class="search-form">
+                    <label for="id" class="search-label">Buscar alumno por matrícula:</label>
+                        <div class="search-container">
+                          <input type="text" id="id" name="id" class="search-input">
+                          <button type="submit" class="search-button" >Buscar</button>
+                        </div>
+              </form>             
+  </body>
 </html>
