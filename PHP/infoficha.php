@@ -36,7 +36,7 @@ if(!isset($_SESSION['curpA'])){
                 <li>Precio: <?php echo $row['precio'];?></li>
             </ul>
            <div class="boton">
-            <a href="cerrarsesion.php" class="button">Salir</a>
+            <a href="cerrar-sesion.php" class="button">Salir</a>
             </div>
         </div>
     </div>
