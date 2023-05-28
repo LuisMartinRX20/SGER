@@ -110,7 +110,7 @@
 						echo "<tr><td colspan='4'>No se encontraron calificaciones para el alumno.</td></tr>";
 					}
 
-					$conn->close();
+					$con->close();
 					?>
 				</table>
 			</div>

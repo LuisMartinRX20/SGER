@@ -27,9 +27,6 @@ Email	 	 : info@obedalvarado.pw
 	<![endif]-->
 </head>
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top">
-		<?php include("nav.php");?>
-	</nav>
 	<div class="container">
 		<div class="content">
 			<h2>Datos del Padre &raquo; Editar datos</h2>
