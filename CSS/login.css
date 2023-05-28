@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 body{
     background-color: #15223b;
 }
@@ -15,16 +14,6 @@ body{
     width: 1010px;
     overflow: hidden;
     border-radius: 12px;
-    border-radius: 12px;
-}
-
-input{
-  height: 20px;
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid #15223b;
-  outline: none;
-  font-size: 20px;
 }
 
 .imagen{
@@ -166,7 +155,7 @@ p{
 }
 
 .informacion{
-    width: 60%;
+    width: 80%;
     height: 20px;
 }
 #texto{

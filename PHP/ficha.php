@@ -51,7 +51,7 @@ require('conexion.php');
                 $cek = mysqli_query($con, $miConsulta);
                 if(mysqli_num_rows($cek) == 0){
                 $miConsulta="INSERT INTO ficha (id_ficha,nombreA,apellido_PA,apellido_MA,fecha_nacA,curpA,nombreT,apellido_PT,apellido_MT,fecha_nacT,correo,telefono,calle,num,colonia,CP,fecha_registro,estado_pago,precio) VALUES (NULL, '{$_POST["nombreA"]}','{$_POST["apellido_PA"]}','{$_POST["apellido_MA"]}','{$_POST["fecha_nacA"]}','{$_POST["curpA"]}','{$_POST["nombreT"]}','{$_POST["apellido_PT"]}','{$_POST["apellido_MT"]}','{$_POST["fecha_nacT"]}','{$_POST["correo"]}','{$_POST["telefono"]}','{$_POST["calle"]}','{$_POST["num"]}','{$_POST["colonia"]}','{$_POST["CP"]}','$fechaActual','0','300');";
- //crear la consulta del INSERT INTO  
+ //crear la consulta del INSERT INTO 
 						$insert = mysqli_query($con, $miConsulta) or die(mysqli_error($con));
 						if($insert){
 							echo '<script type="text/javascript">
