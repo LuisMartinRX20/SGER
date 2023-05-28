@@ -1,5 +1,5 @@
 <?php
-require('conexion.php');
+include('conexion.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,9 +25,9 @@ require('conexion.php');
                 $miConsulta = "select * from lista_grupo where id_grupo ='$id_grupo'"; //crear consulta que seleccione el registro donde el campo codigo sea igual a la variable $codigo
                 $cek = mysqli_query($con, $miConsulta);
                 /*condicion */
-                if(mysqli_num_rows($cek) == true){
+                
                         /*inserta los valores que estan en los campos de texto */
-                        $miConsulta = "INSERT INTO lista_alumno (id_grupo, id_alumno)
+                        $miConsulta = "INSERT INTO lista_grupo (id_grupo, id_alumno)
                          VALUES ('$id_grupo','$id_alumno')"; //crear la consulta del INSERT INTO 
 						$insert = mysqli_query($con, $miConsulta) or die(mysqli_error($con));
 						if($insert){
@@ -37,11 +37,11 @@ require('conexion.php');
                             // Tu código SweetAlert aquí
                             swal({
                                 title: "Genial",
-                                text: "Grupo insertado correctamente",
+                                text: "Alumno insertado al grupo correctamente",
                                 icon: "success",
                                 button: "Listo"
                             }).then(function() {
-                                window.location.href = "../PHP/mostrar_grupos.php";
+                                window.location.href = "../PHP/mostrar_lista.php";
                             });
                         });
                             </script>
@@ -57,34 +57,17 @@ require('conexion.php');
                                         icon: "error",
                                         button: "Listo"
                                     }).then(function() {
-                                        window.location.href = "../PHP/agregar_grupo.php";
+                                        window.location.href = "../PHP/llenar_grupo.php";
                                     });
                                 });
                                     </script>
                                     <?php						
                                 }
                             }
-                        else{
-                                ?>
-                                    <script>
-                                        document.addEventListener("DOMContentLoaded", function() {
-                                            // Tu código SweetAlert aquí
-                                                    swal({
-                                                        title: "",
-                                                        text: "Ya existe este grupo",
-                                                        icon: "info",
-                                                        button: "Listo"
-                                                    }).then(function() {
-                                                        window.location.href = "../PHP/agregar_grupo.php";
-                                                    });
-                                                }); 
-                                    </script>
-                                <?php
-                }
-			}
+                      
 			?>
         <!-- formulario -->
-        <form action="agregar_grupo.php" method="POST" class="form">
+        <form action="llenar_grupo.php" method="POST" class="form">
                 <div class="formulario">
                     <div class="pagina1 active" id="contenido1">
                         <!-- Pagina 1 -->

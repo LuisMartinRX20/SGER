@@ -180,7 +180,7 @@
                     </li>
 
                     <li class="list_inside">
-                        <a href="mostrar_grupo.php"  target="frame" class="nav_link nav_link--inside">Integrantes de grupos</a>
+                        <a href="../PHP/mostrar_lista.php"  target="frame" class="nav_link nav_link--inside">Integrantes de grupos</a>
                     </li>
 
                 </ul>
