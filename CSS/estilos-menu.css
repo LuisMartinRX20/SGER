@@ -3,8 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size:20px;
-    
+    font-size:20px;   
 }
 
 body{
@@ -120,8 +119,7 @@ input{
 
 .fondo_header{
     background-color:#a0deea ;
-    min-width: 40%;
-    max-width: 50%;
+    width: 50%;
     height: 80%;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -131,7 +129,7 @@ input{
 }
 
 .icon_header{
-    margin-top: 3.5%;
+    margin-top: 2.5%;
     margin-left: 4%;
     margin-right: 3%;
 }
@@ -146,6 +144,29 @@ input{
     color: white;
 }
 
+/* Estilos para el contenedor de notificaciones */
+
+.notificaciones{
+    background-color:#a0deea ;
+    width: 5%;
+    height: 80%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 1%;
+    border-radius: 12px 12px 12px 12px;
+    float: right;
+}
+
+.icon_notificaciones{
+    margin-top: 12px;
+    margin-left: 15.2px;
+}
+.position-absolute {
+    /* Ajusta el margen superior y el margen izquierdo para separar de otros componentes */
+    margin-top: 10px;
+    margin-left: 0px;
+    color: #15223b;
+  }
 /* Estilos para el contenedor del contenido */
 .contenido{
     background-color:skyblue ;
@@ -153,7 +174,6 @@ input{
     margin: 1%;
     padding: 1%;
 }
-
 .fps{
     background-color: #15223b;
     height: 82vh;
