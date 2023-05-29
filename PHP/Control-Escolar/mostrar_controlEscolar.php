@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="../CSS/mostrarGa.css" rel="stylesheet" type="text/css">
+	<link href="../../CSS/Control-Escolar/mostrarGa.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 	<title>Lista de Profesores</title>
 
@@ -16,8 +16,8 @@
 		<div >
 			<h2 class="h2">Lista de Personal control Escolar</h2>
 			<hr />
-<!--
-			</*?php
+
+			<?php
             // VALOR aksi es para borrar aqui esta la funcion borrar
 			if(isset($_GET['aksi']) == 'delete'){
 				// escaping, additionally removing everything that could be (html/javascript-) code
@@ -35,7 +35,7 @@
 					}
 				}
 			}
-			?>-->
+			?>
 <!--Si lo necesitan este es una lista para filtrar datos-->
 			<form  method="get">
 				<div class="form-group">
@@ -43,9 +43,9 @@
 						<option value="0">Filtros de datos por</option>
 						<!--Estos son los campos que deben modificar si desean aplicar filtros-->
 						<?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
-						<option value="1" <?php if($filter == 'Tetap'){ echo 'selected'; } ?>>Activo</option>
-						<option value="2" <?php if($filter == 'Kontrak'){ echo 'selected'; } ?>>Inactivo</option>
-                        <option value="2" <?php if($filter == 'Kontrak'){ echo 'selected'; } ?>>Fecha registro</option>
+						<option value="1" <?php if($filter == '1'){ echo 'selected'; } ?>>Activo</option>
+						<option value="2" <?php if($filter == '2'){ echo 'selected'; } ?>>Inactivo</option>
+                        
 					</select>
 				</div>
 			</form>
@@ -57,30 +57,30 @@
 				<tr>
                     <th>No</th>
 					<th>Nombre</th>
-                    <th>Apellido Materno</th>
                     <th>Apellido Paterno</th>
-                    <th>Calle</th>
-					<th>Colonia</th>
-                    <th>Numero de casa</th>
-					<th>telefono</th>
-					<th>Estado</th>
+                    <th>Apellido Materno</th>
+                    <th>RFC</th>
+					<th>Direccion</th>
+                    <th>Telegono</th>
                     <th>Correo</th>
-                    <th>Contraseña</th>
-					
+					<th>Estadp</th>
+					<th>Cotraseña</th>
+					<th>Acciones</th>
 					
                     
 				</tr>
 				<?php
+				require('conexion.php');
 				/**aqui se hace la consulta
 				 * si no necesitan el filtro deberan borrar esta parte del codigo que va desde 
 				 * AQUI
 				 */
 				if($filter){
-                    $miConsulta = "select * from profesor";   //crear una consulta que muestre a todos los empleados de la tabla empleados 
+                    $miConsulta = "select * from control_escolar where estado_act='$filter'";   //crear una consulta que muestre a todos los empleados de la tabla empleados 
                                         //que coincidan con el contenido del campo estado y de la variable $filter
 					$sql = mysqli_query($con, $miConsulta);
 				}else{
-                    $miConsulta = "select * from profesor"; //crear una consulta que muestre a todos los empleados de la tabla empleados ordenadas por el campo código
+                    $miConsulta = "select * from control_escolar"; //crear una consulta que muestre a todos los empleados de la tabla empleados ordenadas por el campo código
 					$sql = mysqli_query($con, $miConsulta);
 				}
 				/**
@@ -91,39 +91,7 @@
 					 * en cuanto funcione toda la parte de base de datos sustitir las etiquetas i en la parte de botnes 
 					 * en la parte de abajo pero sin quitar funcionalidad
 					 */
-					echo '<tr>
-					<th>1</th>
-					<th>Gabriel</th>
-                    <th>Perez</th>
-                    <th>Perez</th>
-                    <th>Anotnio del castillo</th>
-					<th>Colonia</th>
-                    <th>2</th>
-					<th>3142567</th>
-					<th>Activo</th>
-                    <th>gabozaidinde@gmail.com</th>
-                    <th>Contraseña</th>
-					<td><a href="#"><i class="bi bi
-					-clipboard">Editar</i></a> <br> <a href=
-					"#"><i class="bi bi-trash">Borrar</i></a></td></tr>
-					
-					<tr>
-					<th>2</th>
-					<th>Lucero</th>
-                    <th>Perez</th>
-                    <th>Gonzales</th>
-                    <th>castillo</th>
-					<th>Altozano</th>
-                    <th>2</th>
-					<th>3142567</th>
-					<th>Activo</th>
-                    <th>gdinde@gmail.com</th>
-                    <th>Contraseña</th>
-					<td><a href="#"><i class="bi bi
-					-clipboard">Editar</i></a> <br> <a href=
-					"#"><i class="bi bi-trash">Borrar</i></a></td></tr>
-					
-					';
+				
 					echo '';
 				}else{
 					$no = 1;
@@ -134,30 +102,29 @@
 						echo '
 						<tr>
 							
-							<td>'.$row['profesor_id'].'</td>
-							<td><a href="profile.php?nik='.$row['profesor_id'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['nombre'].'</a></td>
-                            <td>'.$row['lugar_nacimiento'].'</td>
-                            <td>'.$row['fecha_nacimiento'].'</td>
+							<td>'.$row['id_controlE'].'</td>
+							<td>'.$row['nombre'].'</a></td>
+                            <td>'.$row['apellido_P'].'</td>
+                            <td>'.$row['apellido_M'].'</td>
+							<td>'.$row['RFC'].'</td>
+                            <td>'.$row['calle'].' '.$row['no'].' Colonia '.$row['colonia'].'</td>
 							<td>'.$row['telefono'].'</td>
-                            <td>'.$row['puesto'].'</td>
-							<td>';
+							<td>'.$row['correo'].'</td>
+							';if($row['estado_act']==1){
+								echo'<td>Activo</td>';
+							}
+							else{
+								echo'<td>Activo</td>';
+							}
+							echo'
+							<td>'.$row['password'].'</td>
 							
-							/**
-							 * estos son botones los cuales sirven para eliminar y editar deben poner los campos de
-							 * la base de datos correspondientes
-							 */
-						echo '
-							</td>
+						
 							<td>
-
-								
-							</td>
-							<td></td>
-							<td>
-							</td>
-
-
-						</tr>
+								<a href="edidar_control.php?nik='.$row['id_controlE'].'"><i class="bi bi-clipboard">Editar</i></a>
+								<a href="mostrar_controlEscolar.php?aksi=delete&nik='.$row['id_controlE'].'" name="aksi"><i class="bi bi-trash">Borrar</i></a>
+                                </td>
+						
 						';
 						$no++;
 					}
