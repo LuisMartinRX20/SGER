@@ -55,22 +55,11 @@ require('conexion.php');
 						$insert = mysqli_query($con, $miConsulta) or die(mysqli_error($con));
 						if($insert){
                             session_start();
-                            $_SESSION['curpA']=$curpA;?>
-                            <script>
-                            document.addEventListener("DOMContentLoaded", function() {
-                            // Tu código SweetAlert aquí
-                            Swal.fire({
-                                    title:"Ficha registrada",
-                                    text: "La ficha ha sido registrada exitosamente",
-                                    icon: "success",
-                                    confirmButtonText: "Ok"
-                                }).then(function() {
-                                window.location.href = "infoficha.php";
-                                });
-                            });
-                            </script>
+                            $_SESSION['curpA']=$curpA;
+                                location( "infoficha.php");
+                             
                         
-						<?php } else{
+						 } else{
 							echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Error. No se pudo guardar los datos !</div>';
 						}
                     }
