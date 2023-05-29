@@ -104,10 +104,23 @@
         </ul>
     </nav>
 
+    <?php
+
+    require 'conexion.php';
+
+    $RFC = $_SESSION['username'][0];
+    $miConsulta = "SELECT nombre,apellido_P,apellido_M FROM profesor WHERE RFC='$RFC'";
+    $query = mysqli_query($con,$miConsulta);
+    $array = mysqli_fetch_assoc($query);
+
+
+    ?>
+
     <div class="header">
         <div class="fondo_header">
         <img src="../ICONS/usuario.svg" class="icon_header">
-        <a href="#" class="content_header"><?php echo $_SESSION['username'][0]; echo "(".$_SESSION['username'][1].")"?></a>
+        <a href="#" class="content_header"><?php echo $array['nombre'].' '.$array['apellido_P'].' '.$array['apellido_M'];
+                                                echo "(" . $_SESSION['username'][1] . ")" ?></a>
         </div>
     </div>
 
