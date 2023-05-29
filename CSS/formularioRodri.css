@@ -4,20 +4,7 @@ body{
    
     position: relative;
 }
-
-input{
-    border: 0;
-    outline:none;
-    border-bottom:1px solid black;
-    font-size: 16px;
-  }
-
-textarea{
-    resize: none;
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-}
-
+/*tamaño de letra*/
 p{
     font-size: 18px;
     
@@ -26,17 +13,19 @@ p{
     text-align: center;
 }
 
+/*el div que contiene la informacion*/
 .formulario{
     background-color: #fdfefe;
     
     margin-top: 1%;
-   
+    width: 80%;
     border-radius: 12px;
     height: 32rem;
     display: flex;
     overflow: hidden;
     
 }
+/*formulario que envia la informacion*/
 .form{
     background-color: #fdfefe;
     
@@ -44,50 +33,16 @@ p{
     margin-left: 28%;
     margin-right: 28%;
     border-radius: 12px;
-    height: 32rem;
-   
+    height: 34rem;
+    display: flex;
     overflow: hidden;
     
 }
-.titulo{
-    background-color: #fdfefe;
-    position: relative;
-    margin-top: -1%;
-    margin-left: 28%;
-    margin-right: 28%;
-    border-radius: 12px;
-    height: 16%;
-    
-}
-ul{
-    list-style-type: none;
-    text-align: center
-    
-}
-.opcion{
-    color: black;
-    background-color: white; 
-    border:  2px solid #15223b;
-    display: inline;
-    margin-right: 10px;
-    padding: 0 4px;
-    border-radius: 12px;
-    
- } 
 
-.opcion.active{
-    color: white;
-    background-color: #008CBA; 
-}
-li{
-    color: white;
-    background-color: #008CBA; 
-}
 
-.fondo{
-    overflow: hidden;
-}
 
+
+/*paginacion del formulario*/
 .pagina1{
     margin-left: 10%;
     margin-right: 10%;
@@ -119,7 +74,7 @@ li{
     height: 1.2rem;
    
 }
-
+/*titulo que esta arriba del formulario*/
 .encabezado1{
     margin-left: 33%;
     margin-block-end: -2%;
@@ -130,25 +85,28 @@ li{
 .encabezado3{
     margin-left: 27%;
 }
-
+/*botones */
 #boton {
     position: relative;
-    background-color: #a0deea;
-    color:  #15223b;
+    background-color: #008CBA;
+    color: white;
     border: 2px solid  #15223b;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     border-radius: 12px;
     padding: 0 1rem;
     margin-left: 14%;
-    left: 20%;
-     
 }
 #boton:hover {
-    
+    color: black;
     background-color: white; 
 }
-
+.botonS1{
+    left: 40%;
+}
+.botonA2{
+    margin-top: 2%;
+}
 .cancelar{
     position: relative;
     background-color: #008CBA;
@@ -162,7 +120,10 @@ li{
     margin-left: 12%;
 
 }
-
+.cancelar:hover{
+    color: black;
+    background-color: white; 
+}
 
 /*activar paginas*/
 .pagina1.active{

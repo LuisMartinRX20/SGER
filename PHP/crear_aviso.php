@@ -11,24 +11,22 @@ session_start();
     <link href="../CSS/aviso.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
     <title>SGER:FIcha</title>
+
+    <script>
+       
+    </script>
 </head>
 <body>
     <div class="fondo">
-        <div class="titulo">
-            <h1 id="encabezado">Solicitar Ficha</h1>
-                <ul>
-                    <li class="opcion active" id="opcion1">1</li>
-                    <li class="opcion" id="opcion2">2</li>
-                    <li class="opcion" id="opcion3">3</li>
-                    <!--<li class="opcion" id="opcion4">4</li>-->
-                </ul>
-                <br>
-            </div>  
+        
             <?php
 			if(isset($_POST['enviar'])){
 				$id_grupo		     = mysqli_real_escape_string($con,(strip_tags($_POST["id_grupo"],ENT_QUOTES)));//Escanpando caracteres 
 				$descripcion		     = mysqli_real_escape_string($con,(strip_tags($_POST["descripcion"],ENT_QUOTES)));//Escanpando caracteres 
                 $id_profe           =$_SESSION['username'][0];
+                $profe="SELECT id_profesor FROM profesor where RFC='$id_profe' ";
+                $query=mysqli_query($con,$profe);
+                $array=mysqli_fetch_assoc($query);
                 date_default_timezone_set('America/Mexico_City');
 
                 $fechaActual = date("Y-m-d"); 
@@ -37,12 +35,11 @@ session_start();
 				
                
                 
-                $miConsulta="INSERT INTO avisos (id,id_grupo,id_profesor,info,f,fecha_aviso) VALUES (NULL, '{$_POST["id_grupo"]}','$id_profe','{$_POST["descripcion"]}','$fechaActual');";
+                $miConsulta="INSERT INTO avisos (id,id_grupo,id_profesor,info,fecha_aviso) VALUES (NULL, '{$_POST["id_grupo"]}','$array[id_profesor]','{$_POST["descripcion"]}','$fechaActual');";
  //crear la consulta del INSERT INTO 
 						$insert = mysqli_query($con, $miConsulta) or die(mysqli_error($con));
 						if($insert){
-                            session_start();
-                            $_SESSION['curpA']=$curpA;?>
+                          ?>
                             <script>
                             document.addEventListener("DOMContentLoaded", function() {
                             // Tu código SweetAlert aquí
@@ -84,7 +81,7 @@ session_start();
                         </select>
 
                     <p>Descripcion del Aviso</p>
-                <textarea  type="text" name="descripcion"  class="descripcion" rows="15" cols="61"></textarea>
+                <textarea  type="text" name="descripcion"  class="descripcion" rows="15" cols="45"></textarea>
                     <br>
                     <br>
                  
@@ -92,66 +89,7 @@ session_start();
                     <input type="submit" name="enviar"  value= "Enviar" id="boton">
                     
                 </div>
-                
-                <div class="pagina2 " id="contenido2">
-                <p  class="encabezado3">Datos del Padre/ Tutor</p>
-                    <p>Nombre</p>
-                    <input type="text" name="nombreT" id="informacion">
-                    <p>Apellido Paterno</p>
-                    <input type="text" name="apellido_PT" id="informacion">
-                    <p>Apellido Materno</p>
-                    <input type="text" name="apellido_MT" id="informacion">
-                    <p>Fecha Nacimiento</p>
-                    <input type="date" name="fecha_nacT" id="informacion">
-                    <p>Correo</p>
-                    <input type="text" name="correo" id="informacion">
-                    <br>
-                    <!--                        
-                <p  class="encabezado2">Datos del Alumno</p>
-                    <br>
-                    <p >Calle</p>
-                    <input type="text" name="calle" id="informacion">
-                    <p>No.</p>
-                    <input type="text" name="no" id="informacion">
-                    <p>Colonia</p>
-                    <input type="text" name="colonia" id="informacion">
-                    <p>Codigo Postal</p>
-                    <input type="text" name="cp" id="informacion">
-                    <br>
-                    <br>
-                    <br>
-                  -->
-                    <button type="button" class="botonA1" id="boton">Anterior</button>
-                    <button type="button" class="botonS2" id="boton">Siguiente</button>
-                </div>
-                <div class="pagina3 "  id="contenido3">
-               
-                <p  class="encabezado3">Datos del Padre/ Tutor</p>
-                    <p>Telefono</p>
-                    <input type="text" name="telefono" id="informacion" required>
-                    <p >Calle</p>
-                    <input type="text" name="calle" id="informacion" required>
-                    <p>No.</p>
-                    <input type="text" name="num" id="informacion" required>
-                    <p>Colonia</p>
-                    <input type="text" name="colonia" id="informacion" required>
-                    <p>Codigo Postal</p>
-                    <input type="text" name="CP" id="informacion" required>
-                    
-                    <br>
-                    
-                    <button type="button" class="botonA2" id="boton">Anterior</button>
-                    <!--<button  type="button"class="botonS3" id="boton">Siguiente</button>-->
-                    <input type="submit" name="enviar"  value= "Enviar" id="boton">
-                </div>
-                <div class="pagina4 " id="contenido4">
-                
-                
-                    
-                    <button type="button" class="botonA3" id="boton">Anterior</button>
-                    
-                 </div>
-                    
+                             
             </div>
             </form>
     </div>

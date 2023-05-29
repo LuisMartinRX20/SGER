@@ -27,12 +27,7 @@
                 </div>
             </li>
 
-            <li class="list_item">
-                <div class="list_button" id="En-curso">
-                    <img src="../ICONS/cursando.svg" class="list_img">
-                    <a href="#" class="nav_link">Alumnos</a>
-                </div>
-            </li>
+            
 
             <!-- Elementos con menu desplegable -->
 
@@ -46,15 +41,11 @@
 
                 <ul id="m1" class="list_show">
                     <li class="list_inside" id="definir">
-                        <a href="#" class="nav_link nav_link--inside">Nueva tarea</a>
+                        <a href="nuevaTarea.php" target="frame" class="nav_link nav_link--inside">Nueva tarea</a>
                     </li>
 
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Mostrar tareas</a>
-                    </li>
-
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Revisar tarea</a>
+                        <a href="RevTarea.php" target="frame" class="nav_link nav_link--inside">Revisar tarea</a>
                     </li>
                 </ul>
 
@@ -63,7 +54,7 @@
             <li class="list_item">
                 <div class="list_button" id="En-curso">
                     <img src="../ICONS/cursando.svg" class="list_img">
-                    <a href="#" class="nav_link">Calificaciones</a>
+                    <a href="Calificaciones.php" target="frame" class="nav_link">Calificaciones</a>
                 </div>
             </li>
            
@@ -77,12 +68,10 @@
 
                 <ul id="m2" class="list_show">
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Crear planeicacion</a>
+                        <a href="NewPlaneacion.php" target="frame" class="nav_link nav_link--inside">Crear planeicacion</a>
                     </li>
 
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Mostrar planeacion</a>
-                    </li>
+                   
 
                     
                 </ul>
@@ -92,7 +81,14 @@
             <li class="list_item">
                 <div class="list_button">
                 <img src="../ICONS/usuario.svg" class="list_img">
-                    <a href="#" class="nav_link ">Perfil</a>
+                    <a href="MostrarInfoProf.php" target="frame" class="nav_link ">Perfil</a>
+                </div>
+            </li>
+
+            <li class="list_item">
+                <div class="list_button" id="En-curso">
+                    <img src="../ICONS/cursando.svg" class="list_img">
+                    <a href="crear_aviso.php" target="frame" class="nav_link">Aviso</a>
                 </div>
             </li>
 
@@ -102,7 +98,8 @@
                     <a href="cerrar-sesion.php" class="nav_link ">Cerrar sesion</a>
                 </div>
             </li>
-
+            
+            
 
         </ul>
     </nav>
@@ -116,7 +113,7 @@
 
     <div class="contenido">
         <div class="contenido_principal" id="contenido_menu">
-            <iframe name="frame" src="inicio.php" frameborder="0" class="fps"></iframe> 
+            <iframe name="frame" src="inicioprofe.php" frameborder="0" class="fps"></iframe> 
         </div>
         
     </div>
