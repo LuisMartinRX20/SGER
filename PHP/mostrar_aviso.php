@@ -36,6 +36,9 @@ session_start();
         #no{
             width:5%;
         }
+		#fetch-all{
+			width: 10%;
+		}
        
 	</style>
 
@@ -50,6 +53,7 @@ session_start();
 			<table class="table table-striped table-hover">
 				<tr>
                     <th id="no">No</th>
+					<th id="fetch-all">Fecha</th>
                     <th id="profesor">Profesor</th>
 					<th>Informacion</th>
 					
@@ -69,6 +73,7 @@ session_start();
 						echo '
 						<tr>
 							<td>'.$no.'</td>
+							<td>'.$row['fecha_aviso'].'</td>
 							<td>'.$dato['nombre'].' '.$dato['apellido_P'].' '.$dato['apellido_M'].'</td>
                             <td>'.$row['info'].'</td>';
 						$no++;

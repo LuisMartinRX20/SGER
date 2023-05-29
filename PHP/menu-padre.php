@@ -23,7 +23,7 @@
             <li class="list_item">
                 <div class="list_button" id="Inicio">
                     <img src="../ICONS/home.svg" class="list_img">
-                    <a href="#" class="nav_link ">Inicio</a>
+                    <a href="bienvenida.php" target="frame" class="nav_link ">Inicio</a>
                 </div>
             </li>
 
@@ -39,7 +39,7 @@
 
                 <ul id="m1" class="list_show">
                     <li class="list_inside" id="definir">
-                        <a href="#" class="nav_link nav_link--inside">Oreden de pago</a>
+                        <a href="reinscripcion.php"  target="frame" class="nav_link nav_link--inside">Oreden de pago</a>
                     </li>
                 </ul>
 
@@ -49,23 +49,9 @@
 
                 <div class="list_button list_button--click-2" id="Reinscripcion">
                     <img src="../ICONS/reinscripcion.svg" class="list_img">
-                    <a href="#" class="nav_link">Cursando</a>
+                    <a href="boletas_calificaciones.php" target="frame" class="nav_link">Calificaciones</a>
                     <img src="../ICONS/submenu.svg" class="list_arrow">
                 </div>
-
-                <ul id="m2" class="list_show">
-                    <li class="list_inside" id="definir">
-                        <a href="#" class="nav_link nav_link--inside">Materias</a>
-                    </li>
-
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Horario</a>
-                    </li>
-
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Calificaciones</a>
-                    </li>
-                </ul>
 
             </li>
 
@@ -80,37 +66,13 @@
                 <ul id="m3" class="list_show">
 
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Asignaciones</a>
-                    </li>
-
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Revisadas</a>
+                        <a href="ver_tareas.php" target="frame" class="nav_link nav_link--inside">Asignaciones</a>
                     </li>
 
                 </ul>
 
             </li>
-            <li class="list_item list_item--click">
-
-                <div class="list_button list_button--click-4" id="Mis-datos">
-                    <img src="../ICONS/usuario.svg" class="list_img">
-                    <a href="#" class="nav_link">Perfil</a>
-                    <img src="../ICONS/submenu.svg" class="list_arrow">
-                </div>
-
-                <ul id="m4" class="list_show">
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Padre/Tutor</a>
-                    </li>
-
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Alumno</a>
-                    </li>
-
-                </ul>
-
-            </li>
-
+            
             <li class="list_item">
                 <div class="list_button">
                     <img src="../ICONS/cerrrar-sesion.svg" class="list_img">
@@ -122,16 +84,28 @@
         </ul>
     </nav>
 
+    <?php
+
+    require 'conexion.php';
+
+    $id = $_SESSION['username'][0];
+    $miConsulta = "SELECT nombre,apellidoP,apellidoM FROM padre WHERE id_padre=$id";
+    $query = mysqli_query($con,$miConsulta);
+    $array = mysqli_fetch_assoc($query);
+
+    ?>
+
     <div class="header">
         <div class="fondo_header">
         <img src="../ICONS/usuario.svg" class="icon_header">
-        <a href="#" class="content_header"><?php echo $_SESSION['username'][0]; echo "(".$_SESSION['username'][1].")"?></a>
+        <a href="#" class="content_header"><?php echo $array['nombre'].' '.$array['apellidoP'].' '.$array['apellidoM'];
+                                                echo "(" . $_SESSION['username'][1] . ")" ?></a>
         </div>
     </div>
 
     <div class="contenido">
         <div class="contenido_principal" id="contenido_menu">
-            
+            <iframe name="frame" src="mostrar_aviso.php" frameborder="0" class="fps"></iframe>
         </div>
         
     </div>

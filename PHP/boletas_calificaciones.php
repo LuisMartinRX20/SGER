@@ -58,16 +58,13 @@
         </style>
     </head>
     <body>
-    <?php
+    <?php session_start();
+
 require('conexion.php');
-$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
-
-if ($conn->connect_error) {
-    die("Error de conexión: " . $conn->connect_error);
-}
-
+     
+$noControl = $_SESSION['username'][2];  
 $sql = "SELECT m.nombre, c.calif_P1, c.calif_P2, calif_P3 FROM materia m INNER JOIN calificaciones c ON m.id_materia = c.id_materia";
-$result = $conn->query($sql);
+$result = $con->query($sql);
 
 if ($result->num_rows > 0) {
     ?>
@@ -116,5 +113,5 @@ if ($result->num_rows > 0) {
     echo "No se encontraron calificaciones en la base de datos.";
 }
 
-$conn->close();
+$con->close();
 ?>

@@ -17,6 +17,7 @@ if (!empty($_POST['noControl'])) {
             $_SESSION['username'] = array();
             $_SESSION['username'][0] = $arregloT['id_padre'];
             $_SESSION['username'][1] = $role_usuario;
+            $_SESSION['username'][2] = $_POST['noControl'];
             header("Location:PHP/menu-padre.php");
         
     } else { ?>
