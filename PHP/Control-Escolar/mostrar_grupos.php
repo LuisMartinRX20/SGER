@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="../CSS/mostrar_tablaG.css" rel="stylesheet" type="text/css">
+	<link href="../../CSS/Control-Escolar/mostrar_tablaG.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 	<title>Lista de Profesores</title>
 
@@ -150,7 +150,7 @@
 							<td>'.$row['id_profe'].'</td>
                             <td>'.$row['cantidad_alumnos'].'</td>
 							<td> 
-								<a href="../PHP/editar_grupos.php?nik='.$row['id_grupo'].'"><i class="bi bi-clipboard">Editar</i></a> <br> 
+								<a href="editar_grupos.php?nik='.$row['id_grupo'].'"><i class="bi bi-clipboard">Editar</i></a> <br> 
 								<a href="mostrar_grupos.php?aksi=delete&nik='.$row['id_grupo'].'" name="aksi"><i class="bi bi-trash">Borrar</i></a>
 							</td>
 							</tr>';

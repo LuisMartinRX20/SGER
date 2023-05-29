@@ -16,7 +16,7 @@ Email	 	 : info@obedalvarado.pw
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/bootstrap-datepicker.css" rel="stylesheet">
-	<link href="../CSS/editarGa.css" rel="stylesheet">
+	<link href="../../CSS/Control-Escolar/editarGa.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	
@@ -27,9 +27,6 @@ Email	 	 : info@obedalvarado.pw
 	<![endif]-->
 </head>
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top">
-		<?php include("nav.php");?>
-	</nav>
 	<div class="container">
 		<div class="content">
 			<h2>Datos de la materias &raquo; Editar datos</h2>
@@ -89,7 +86,7 @@ Email	 	 : info@obedalvarado.pw
 					icon: "success",
 					button: "Listo"
 				}).then(function() {
-					window.location.href = "../PHP/mostrar_grupos.php"; // Página a la que deseas redirigir después de la eliminación
+					window.location.href = "mostrar_grupos.php"; // Página a la que deseas redirigir después de la eliminación
 				});})
 				</script>
 				<?php			}

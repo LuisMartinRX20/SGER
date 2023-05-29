@@ -8,7 +8,7 @@ include('conexion.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-    <link href="../CSS/grupoGa.css" rel="stylesheet" type="text/css">
+    <link href="../../CSS/Control-Escolar/grupoGa.css" rel="stylesheet" type="text/css">
     <title>Grupo</title>
 </head>
 <body>

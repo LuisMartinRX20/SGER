@@ -87,7 +87,7 @@
                     </li>
 
                     <li class="list_inside">
-                        <a href="profesores.php" target="frame" class="nav_link nav_link--inside">Profesores registrados</a>
+                        <a href="profesores.php" target="frame" class="nav_link nav_link--inside">Profesores agregados</a>
                     </li>
                 </ul>
 
@@ -134,31 +134,6 @@
 
             </li>
 
-            <!-- Opcion horarios-->
-
-            <li class="list_item list_item--click">
-
-                <div class="list_button list_button--click-6" id="horario">
-                    <img src="../ICONS/horario.svg" class="list_img">
-                    <a href="#" class="nav_link">Horarios</a>
-                    <img src="../ICONS/submenu.svg" class="list_arrow">
-                </div>
-
-                <ul id="m6" class="list_show">
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Crear horario matutino</a>
-                    </li>
-
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Crear horario matutino</a>
-                    </li>
-
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Horarios registrados</a>
-                    </li>
-                </ul>
-
-            </li>
 
             <!-- Opcion grupos-->
 
@@ -172,19 +147,19 @@
 
                 <ul id="m7" class="list_show">
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Crear grupo</a>
+                        <a href="Control-Escolar/agregar_grupo.php" target="frame" class="nav_link nav_link--inside">Crear grupo</a>
                     </li>
 
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Grupos registrados</a>
+                        <a href="Control-Escolar/mostrar_grupos.php" target="frame" class="nav_link nav_link--inside">Grupos registrados</a>
                     </li>
 
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Llenar grupo</a>
+                        <a href="Control-Escolar/llenar_grupo.php" target="frame" class="nav_link nav_link--inside">Llenar grupo</a>
                     </li>
 
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Integrantes de grupos</a>
+                        <a href="Control-Escolar/mostrar_lista.php" target="frame" class="nav_link nav_link--inside">Integrantes de grupos</a>
                     </li>
 
                 </ul>

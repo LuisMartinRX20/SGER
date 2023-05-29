@@ -8,7 +8,7 @@ require('conexion.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-    <link href="../CSS/grupoGa.css" rel="stylesheet" type="text/css">
+    <link href="../../CSS/Control-Escolar/grupoGa.css" rel="stylesheet" type="text/css">
     <title>Grupo</title>
 </head>
 <body>
@@ -90,34 +90,45 @@ require('conexion.php');
                 <div class="formulario">
                     <div class="pagina1 active" id="contenido1">
                         <!-- Pagina 1 -->
-                        <p class="encabezado2">Datos del Grupo</p>
+                        <p class="encabezado2">Ingresa los siguientes datos</p>
                         <br>
                         <!-- campos del formulario cambiar los que sean necesarios máximo 4 por página -->
-                        <label for="grupo">Grupo:</label>
+                        <label for="grupo">Grupo</label>
+                        
                         <select id="grupo" name="grupo" required>
-                            <option value="">Selecciona una opción</option>
+                            <option value="0">Selecciona el nombre</option>
                             <option value="A">A</option>
                             <option value="B">B</option>
                             <option value="C">C</option>
                         </select>
-                        
-                        
-                        <p>Grado </p>
-                        <input type="text" name="grado" id="grado" required>
-                        <p>Cantidad de alumnos </p>
-                        <input type="text" name="cantidad" id="cantidad" required>
-                        <label for="id_profe">Seleccionar Profesor:</label>
+
+
+                        <label for="id_profe">Seleccionar profesor</label>
                         <select id="id_profe" name="id_profe" required>
                             <option value="">Seleccionar un Profesor</option>
                             <?php 
-                            include '../PHP/obtener_profesor.php';
+                            include 'obtener_profesor.php';
                             foreach ($profes as $profe) { ?>
                                 <option value="<?php echo $profe['id']; ?>">
                                 <?php echo $profe['nombre']; ?></option>
                             <?php } ?>
                         </select>
+                 
+                        <label for="id_grudo">Seleccionar profesor</label>
+                        <select id="grado" name="grado" required>
+                            <option value="0">Selecciona el grado</option>
+                            <option value="1">1°</option>
+                            <option value="2">2°</option>
+                            <option value="3">3°</option>
+                            <option value="4">4°</option>
+                            <option value="5">5°</option>
+                            <option value="6">6°</option>
+
+                        </select>
+                        
+                        <label for="cantidad">Cantidad de alumnos</label>
+                        <input type="text" name="cantidad" id="cantidad" required>
                         <!-- Indica en qué página se encuentra agregar manualmente -->
-                        <p>Pagina 1 de 1</p>
                         <input type="submit" name="enviar" value="Enviar" id="boton" class="botonA2">
                     </div>
                     

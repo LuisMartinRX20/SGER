@@ -169,13 +169,11 @@ input{
   }
 /* Estilos para el contenedor del contenido */
 .contenido{
-    background-color:skyblue ;
     border-radius: 12px;
     margin: 1%;
     padding: 1%;
 }
 .fps{
-    background-color: #15223b;
     height: 82vh;
     width: 100%;
 }
