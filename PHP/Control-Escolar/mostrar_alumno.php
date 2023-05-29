@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="../CSS/pro.css" rel="stylesheet" type="text/css">
+	<link href="../../CSS/Control-Escolar/pro.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 	<title>Lista de Profesores</title>
 
@@ -148,7 +148,13 @@
 						<td>'.$row['apellido_M'].'</td>
 						<td>'.$row['fecha_nac'].'</td>
 						<td>'.$row['fecha_registro'].'</td>
-						<td>'.$row['estado_act'].'</td>
+						';if($row['estado_act']==1){
+							echo'<td>Activo</td>';
+						}
+						else{
+							echo'<td>Activo</td>';
+						}
+						echo'
 						<td>'.$row['id_grupo'].'</td>
 						<td>'.$row['curp'].'</td>
 						<td>'.$row['grado'].'</td>
@@ -157,7 +163,7 @@
 						<td>
 								<a href="editar_alumno.php?nik='.$row['id_alumno'].'"><i class="bi bi-clipboard">Editar</i></a>
 								<a href="mostrar_alumno.php?aksi=delete&nik='.$row['id_alumno'].'" name="aksi"><i class="bi bi-trash">Borrar</i></a>
-                                </td>
+                         </td>
 						</tr>
 						';
 						

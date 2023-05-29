@@ -10,7 +10,7 @@ require('conexion.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>    
-    <link rel="stylesheet" href="../CSS//materiaGa.css">
+    <link rel="stylesheet" href="../../CSS/Control-Escolar/materiaGa.css">
     <title>Materia</title>
 </head>
 <body>
@@ -39,7 +39,7 @@ require('conexion.php');
     </div>
 
     <?php
-            include '../PHP/conexion.php';
+            include 'conexion.php';
             if(isset($_POST['enviar'])){
             $nombre_materia= $_POST["nombre_materia"];
 

@@ -42,11 +42,11 @@
 
                 <ul id="m1" class="list_show">
                     <li class="list_inside" id="definir">
-                        <a href="agregar-materia.php" target="frame" class="nav_link nav_link--inside">Agregar materia</a>
+                    <a href="Control-Escolar/agregar_materia.php" target="frame" class="nav_link nav_link--inside">Agregar materia</a>
                     </li>
 
                     <li class="list_inside">
-                        <a href="materia-registrada.php" target="frame" class="nav_link nav_link--inside">Materias registradas</a>
+                    <a href="Control-Escolar/mostrar_materias.php" target="frame" class="nav_link nav_link--inside">Materias registradas</a>
                     </li>
                 </ul>
 
@@ -64,7 +64,7 @@
 
                 <ul id="m2" class="list_show">
                     <li class="list_inside" id="definir">
-                        <a href="agregar-materia.php" target="frame" class="nav_link nav_link--inside">Calificaciones registradas</a>
+                    <a href="Control-Escolar/buscarAlumno_Cal.php" target="frame" class="nav_link nav_link--inside">Calificaciones registradas</a>
                     </li>
                 </ul>
 
@@ -82,11 +82,11 @@
 
                 <ul id="m3" class="list_show">
                     <li class="list_inside" id="definir">
-                        <a href="agregar_profesor.php" target="frame" class="nav_link nav_link--inside">Agregar profesor</a>
+                    <a href="Control-Escolar/agregar_profesor.php" target="frame" class="nav_link nav_link--inside">Agregar profesor</a>
                     </li>
 
                     <li class="list_inside">
-                        <a href="profesores.php" target="frame" class="nav_link nav_link--inside">Profesores registrados</a>
+                    <a href="Control-Escolar/mostrar_profesores.php" target="frame" class="nav_link nav_link--inside">Profesores registrados</a>
                     </li>
                 </ul>
 
@@ -105,7 +105,7 @@
                 <ul id="m4" class="list_show">
 
                     <li class="list_inside">
-                        <a href="pago.php" target="frame" class="nav_link nav_link--inside">Registrar pago</a>
+                        <a href="Control-Escolar/pago.php" target="frame" class="nav_link nav_link--inside">Registrar pago</a>
                     </li>
                 </ul>
 
@@ -123,11 +123,11 @@
 
                 <ul id="m5" class="list_show">
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Padres registrados</a>
+                    <a href="Control-Escolar/mostrar_padres.php" target="frame" class="nav_link nav_link--inside">Padres registrados</a>
                     </li>
 
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Alumnos Registrados</a>
+                    <a href="Control-Escolar/mostrar_alumno.php" target="frame" class="nav_link nav_link--inside">Alumnos Registrados</a>
                     </li>
                 </ul>
 

@@ -81,21 +81,29 @@
 		<div class="contenido_principal" id="contenido_menu">
 			<div class="contenido_principal_header" id="contenido_menu_header">
 				<h1>Boletas de calificaciones</h1>
-                <?php include 'conexion.php';$id_alumno = $_POST['id']; // ID del alumno para obtener las calificaciones?>
+                <?php include 'conexion.php';
+                $id_alumno = $_POST['noControl']; // ID del alumno para obtener las calificaciones
+                $consulta="select id_alumno from alumno where noControl='$id_alumno'";
+                $query=mysqli_query($con,$consulta);
+                $id = mysqli_fetch_assoc($query);
+                 ?>
 				<table>
 					<tr>
 						<th>Materia</th>
-						<th><a href="../PHP/mostrar_CaliTr.php?id=<?php echo urlencode($id_alumno); ?>" class="A">1er trimestre</a></th>
-						<th><a href="../PHP/mostrar_CalTr2.php?id=<?php echo urlencode($id_alumno); ?>" class="A">2er trimestre</a></th>
-						<th><a href="../PHP/mostrar_CalTr3.php?id=<?php echo urlencode($id_alumno); ?>" class="A">3er trimestre</a></th>
+						<th><a href="mostrar_CaliTr.php?id=<?php echo urlencode($id['id_alumno']); ?>" class="A">1er trimestre</a></th>
+						<th><a href="mostrar_CalTr2.php?id=<?php echo urlencode($id['id_alumno']); ?>" class="A">2er trimestre</a></th>
+						<th><a href="mostrar_CalTr3.php?id=<?php echo urlencode($id['id_alumno']); ?>" class="A">3er trimestre</a></th>
                         <th>Calificaion Final</th>
 					</tr>
 					<?php
 					
-                    
+                   
 					
                    // $id_alumno='4';
-					$sql= "SELECT * FROM calificaciones c INNER JOIN materia m ON c.id_materia= m.id_materia WHERE id_alumno= '$id_alumno'";
+                    $consulta="select id_alumno from alumno where noControl='$id_alumno'";
+                    $query=mysqli_query($con,$consulta);
+                    $id = mysqli_fetch_assoc($query);
+					$sql= "SELECT * FROM calificaciones c INNER JOIN materia m ON c.id_materia= m.id_materia WHERE id_alumno= '$id[id_alumno]'";
 					$result = $con->query($sql);
 
 					if ($result->num_rows > 0) {
@@ -113,7 +121,7 @@
 						echo "<tr><td colspan='4'>No se encontraron calificaciones para el alumno.</td></tr>";
 					}
 
-					$conn->close();
+					$con->close();
 					?>
 				</table>
 			</div>

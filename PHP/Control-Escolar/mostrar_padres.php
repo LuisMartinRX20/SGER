@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="../CSS/mostrar_padre.css" rel="stylesheet" type="text/css">
+	<link href="../../CSS/Control-Escolar/mostrar_padre.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 	<title>Lista de Padres</title>
 
@@ -151,13 +151,19 @@
 						<td>'.$row['CP'].'</td>
 						<td>'.$row['fecha_nac'].'</td>
 						<td>'.$row['fecha_registro'].'</td>
-						<td>'.$row['estado_act'].'</td>
+						';if($row['estado_act']==1){
+							echo'<td>Activo</td>';
+						}
+						else{
+							echo'<td>Activo</td>';
+						}
+						echo'
 						<td>'.$row['correo'].'</td>
 						<td>'.$row['telefono'].'</td>
 						<td>'.$row['password'].'</td>
 							<td> 
-							<a href="../PHP/editar_padre.php?nik='.$row['id_padre'].'"><i class="bi bi-clipboard">Editar</i></a> <br> 
-							<a href="../PHP/mostrar_padres.php?aksi=delete&nik='.$row['id_padre'].'" name="aksi"><i class="bi bi-trash">Borrar</i></a>
+							<a href="editar_padre.php?nik='.$row['id_padre'].'"><i class="bi bi-clipboard">Editar</i></a> <br> 
+							<a href="mostrar_padres.php?aksi=delete&nik='.$row['id_padre'].'" name="aksi"><i class="bi bi-trash">Borrar</i></a>
 							</td>
 						
 						</tr>';

@@ -16,7 +16,7 @@ Email	 	 : info@obedalvarado.pw
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/bootstrap-datepicker.css" rel="stylesheet">
-	<link href="../CSS/editarGa.css" rel="stylesheet">
+	<link href="../../CSS/Control-Escolar/editarGa.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	
@@ -27,9 +27,6 @@ Email	 	 : info@obedalvarado.pw
 	<![endif]-->
 </head>
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top">
-		<?php include("nav.php");?>
-	</nav>
 	<div class="container">
 		<div class="content">
 			<h2>Datos del Profesor &raquo; Editar datos</h2>
@@ -199,7 +196,7 @@ Email	 	 : info@obedalvarado.pw
                         <label class="col-sm-3 control-label">&nbsp;</label>
                         <div class="col-sm-6">
                             <input type="submit" name="save" class="btn btn-sm btn-primary" value="Guardar datos">
-                            <a href="../PHP/mostrar_profesor.php" class="btn btn-sm btn-danger">Cancelar</a>
+                            <a href="mostrar_profesores.php" class="btn btn-sm btn-danger">Cancelar</a>
                         </div>
                     </div>
                 </form>

@@ -8,7 +8,7 @@ require('conexion.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../CSS/formularioAl.css" rel="stylesheet" type="text/css">
+    <link href="../../CSS/Control-Escolar/formularioAl.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
     <title>SGER:FIcha</title>
 </head>
@@ -36,7 +36,7 @@ require('conexion.php');
                 $password		 = mysqli_real_escape_string($con,(strip_tags($_POST["contraseña"],ENT_QUOTES)));//Escanpando caracteres 
                 
 				/*consulta que verifica que no exista otro igual */
-                $miConsulta = "select * from ficha where RFC ='$RFC'"; //crear consulta que seleccione el registro donde el campo codigo sea igual a la variable $codigo
+                $miConsulta = "SELECT * from profesor where RFC ='$RFC'"; //crear consulta que seleccione el registro donde el campo codigo sea igual a la variable $codigo
                 $cek = mysqli_query($con, $miConsulta);
                 /*condicion */
                 if(mysqli_num_rows($cek) == 0){
@@ -161,7 +161,7 @@ require('conexion.php');
                     <input type="text" name="correo" id="informacion"required>
                     <p>RFC</p>
                     <input type="text" name="RFC" id="informacion"required>
-                    <br>
+                   
                     
                     <!--Indica en que pagina se encuentra agregar manualmente -->
                     <p>Pagina 3 de 3</p>
@@ -175,6 +175,6 @@ require('conexion.php');
             </div>
             </form>
     </div>
-    <script src="../JS/paginacion_controlEscolar.js"></script>
+    <script src="../../JS/Control-Escolar/paginacion_controlEscolar.js"></script>
 </body>
 </html>

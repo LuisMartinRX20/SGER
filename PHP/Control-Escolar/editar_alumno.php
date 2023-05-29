@@ -16,7 +16,7 @@ Email	 	 : info@obedalvarado.pw
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/bootstrap-datepicker.css" rel="stylesheet">
-	<link href="../CSS/editarGa.css" rel="stylesheet">
+	<link href="../../CSS/Control-Escolar/editarGa.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	
@@ -28,15 +28,14 @@ Email	 	 : info@obedalvarado.pw
 </head>
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top">
-		<?php include("nav.php");?>
-	</nav>
+	
 	<div class="container">
 		<div class="content">
 			<h2>Datos del Alumno &raquo; Editar datos</h2>
 			<hr />
 			
 			<?php
-			include '../PHP/conexion.php';
+			include 'conexion.php';
 			// escaping, additionally removing everything that could be (html/javascript-) code
 			$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
             //Buscar en el campo codigo el dato que coindica con la variable $nik para editar el registro
@@ -185,7 +184,7 @@ Email	 	 : info@obedalvarado.pw
                         <label class="col-sm-3 control-label">&nbsp;</label>
                         <div class="col-sm-6">
                             <input type="submit" name="save" class="btn btn-sm btn-primary" value="Guardar datos">
-                            <a href="../PHP/mostrar_alumno.php" class="btn btn-sm btn-danger">Cancelar</a>
+                            <a href="mostrar_alumno.php" class="btn btn-sm btn-danger">Cancelar</a>
                         </div>
                     </div>
                 </form>
