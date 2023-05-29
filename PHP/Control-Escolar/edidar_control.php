@@ -41,13 +41,12 @@ Email	 	 : info@obedalvarado.pw
 			$sql = mysqli_query($con, $miConsulta);
 			if(mysqli_num_rows($sql) == 0){
 				/**RETORNA A LA TABLA ANTERIOR */
-				header("Location: mostrar_profesores.php");
+				header("Location: mostrar_contralEscolar.php");
 				
 			}else{
 				$row = mysqli_fetch_assoc($sql);
 			}
 			if(isset($_POST['save'])){
-                $id_profesor = mysqli_real_escape_string($con, (strip_tags($_POST["id_profesor"], ENT_QUOTES))); // Escapando caracteres
                 $nombre = mysqli_real_escape_string($con, (strip_tags($_POST["nombre"], ENT_QUOTES))); // Escapando caracteres
                 $apellido_P = mysqli_real_escape_string($con, (strip_tags($_POST["apellido_P"], ENT_QUOTES))); // Escapando caracteres
                 $apellido_M = mysqli_real_escape_string($con, (strip_tags($_POST["apellido_M"], ENT_QUOTES))); // Escapando caracteres
@@ -55,7 +54,6 @@ Email	 	 : info@obedalvarado.pw
                 $calle = mysqli_real_escape_string($con, (strip_tags($_POST["calle"], ENT_QUOTES))); // Escapando caracteres
                 $no = mysqli_real_escape_string($con, (strip_tags($_POST["no"], ENT_QUOTES))); // Escapando caracteres
                 $colonia = mysqli_real_escape_string($con, (strip_tags($_POST["colonia"], ENT_QUOTES))); // Escapando caracteres
-                $cedula = mysqli_real_escape_string($con, (strip_tags($_POST["cedula"], ENT_QUOTES))); // Escapando caracteres
                 $telefono = mysqli_real_escape_string($con, (strip_tags($_POST["telefono"], ENT_QUOTES))); // Escapando caracteres
                 $correo = mysqli_real_escape_string($con, (strip_tags($_POST["correo"], ENT_QUOTES))); // Escapando caracteres
                 $estado_act = mysqli_real_escape_string($con, (strip_tags($_POST["estado_act"], ENT_QUOTES))); // Escapando caracteres
@@ -70,7 +68,6 @@ Email	 	 : info@obedalvarado.pw
                             calle = '$calle',
                             no = '$no',
                             colonia = '$colonia',
-                            cedula = '$cedula',
                             telefono = '$telefono',
                             correo = '$correo',
                             estado_act = '$estado_act',
@@ -106,18 +103,12 @@ Email	 	 : info@obedalvarado.pw
 					icon: "success",
 					button: "Listo"
 				}).then(function() {
-					window.location.href = "../PHP/mostrar_profesores.php"; // Página a la que deseas redirigir después de la eliminación
+					window.location.href = "mostrar_controlEscolar.php"; // Página a la que deseas redirigir después de la eliminación
 				});})
 				</script>
 				<?php			}
 			?>
 			<form class="form-horizontal" action="" method="post">
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">ID Profesor</label>
-                        <div class="col-sm-2">
-                            <input type="text" name="id_profesor" value="<?php echo $row['id_profesor']; ?>" class="form-control" placeholder="ID profesor" required>
-                        </div>
-                    </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Nombre del Profesor</label>
                         <div class="col-sm-4">
@@ -162,12 +153,6 @@ Email	 	 : info@obedalvarado.pw
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Cédula</label>
-                        <div class="col-sm-4">
-                            <input type="text" name="cedula" value="<?php echo $row['cedula']; ?>" class="form-control" placeholder="Cédula" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label class="col-sm-3 control-label">Teléfono</label>
                         <div class="col-sm-4">
                             <input type="text" name="telefono" value="<?php echo $row['telefono']; ?>" class="form-control" placeholder="Teléfono" required>
@@ -196,7 +181,7 @@ Email	 	 : info@obedalvarado.pw
                         <label class="col-sm-3 control-label">&nbsp;</label>
                         <div class="col-sm-6">
                             <input type="submit" name="save" class="btn btn-sm btn-primary" value="Guardar datos">
-                            <a href="mostrar_profesores.php" class="btn btn-sm btn-danger">Cancelar</a>
+                            <a href="mostrar_controlEscolar.php" class="btn btn-sm btn-danger">Cancelar</a>
                         </div>
                     </div>
                 </form>

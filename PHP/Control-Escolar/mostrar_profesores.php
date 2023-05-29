@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Lista de Profesores</title>
-	<link href="../CSS/prof.css" rel="stylesheet" >
+	<link href="../../CSS/Control-Escolar/prof.css" rel="stylesheet" >
 </head>
 <body>
 	<div class="container">
@@ -152,6 +152,13 @@
 								<td>'.$row['cedula'].'</td>
                                 <td>'.$row['telefono'].'</td>
 								<td>'.$row['correo'].'</td>
+								';if($row['estado_act']==1){
+									echo'<td>Activo</td>';
+								}
+								else{
+									echo'<td>Activo</td>';
+								}
+								echo'
                                 <td>'.$row['estado_act'].'</td>
 								<td>'.$row['password'].'</td>
                                 

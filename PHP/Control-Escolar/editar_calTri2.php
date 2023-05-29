@@ -9,15 +9,13 @@
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/bootstrap-datepicker.css" rel="stylesheet">
-	<link href="../CSS/editarGa.css" rel="stylesheet">
+	<link href="../../CSS/Control-Escolar/editarGa.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top">
-		<?php include("nav.php");?>
-	</nav>
+	
 	<div class="container">
 		<div class="content">
 			<h2>Calificaciones &raquo; Editar Calificacion</h2>
@@ -58,7 +56,7 @@
 						icon: "error",
 						button: "Listo"
 					}).then(function() {
-						window.location.href = "../PHP/editar_calTri.php"; // Página a la que deseas redirigir después de la eliminación
+						window.location.href = "editar_calTri.php"; // Página a la que deseas redirigir después de la eliminación
 					});})
 					</script>
 					<?php				}
@@ -74,7 +72,7 @@
 					icon: "success",
 					button: "Listo"
 				}).then(function() {
-					window.location.href = "../PHP/buscarAlumno_Cal.php"; // Página a la que deseas redirigir después de la eliminación
+					window.location.href = "buscarAlumno_Cal.php"; // Página a la que deseas redirigir después de la eliminación
 				});})
 				</script>
 				<?php			}
@@ -97,7 +95,7 @@
                     <label class="col-sm-3 control-label">&nbsp;</label>
                     <div class="col-sm-6">
                         <input type="submit" name="save" class="btn btn-sm btn-primary" value="Guardar datos">
-                        <a href="../PHP/Mostar_AluCal.php" class="btn btn-sm btn-danger">Cancelar</a>
+						<a href="buscarAlumno_Cal.php" class="btn btn-sm btn-danger">Cancelar</a>
                     </div>
                 </div>
             </form>

@@ -9,6 +9,9 @@
     <style>
         .search-form {
     margin-bottom: 15px;
+    background-color: #fdfefe;
+    border-radius: 12px;
+   
   }
   
   .search-label {
@@ -48,12 +51,14 @@
     </style>
 </head>
   <body>
-              <form action="../PHP/Mostar_AluCal.php" method="POST" class="search-form">
+              <form action="Mostar_AluCal.php" method="POST" class="search-form">
                     <label for="id" class="search-label">Buscar alumno por matrícula:</label>
                         <div class="search-container">
-                          <input type="text" id="id" name="id" class="search-input">
+                          <input type="text" id="id" name="noControl" class="search-input">
                           <button type="submit" class="search-button" >Buscar</button>
+                          <br>
                         </div>
+                        <br>
               </form>             
   </body>
 </html>

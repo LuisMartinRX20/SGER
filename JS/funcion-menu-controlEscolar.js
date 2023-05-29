@@ -119,3 +119,20 @@ listElemnts6.forEach(listElement => {
     })
 })
 
+
+let listElemnts7 = document.querySelectorAll('.list_button--click-8')
+
+listElemnts7.forEach(listElement => {
+    listElement.addEventListener('click',()=>{
+        
+        var a = listElement.classList.toggle('arrow');
+
+        if(a == true){
+            let mostrar = document.getElementById("m8");
+            mostrar.style.display = "block";
+        }else{
+            var mostrar = document.getElementById("m8");
+            mostrar.style.display = "none";
+        }
+    })
+})
