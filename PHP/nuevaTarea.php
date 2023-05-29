@@ -26,7 +26,7 @@ require('conexionRodri.php');
 				$tarea = mysqli_real_escape_string($con,(strip_tags($_POST["tarea"],ENT_QUOTES)));//Escanpando caracteres 
                 $instrucciones = mysqli_real_escape_string($con,(strip_tags($_POST["instrucciones"],ENT_QUOTES)));//Escanpando caracteres 
                 $fecha_venc	= mysqli_real_escape_string($con,(strip_tags($_POST["F_venc"],ENT_QUOTES)));//Escanpando caracteres 
-                $id_profe= 1;
+                $id_profe= 1; //aquí se pone el ID del profesor activo en la sesion
 				$materia = mysqli_real_escape_string($con,(strip_tags($_POST["materia"],ENT_QUOTES)));//Escanpando caracteres 
                 $grupo = mysqli_real_escape_string($con,(strip_tags($_POST["grupo"],ENT_QUOTES)));//Escanpando caracteres 
                 
@@ -39,7 +39,7 @@ require('conexionRodri.php');
                 /*condicion */
                 if(mysqli_num_rows($cek) == 0){
                         /*inserta los valores que estan en los campos de texto */
-                        $miConsulta = "INSERT INTO tarea (nombre_tarea, descripcion, fecha_limite, id_profe, id_grupo, id_materia, archivo)
+                        $miConsulta = "INSERT INTO tarea (nombre_tarea, descripion, fecha_limite, id_profe, id_grupo, id_materia, archivo)
                          VALUES('{$_POST["tarea"]}','{$_POST["instrucciones"]}','{$_POST["F_venc"]}', $id_profe ,
                          '{$_POST["grupo"]}','{$_POST["materia"]}','$directorio$nombre_archivo')"; //crear la consulta del INSERT INTO 
 						$insert = mysqli_query($con, $miConsulta) or die(mysqli_error());

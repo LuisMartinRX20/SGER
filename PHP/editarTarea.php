@@ -35,7 +35,7 @@ require('conexionRodri.php');
 				$tarea = mysqli_real_escape_string($con,(strip_tags($_POST["tarea"],ENT_QUOTES)));//Escanpando caracteres 
                 $instrucciones = mysqli_real_escape_string($con,(strip_tags($_POST["instrucciones"],ENT_QUOTES)));//Escanpando caracteres 
                 $fecha_venc	= mysqli_real_escape_string($con,(strip_tags($_POST["F_venc"],ENT_QUOTES)));//Escanpando caracteres 
-                $id_profe= 1;
+                $id_profe= 1; //aquí se pone el ID del profesor activo en la sesion
 				$materia = mysqli_real_escape_string($con,(strip_tags($_POST["materia"],ENT_QUOTES)));//Escanpando caracteres 
                 $grupo = mysqli_real_escape_string($con,(strip_tags($_POST["grupo"],ENT_QUOTES)));//Escanpando caracteres 
                 
@@ -48,7 +48,7 @@ require('conexionRodri.php');
                 /*condicion */
                 
                         /*inserta los valores que estan en los campos de texto */
-                        $miConsulta = "UPDATE tarea SET nombre_tarea='$tarea', descripcion='$instrucciones', fecha_limite='$fecha_venc',
+                        $miConsulta = "UPDATE tarea SET nombre_tarea='$tarea', descripion='$instrucciones', fecha_limite='$fecha_venc',
                          id_profe='$id_profe', id_grupo='$grupo', id_materia='$materia', archivo='$directorio$nombre_archivo' WHERE id_tarea='$id_tarea'"; 
                          /*crear la consulta del UPDATE */
 						$insert = mysqli_query($con, $miConsulta) or die(mysqli_error());
@@ -78,7 +78,7 @@ require('conexionRodri.php');
                     <p>Tarea</p>
                     <input type="text" name="tarea" id="informacion" value="<?php echo $row['nombre_tarea'];?>">
                     <p>Instrucciones</p>
-                    <input type="text" name="instrucciones" id="informacion" value="<?php echo $row['descripcion'];?>">
+                    <input type="text" name="instrucciones" id="informacion" value="<?php echo $row['descripion'];?>">
                     <p>Materia</p>
                     <select name="materia" id="materia" value="<?php echo $row['id_materia'];?>" required>
                         <option value="1">Español</option>

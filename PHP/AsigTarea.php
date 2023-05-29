@@ -33,17 +33,21 @@ require('conexionRodri.php');
 
             <?php
             foreach ($tareas as $tarea) { ?>
-                <?php 
-                $sql1 = "SELECT nombre FROM materia where id_materia= $tarea[id_materia]";
+                <?php
+                $sql1 = "SELECT nombre FROM materia where id_materia = $tarea[id_materia]";
                 $result1 = mysqli_query($con, $sql1);
                 $row1 = mysqli_fetch_assoc($result1);
                 $materiaNombre = $row1['nombre'];
-                
+
                 echo '<a href="editarTarea.php?id=' . $tarea['id_tarea'] . '" class="editTarea">'; ?>
                 <div class="tareasAsignadas">
-                    <p> <?php echo $tarea['nombre_tarea']; ?> </p>
-                    <p><?php echo $materiaNombre.' / Grupo '.$tarea['id_grupo'].' / Fecha de vencimiento: '.$tarea['fecha_limite']?></p>
-                    
+                    <p>
+                        <?php echo $tarea['nombre_tarea']; ?>
+                    </p>
+                    <p>
+                        <?php echo $materiaNombre . ' / Grupo ' . $tarea['id_grupo'] . ' / Fecha de vencimiento: ' . $tarea['fecha_limite'] ?>
+                    </p>
+
                 </div>
                 <br>
                 </a>
