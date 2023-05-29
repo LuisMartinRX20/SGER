@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('conexionRodri.php');
 
 ?>
@@ -80,9 +81,9 @@ require('conexionRodri.php');
 </head>
 <?php
 
-  $id_profe=1;    //aquí se pone el ID del profesor activo en la sesion
+  $RFC=$_SESSION['username'][0];    //aquí se pone el ID del profesor activo en la sesion
 
-  $sql1 = "SELECT * FROM profesor where id_profesor= '$id_profe'";
+  $sql1 = "SELECT * FROM profesor where RFC= '$RFC'";
   $result1 = mysqli_query($con, $sql1);
   $row1 = mysqli_fetch_assoc($result1);
 ?>

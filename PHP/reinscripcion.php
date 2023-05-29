@@ -76,29 +76,25 @@
     </style>
 
 <?php
-require('conexion.php');
 
-$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+session_start();
+require 'conexion.php';
 
-if ($conn->connect_error) {
-    die("Error de conexión: " . $conn->connect_error);
-}
-
-$id = 4; // ID del alumno
+$noControl = $_SESSION['username'][2]; // ID del alumno
 $estado_nuevo = 1; // Nuevo valor para el campo estado_act
 
 if (isset($_POST['reinscribir'])) {
-    $sql = "UPDATE alumno SET estado_act = $estado_nuevo WHERE id_alumno = $id";
-    if ($conn->query($sql) === TRUE) {
+    $sql = "UPDATE alumno SET estado_act = $estado_nuevo WHERE noControl = '$noControl'";
+    if ($con->query($sql) === TRUE) {
       echo '<script>alert("La reinscripción se ha realizado correctamente.");</script>';
       echo '<script>window.location.href = "bienvenida.php";</script>';
     } else {
-        echo "Error al reinscribir al alumno: " . $conn->error;
+        echo "Error al reinscribir al alumno: " . $con->error;
     }
 }
 
-$sql = "SELECT nombre, apellido_M, apellido_P, noControl, curp, fecha_nac, estado_act FROM alumno WHERE id_alumno = $id";
-$result = $conn->query($sql);
+$sql = "SELECT nombre, apellido_M, apellido_P, noControl, curp, fecha_nac, estado_act FROM alumno WHERE noControl = '$noControl'";
+$result = $con->query($sql);
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
@@ -114,7 +110,7 @@ if ($result->num_rows > 0) {
     echo "No se encontró ningún resultado para el ID proporcionado.";
 }
 
-$conn->close();
+$con->close();
 ?>
 
 <!DOCTYPE html>
