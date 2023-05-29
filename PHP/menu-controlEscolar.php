@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SGER</title>
+    <link rel="stylesheet" href="../CSS//bootstrap.min.css">
     <link rel="stylesheet" href="../CSS/estilos-menu.css">
 </head>
 
@@ -202,11 +203,25 @@
 
         </ul>
     </nav>
+    <?php
 
+    require 'conexion.php';
+
+    $RFC = $_SESSION['username'][0];
+    $miConsulta = "SELECT nombre,apellido_P,apellido_M FROM control_escolar WHERE RFC='$RFC'";
+    $query = mysqli_query($con,$miConsulta);
+    $array = mysqli_fetch_assoc($query);
+
+
+    ?>
     <div class="header">
+        <div class="notificaciones">
+            <img src="../ICONS/notificaciones.svg" class="icon_notificaciones">
+            <span class="position-absolute translate-middle badge rounded-pill bg-light">1</span>
+        </div>
         <div class="fondo_header">
             <img src="../ICONS/usuario.svg" class="icon_header">
-            <a href="#" class="content_header"><?php echo $_SESSION['username'][0];
+            <a href="#" class="content_header"><?php echo $array['nombre'].' '.$array['apellido_P'].' '.$array['apellido_M'];
                                                 echo "(" . $_SESSION['username'][1] . ")" ?></a>
         </div>
     </div>
@@ -217,6 +232,7 @@
         </div>
 
     </div>
+    <script src="../JS/bootstrap.min.js"></script>
     <script src="../JS/jquery-3.5.1.min.js"></script>
     <script src="../JS/headroom.min.js"></script>
     <script src="../JS/funcion-menu-controlEscolar.js"></script>
